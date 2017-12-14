@@ -1,0 +1,106 @@
+$positive: #387ef5;
+
+page-home {
+
+  .image-thumbnail {
+    position: relative;
+
+    img {
+      border: 1px solid #ddd;
+    }
+
+    .online-status {
+      width: 15px;
+      height: 15px;
+      background-color: #10bd10;
+      border-radius: 50%;
+      position: absolute;
+      right: 0;
+      bottom: -3px;
+      border: 2px solid #fff;
+    }
+  }
+
+  .user-info {
+    .user-image {
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      margin-right: 10px;
+    }
+  }
+
+  .tab-home {
+    width: 300px;
+    margin: 0 auto;
+
+    .tab-button-home {
+      width: 50%;
+      text-align: center;
+      padding: 8px 2px;
+      font-weight: 500;
+      color: $positive;
+      height: 35px;
+      border: 1px solid $positive;
+      background-color: #fff;
+
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+
+      &.active {
+        background-color: $positive;
+        color: #fff;
+      }
+    }
+  }
+
+  .time-ago {
+    margin: 0 !important;
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+  }
+
+  .channel-badge {
+    position: absolute;
+    right: 10px;
+    top: 32px;
+  }
+
+  .item-channel {
+    .label-md {
+      margin-right: 75px;
+    }
+
+    h3 {
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    &.active {
+      .time-ago {
+        color: #000;
+      }
+
+      p {
+        color: #000;
+      }
+    }
+  }
+
+  .item {
+    border: none !important;
+  }
+
+  .header-open-keyboard {
+    position: fixed;
+  }
+
+}

@@ -1,0 +1,170 @@
+
+$positive: #387ef5;
+
+page-chat {
+
+  .header-chat {
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      margin-right: 10px;
+    }
+
+    .online-status {
+      width: 10px;
+      height: 10px;
+      background-color: #10bd10;
+      border-radius: 50%;
+    }
+
+    .user-name {
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+
+    .user-status {
+      font-size: 12px;
+      font-weight: 400;
+      color: #636363;
+
+      .online-status {
+        display: inline-block;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .chat-footer {
+    &:before {
+      display: none;
+    }
+
+    input {
+      height: 34px;
+      border-radius: 17px;
+      border: 1px solid #ddd;
+      padding: 0 14px;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    & > button {
+      font-size: 21px;
+      padding: 0 5px;
+
+      &.first-child {
+        padding-left: 10px;
+        font-size: 18px;
+      }
+      &:last-child {
+        padding-left: 10px;
+      }
+    }
+  }
+
+  .messages {
+    overflow: hidden;
+
+    .chat {
+      list-style-type: none;
+      overflow: hidden;
+      padding: 0 10px;
+    }
+
+    .chat__bubble {
+      margin-bottom: 3px;
+      padding: 5px 10px;
+      clear: both;
+      border-radius: 12px 12px 3px 3px;
+      max-width: 85%;
+      position: relative;
+      background: #f1f1f1;
+    }
+
+    .chat__bubble--rcvd {
+      background: #f1f1f1;
+      float: left;
+      border-bottom-right-radius: 12px;
+      margin-left: 36px;
+    }
+
+    .chat__bubble--sent {
+      background: $positive;
+      color: white;
+      float: right;
+      border-bottom-left-radius: 12px;
+      text-align: right;
+
+      img {
+        float: right;
+      }
+    }
+
+    .chat__bubble--sent + .chat__bubble--sent {
+      border-top-right-radius: 3px;
+    }
+
+    .chat__bubble--rcvd + .chat__bubble--rcvd {
+      border-top-left-radius: 3px;
+    }
+
+    .chat__bubble--stop {
+      border-bottom-right-radius: 12px;
+      border-bottom-left-radius: 12px;
+      margin-bottom: 7px;
+    }
+  }
+
+  .message-user-avatar {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: -35px;
+    bottom: -5px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+  }
+
+  .no-bg {
+    background-color: transparent !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .message-image {
+    img {
+      height: 200px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+  }
+
+  .file-pdf {
+    background-color: #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    color: #000;
+  }
+
+  .message-audio {
+    audio {
+      border: 1px solid #b9b4b4;
+      padding: 1px;
+      height: 36px;
+      border-radius: 5px;
+    }
+  }
+
+  .message-video {
+    video {
+      height: 153px;
+      border: 1px solid #ddd;
+      width: 270px;
+      border-radius: 5px;
+    }
+  }
+
+
+}

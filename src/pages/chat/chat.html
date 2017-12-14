@@ -1,0 +1,86 @@
+<ion-header id="chat-header">
+  <ion-navbar>
+    <ion-title>
+      <div class="horizontal layout center header-chat">
+        <img src="{{user.image}}" alt="">
+        <div class="flex">
+          <div class="user-name">{{user.name}}</div>
+          <div class="user-status horizontal layout center"><span class="online-status"></span> Online</div>
+        </div>
+      </div>
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button clear item-end style="padding-right: 0">
+        <ion-icon name="ios-videocam" style="font-size: 2.2em;"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content id="chat-content">
+  <div padding class="text-center" *ngIf="isLoading">
+    <ion-spinner></ion-spinner>
+  </div>
+  <div class="messages" (click)="readMessage()" id="messages">
+    <ul class="chat">
+      <!--[ngClass]="{'chat__bubble&#45;&#45;rcvd': item.from.userId != myAccount.id, 'chat__bubble&#45;&#45;sent': item.from.userId == myAccount.id, 'chat__bubble&#45;&#45;stop': index == messages.length - 1 || item.from.userId != data.messages[index + 1].from.userId}"-->
+      <li class="chat__bubble" *ngFor="let item of messages; let i = index; trackBy: index" [ngClass]="{'chat__bubble--rcvd': item.from.userId != myAccount.id, 'chat__bubble--sent': item.from.userId == myAccount.id, 'chat__bubble--stop': (i == messages.length - 1) || i < messages.length && item.from.userId != messages[i + 1].from.userId, 'no-bg': item.image || item.pdf || item.video || item.audio || item.voiceMessage}">
+        <div *ngIf="item.from.userId != myAccount.id">
+          <img src="{{item.from.image}}" alt="" *ngIf="i == (messages.length - 1) || i < messages.length && item.from.userId != messages[i + 1].from.userId" class="message-user-avatar">
+        </div>
+        <div *ngIf="item.text" class="message-text">{{item.text}}</div>
+        <div *ngIf="item.image" class="message-image">
+          <img src="{{item.image}}" alt="">
+        </div>
+
+        <div *ngIf="item.pdf" class="message-pdf">
+          <div class="file-pdf" (click)="openFile(item.pdf)">
+            Click Open File PDF <ion-icon name="ios-document-outline"></ion-icon>
+          </div>
+        </div>
+
+        <div *ngIf="item.audio" class="message-audio">
+          <audio controls [src]="item.audio | safe:'url'"></audio>
+        </div>
+
+        <div *ngIf="item.video" class="message-video">
+          <video controls [src]="item.video | safe:'url'"></video>
+        </div>
+        <!--<div style="width: 100%; min-width: 230px" ng-if="item.audio">-->
+
+        <!--<audio ng-src="{{item.audio | trustUrl}}" controls ></audio>-->
+        <!--</div>-->
+
+        <!--<img ng-src="{{item.sticker}}" alt="" class="img-responsive" ng-if="item.sticker">-->
+
+        <!--<div class="message-time" ng-show="item.showTime || $index == data.messages.length - 1">{{item.createdAt |-->
+        <!--date:'short'}}-->
+        <!--</div>-->
+
+      </li>
+
+      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd chat__bubble&#45;&#45;stop">What are you up to?</li>-->
+      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">Not much.</li>-->
+      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">Just writing some CSS.</li>-->
+      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">I just LOVE writing CSS.</li>-->
+      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent chat__bubble&#45;&#45;stop">Do you?</li>-->
+      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd">Yeah!</li>-->
+      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd">It's super fun.</li>-->
+      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd chat__bubble&#45;&#45;stop">... SUPER fun.</li>-->
+    </ul>
+  </div>
+
+</ion-content>
+<ion-footer class="horizontal layout center chat-footer">
+  <input type="file" accept="image/*, application/pdf, video/*, audio/*" #file
+         style="visibility: hidden; position: fixed; z-index: -99999" (change)="uploadFile($event)">
+  <button clear icon-start ion-button (click)="file.click()" class="first-child">
+    <ion-icon name="ios-add-circle"></ion-icon>
+  </button>
+  <input type="text" placeholder="Text message..." class="flex" [(ngModel)]="text">
+  <button clear icon-start ion-button (click)="sendMessage()">
+    <ion-icon name="ios-send"></ion-icon>
+  </button>
+</ion-footer>
