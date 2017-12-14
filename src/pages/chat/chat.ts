@@ -80,7 +80,7 @@ export class ChatPage {
 
     });
 
-    if (this.platform.is('ios') || this.platform.is('android')) {
+    if (this.platform.is('ios')) {
       //cordova.plugins.Keyboard.disableScroll(true)
       window.addEventListener('native.keyboardshow', this.keyboardShowHandler);
       window.addEventListener('native.keyboardhide', this.keyboardHideHandler);
