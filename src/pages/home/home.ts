@@ -41,7 +41,7 @@ export class HomePage {
 
     self = this;
 
-    this.user = JSON.parse(localStorage.getItem('user'));
+    this.user = JSON.parse(localStorage.getItem('user'))
     if (this.user.type == 2) {
       this.users = Doctors;
     } else {
@@ -118,7 +118,7 @@ export class HomePage {
           self.getUser(userPush);
         }
         self.user.userPush = userPush;
-        localStorage.setItem('user', self.user)
+        localStorage.setItem('user', JSON.stringify(self.user))
         console.log('notification', userPush, token);
       })
     })

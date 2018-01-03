@@ -4,6 +4,7 @@
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
+    <allow-navigation href="http://ionic.local/*" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -86,5 +87,20 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.2" />
     <engine name="ios" spec="~4.5.4" />
-    <engine name="android" spec="~7.0.0" />
+    <engine name="android" spec="6.3.0" />
+    <plugin name="cordova-plugin-crosswalk-webview" spec="~2.3.0">
+        <variable name="XWALK_VERSION" value="23+" />
+        <variable name="XWALK_LITEVERSION" value="xwalk_core_library_canary:17+" />
+        <variable name="XWALK_COMMANDLINE" value="--disable-pull-to-refresh-effect" />
+        <variable name="XWALK_MODE" value="embedded" />
+        <variable name="XWALK_MULTIPLEAPK" value="true" />
+    </plugin>
+    <plugin name="cordova-plugin-camera" spec="~4.0.1">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
+        <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-media" spec="~5.0.1">
+      <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
+
+    </plugin>
 </widget>

@@ -316,7 +316,7 @@ var HomePage = (function () {
                     self.getUser(userPush);
                 }
                 self.user.userPush = userPush;
-                localStorage.setItem('user', self.user);
+                localStorage.setItem('user', JSON.stringify(self.user));
                 console.log('notification', userPush, token);
             });
         });
