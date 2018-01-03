@@ -14,6 +14,7 @@ import { LoginPage } from '../pages/login/login';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ChatPage } from '../pages/chat/chat';
+import { VideoPage } from '../pages/video/modal';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ChatPage } from '../pages/chat/chat';
     HomePage,
     LoginPage,
     ChatPage,
-    SafePipe
+    SafePipe,
+    VideoPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { ChatPage } from '../pages/chat/chat';
     MyApp,
     HomePage,
     LoginPage,
-    ChatPage
+    ChatPage,
+    VideoPage
   ],
   providers: [
     StatusBar,

@@ -10,19 +10,23 @@ import 'rxjs/add/operator/map';
 import { Config } from '../../app/app.config';
 import _ from 'lodash';
 import io  from 'socket.io-client';
+let self;
 
 declare let localStorage:any;
+declare let window:any;
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
 
   users = [];
   user = {
     type: null,
-    id: null
+    id: null,
+    name: null
   };
 
   tabActive = 1;
@@ -35,13 +39,28 @@ export class HomePage {
       path: '/socket.io-client'
     });
 
+    self = this;
+
     this.user = JSON.parse(localStorage.getItem('user'));
     if (this.user.type == 2) {
       this.users = Doctors;
     } else {
       this.users = Patients;
-
     }
+
+    this.isLoading = true;
+    this.http.get(Config.url + Config.api.user).map(res => res.json())
+      .subscribe(
+        response => {
+          _.forEach(this.users, function (value) {
+            for (let i = 0; i < response.length; i++) {
+              if (response[i].name == value.name) {
+                value._id = response[i]._id;
+              }
+            }
+          })
+        })
+
 
     this.isLoading = true;
     this.http.get(Config.url + Config.api.channel, {
@@ -89,7 +108,36 @@ export class HomePage {
         error => console.log(error)
       );
 
+    self.getUser();
+    document.addEventListener("deviceready", function () {
+      window.plugins.OneSignal.getIds(function (ids) {
+        let token = ids.pushToken;
+        let userPush = ids.userId;
+        if (userPush != self.user.userPush) {
+          self.user.userPush = userPush;
+          self.getUser(userPush);
+        }
+        self.user.userPush = userPush;
+        localStorage.setItem('user', self.user)
+        console.log('notification', userPush, token);
+      })
+    })
 
+  }
+
+  getUser(userPush) {
+    self.http.post(Config.url + Config.api.user, {
+      name: self.user.name,
+      userPush: userPush || null
+    }).map(res => res.json())
+      .subscribe(
+        response => {
+          self.user._id = response._id;
+          localStorage.setItem('user', JSON.stringify(self.user))
+
+          //localStorage.setItem('user', self.user)
+          console.log(self.user)
+        })
   }
 
   switchTab(index) {

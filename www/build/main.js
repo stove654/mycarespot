@@ -1,1 +1,1569 @@
-webpackJsonp([0],{143:function(l,n){function e(l){return Promise.resolve().then(function(){throw new Error("Cannot find module '"+l+"'.")})}e.keys=function(){return[]},e.resolve=e,l.exports=e,e.id=143},176:function(l,n){function e(l){return Promise.resolve().then(function(){throw new Error("Cannot find module '"+l+"'.")})}e.keys=function(){return[]},e.resolve=e,l.exports=e,e.id=176},347:function(l,n,e){"use strict";function t(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,2,"ion-nav",[],null,null,null,ol.b,ol.a)),S["ɵprd"](6144,null,dl.a,null,[rl.a]),S["ɵdid"](2,4374528,null,0,rl.a,[[2,cl.a],[2,ml.a],pl.a,fl.a,gl.a,S.ElementRef,S.NgZone,S.Renderer,S.ComponentFactoryResolver,hl.l,vl.a,[2,bl.a],yl.a,S.ErrorHandler],{root:[0,"root"]},null),(l()(),S["ɵted"](-1,null,["\n"]))],function(l,n){l(n,2,0,n.component.rootPage)},null)}function u(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,2,"ion-badge",[["color","danger"]],null,null,null,null,null)),S["ɵdid"](1,16384,null,0,Il.a,[fl.a,S.ElementRef,S.Renderer],{color:[0,"color"]},null),(l()(),S["ɵted"](2,null,["",""]))],function(l,n){l(n,1,0,"danger")},function(l,n){l(n,2,0,n.component.read)})}function i(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,1,"span",[],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,[" Patients"]))],null,null)}function a(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,1,"span",[],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,[" Doctors"]))],null,null)}function s(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,0,"div",[["class","online-status"]],null,null,null,null,null))],null,null)}function o(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,1,"p",[],null,null,null,null,null)),(l()(),S["ɵted"](1,null,["",""]))],null,function(l,n){l(n,1,0,n.parent.context.$implicit.specialist)})}function d(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,1,"p",[],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["I need help!!!"]))],null,null)}function r(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,24,"ion-item",[["class","item item-block"]],null,[[null,"click"]],function(l,n,e){var t=!0;if("click"===n){t=!1!==l.component.openChat(l.context.$implicit)&&t}return t},kl.b,kl.a)),S["ɵdid"](1,1097728,null,3,xl.a,[Cl.a,fl.a,S.ElementRef,S.Renderer,[2,wl.a]],null,null),S["ɵqud"](335544320,3,{contentLabel:0}),S["ɵqud"](603979776,4,{_buttons:1}),S["ɵqud"](603979776,5,{_icons:1}),S["ɵdid"](5,16384,null,0,El.a,[],null,null),(l()(),S["ɵted"](-1,2,["\n          "])),(l()(),S["ɵeld"](7,0,null,0,7,"ion-avatar",[["class","image-thumbnail"],["item-start",""]],null,null,null,null,null)),S["ɵdid"](8,16384,null,0,Al.a,[],null,null),(l()(),S["ɵted"](-1,null,["\n            "])),(l()(),S["ɵeld"](10,0,null,null,0,"img",[],[[8,"src",4]],null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n            "])),(l()(),S["ɵand"](16777216,null,null,1,null,s)),S["ɵdid"](13,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n          "])),(l()(),S["ɵted"](-1,2,["\n          "])),(l()(),S["ɵeld"](16,0,null,2,1,"h3",[],null,null,null,null,null)),(l()(),S["ɵted"](17,null,["",""])),(l()(),S["ɵted"](-1,2,["\n          "])),(l()(),S["ɵand"](16777216,null,2,1,null,o)),S["ɵdid"](20,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,2,["\n          "])),(l()(),S["ɵand"](16777216,null,2,1,null,d)),S["ɵdid"](23,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,2,["\n        "]))],function(l,n){l(n,13,0,0==n.context.index);l(n,20,0,n.context.$implicit.specialist);l(n,23,0,!n.context.$implicit.specialist)},function(l,n){l(n,10,0,S["ɵinlineInterpolate"](1,"",n.context.$implicit.image,""));l(n,17,0,n.context.$implicit.name)})}function c(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,8,"div",[],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵeld"](2,0,null,null,5,"ion-list",[],null,null,null,null,null)),S["ɵdid"](3,16384,null,0,_l.a,[fl.a,S.ElementRef,S.Renderer,gl.a,hl.l,yl.a],null,null),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵand"](16777216,null,null,1,null,r)),S["ɵdid"](6,802816,null,0,Tl.h,[S.ViewContainerRef,S.TemplateRef,S.IterableDiffers],{ngForOf:[0,"ngForOf"],ngForTrackBy:[1,"ngForTrackBy"]},null),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,null,["\n    "]))],function(l,n){var e=n.component;l(n,6,0,e.users,e.index)},null)}function m(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,4,"div",[["class","text-center"],["padding",""]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵeld"](2,0,null,null,1,"ion-spinner",[],[[2,"spinner-paused",null]],null,null,Sl.b,Sl.a)),S["ɵdid"](3,114688,null,0,Dl.a,[fl.a,S.ElementRef,S.Renderer],null,null),(l()(),S["ɵted"](-1,null,["\n      "]))],function(l,n){l(n,3,0)},function(l,n){l(n,2,0,S["ɵnov"](n,3)._paused)})}function p(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,1,"div",[["class","text-center"],["padding",""]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n        Your don't have message!!!\n      "]))],null,null)}function f(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,0,"div",[["class","online-status"]],null,null,null,null,null))],null,null)}function g(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,2,"ion-badge",[["class","channel-badge"],["color","danger"]],null,null,null,null,null)),S["ɵdid"](1,16384,null,0,Il.a,[fl.a,S.ElementRef,S.Renderer],{color:[0,"color"]},null),(l()(),S["ɵted"](2,null,["",""]))],function(l,n){l(n,1,0,"danger")},function(l,n){l(n,2,0,n.parent.context.$implicit.userShow.read)})}function h(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,31,"ion-item",[["class","item-channel item item-block"]],null,[[null,"click"]],function(l,n,e){var t=!0;if("click"===n){t=!1!==l.component.openChat(l.context.$implicit.userShow)&&t}return t},kl.b,kl.a)),S["ɵdid"](1,278528,null,0,Tl.g,[S.IterableDiffers,S.KeyValueDiffers,S.ElementRef,S.Renderer2],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),S["ɵpod"](2,{active:0}),S["ɵdid"](3,1097728,null,3,xl.a,[Cl.a,fl.a,S.ElementRef,S.Renderer,[2,wl.a]],null,null),S["ɵqud"](335544320,6,{contentLabel:0}),S["ɵqud"](603979776,7,{_buttons:1}),S["ɵqud"](603979776,8,{_icons:1}),S["ɵdid"](7,16384,null,0,El.a,[],null,null),(l()(),S["ɵted"](-1,2,["\n          "])),(l()(),S["ɵeld"](9,0,null,0,7,"ion-avatar",[["class","image-thumbnail"],["item-start",""]],null,null,null,null,null)),S["ɵdid"](10,16384,null,0,Al.a,[],null,null),(l()(),S["ɵted"](-1,null,["\n            "])),(l()(),S["ɵeld"](12,0,null,null,0,"img",[],[[8,"src",4]],null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n            "])),(l()(),S["ɵand"](16777216,null,null,1,null,f)),S["ɵdid"](15,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n          "])),(l()(),S["ɵted"](-1,2,["\n          "])),(l()(),S["ɵeld"](18,0,null,4,3,"ion-note",[["class","time-ago"],["item-end",""]],null,null,null,null,null)),S["ɵdid"](19,16384,null,0,zl.a,[fl.a,S.ElementRef,S.Renderer],null,null),(l()(),S["ɵted"](20,null,["",""])),S["ɵpid"](131072,$l.TimeAgoPipe,[S.ChangeDetectorRef,S.NgZone]),(l()(),S["ɵted"](-1,2,["\n          "])),(l()(),S["ɵand"](16777216,null,2,1,null,g)),S["ɵdid"](24,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,2,["\n\n          "])),(l()(),S["ɵeld"](26,0,null,2,1,"h3",[],null,null,null,null,null)),(l()(),S["ɵted"](27,null,["",""])),(l()(),S["ɵted"](-1,2,["\n          "])),(l()(),S["ɵeld"](29,0,null,2,1,"p",[],null,null,null,null,null)),(l()(),S["ɵted"](30,null,["",""])),(l()(),S["ɵted"](-1,2,["\n        "]))],function(l,n){l(n,1,0,"item-channel",l(n,2,0,n.context.$implicit.userShow.read));l(n,15,0,0==n.context.index);l(n,24,0,n.context.$implicit.userShow.read)},function(l,n){l(n,12,0,S["ɵinlineInterpolate"](1,"",n.context.$implicit.userShow.image,""));l(n,20,0,S["ɵunv"](n,20,0,S["ɵnov"](n,21).transform(n.context.$implicit.lastMessageTime)));l(n,27,0,n.context.$implicit.userShow.name);l(n,30,0,n.context.$implicit.lastMessage)})}function v(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,14,"div",[],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵand"](16777216,null,null,1,null,m)),S["ɵdid"](3,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n\n      "])),(l()(),S["ɵand"](16777216,null,null,1,null,p)),S["ɵdid"](6,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵeld"](8,0,null,null,5,"ion-list",[],null,null,null,null,null)),S["ɵdid"](9,16384,null,0,_l.a,[fl.a,S.ElementRef,S.Renderer,gl.a,hl.l,yl.a],null,null),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵand"](16777216,null,null,1,null,h)),S["ɵdid"](12,802816,null,0,Tl.h,[S.ViewContainerRef,S.TemplateRef,S.IterableDiffers],{ngForOf:[0,"ngForOf"],ngForTrackBy:[1,"ngForTrackBy"]},null),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,null,["\n    "]))],function(l,n){var e=n.component;l(n,3,0,e.isLoading);l(n,6,0,!e.channels.length&&!e.isLoading);l(n,12,0,e.channels,e.index)},null)}function b(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,70,"ion-header",[],null,null,null,null,null)),S["ɵdid"](1,16384,null,0,Ml.a,[fl.a,S.ElementRef,S.Renderer,[2,cl.a]],null,null),(l()(),S["ɵted"](-1,null,["\n  "])),(l()(),S["ɵeld"](3,0,null,null,34,"ion-toolbar",[["class","toolbar"]],[[2,"statusbar-padding",null]],null,null,Vl.b,Vl.a)),S["ɵdid"](4,49152,null,0,Ol.a,[fl.a,S.ElementRef,S.Renderer],null,null),(l()(),S["ɵted"](-1,3,["\n    "])),(l()(),S["ɵeld"](6,0,null,1,3,"ion-buttons",[["start",""]],null,null,null,null,null)),S["ɵdid"](7,16384,null,1,Fl.a,[fl.a,S.ElementRef,S.Renderer,[2,Ol.a],[2,Pl.a]],null,null),S["ɵqud"](603979776,1,{_buttons:1}),(l()(),S["ɵted"](-1,null,["\n    "])),(l()(),S["ɵted"](-1,3,["\n    "])),(l()(),S["ɵeld"](11,0,null,3,13,"ion-title",[],null,null,null,Ll.b,Ll.a)),S["ɵdid"](12,49152,null,0,Nl.a,[fl.a,S.ElementRef,S.Renderer,[2,Ol.a],[2,Pl.a]],null,null),(l()(),S["ɵted"](-1,0,["\n      "])),(l()(),S["ɵeld"](14,0,null,0,9,"div",[["class","horizontal layout center user-info"]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵeld"](16,0,null,null,6,"div",[["class","home-user flex horizontal layout center"]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n          "])),(l()(),S["ɵeld"](18,0,null,null,0,"img",[["alt",""],["class","user-image"],["height","30"],["width","30"]],[[8,"src",4]],null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n          "])),(l()(),S["ɵeld"](20,0,null,null,1,"div",[["class","user-name"]],null,null,null,null,null)),(l()(),S["ɵted"](21,null,["",""])),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,0,["\n    "])),(l()(),S["ɵted"](-1,3,["\n    "])),(l()(),S["ɵeld"](26,0,null,2,10,"ion-buttons",[["end",""]],null,null,null,null,null)),S["ɵdid"](27,16384,null,1,Fl.a,[fl.a,S.ElementRef,S.Renderer,[2,Ol.a],[2,Pl.a]],null,null),S["ɵqud"](603979776,2,{_buttons:1}),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵeld"](30,0,null,null,5,"button",[["clear",""],["ion-button",""],["style","padding: 0 5px"]],null,[[null,"click"]],function(l,n,e){var t=!0;if("click"===n){t=!1!==l.component.logOut()&&t}return t},Bl.b,Bl.a)),S["ɵdid"](31,1097728,[[2,4]],0,Hl.a,[[8,""],fl.a,S.ElementRef,S.Renderer],{clear:[0,"clear"]},null),(l()(),S["ɵted"](-1,0,["\n        "])),(l()(),S["ɵeld"](33,0,null,0,1,"ion-icon",[["name","ios-power"],["role","img"],["style","font-size: 1.8em;"]],[[2,"hide",null]],null,null,null,null)),S["ɵdid"](34,147456,null,0,ql.a,[fl.a,S.ElementRef,S.Renderer],{name:[0,"name"]},null),(l()(),S["ɵted"](-1,0,["\n      "])),(l()(),S["ɵted"](-1,null,["\n    "])),(l()(),S["ɵted"](-1,3,["\n  "])),(l()(),S["ɵted"](-1,null,["\n\n  "])),(l()(),S["ɵeld"](39,0,null,null,30,"ion-toolbar",[["class","toolbar"],["style","padding-top: 0"]],[[2,"statusbar-padding",null]],null,null,Vl.b,Vl.a)),S["ɵdid"](40,49152,null,0,Ol.a,[fl.a,S.ElementRef,S.Renderer],null,null),(l()(),S["ɵted"](-1,3,["\n    "])),(l()(),S["ɵeld"](42,0,null,3,26,"div",[["class","tab-home horizontal layout center"]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵeld"](44,0,null,null,9,"div",[["class","tab-button-home active"]],null,[[null,"click"]],function(l,n,e){var t=!0;if("click"===n){t=!1!==l.component.switchTab(1)&&t}return t},null,null)),S["ɵdid"](45,278528,null,0,Tl.g,[S.IterableDiffers,S.KeyValueDiffers,S.ElementRef,S.Renderer2],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),S["ɵpod"](46,{active:0}),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵeld"](48,0,null,null,1,"ion-icon",[["name","ios-chatbubbles-outline"],["role","img"]],[[2,"hide",null]],null,null,null,null)),S["ɵdid"](49,147456,null,0,ql.a,[fl.a,S.ElementRef,S.Renderer],{name:[0,"name"]},null),(l()(),S["ɵted"](-1,null,["\n        Messages\n        "])),(l()(),S["ɵand"](16777216,null,null,1,null,u)),S["ɵdid"](52,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵeld"](55,0,null,null,12,"div",[["class","tab-button-home horizontal layout center center-justified"]],null,[[null,"click"]],function(l,n,e){var t=!0;if("click"===n){t=!1!==l.component.switchTab(2)&&t}return t},null,null)),S["ɵdid"](56,278528,null,0,Tl.g,[S.IterableDiffers,S.KeyValueDiffers,S.ElementRef,S.Renderer2],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),S["ɵpod"](57,{active:0}),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵeld"](59,0,null,null,1,"ion-icon",[["name","ios-people-outline"],["role","img"]],[[2,"hide",null]],null,null,null,null)),S["ɵdid"](60,147456,null,0,ql.a,[fl.a,S.ElementRef,S.Renderer],{name:[0,"name"]},null),(l()(),S["ɵted"](-1,null,["\n         \n        "])),(l()(),S["ɵand"](16777216,null,null,1,null,i)),S["ɵdid"](63,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵand"](16777216,null,null,1,null,a)),S["ɵdid"](66,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,null,["\n    "])),(l()(),S["ɵted"](-1,3,["\n  "])),(l()(),S["ɵted"](-1,null,["\n"])),(l()(),S["ɵted"](-1,null,["\n\n"])),(l()(),S["ɵeld"](72,0,null,null,11,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Zl.b,Zl.a)),S["ɵdid"](73,4374528,null,0,Gl.a,[fl.a,gl.a,yl.a,S.ElementRef,S.Renderer,pl.a,Ul.a,S.NgZone,[2,cl.a],[2,ml.a]],null,null),(l()(),S["ɵted"](-1,1,["\n  "])),(l()(),S["ɵeld"](75,0,null,1,7,"div",[["style","padding: 10px 0"]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n    "])),(l()(),S["ɵand"](16777216,null,null,1,null,c)),S["ɵdid"](78,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n\n    "])),(l()(),S["ɵand"](16777216,null,null,1,null,v)),S["ɵdid"](81,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n  "])),(l()(),S["ɵted"](-1,1,["\n"])),(l()(),S["ɵted"](-1,null,["\n"]))],function(l,n){var e=n.component;l(n,31,0,"");l(n,34,0,"ios-power");l(n,45,0,"tab-button-home active",l(n,46,0,1==e.tabActive));l(n,49,0,"ios-chatbubbles-outline");l(n,52,0,e.read);l(n,56,0,"tab-button-home horizontal layout center center-justified",l(n,57,0,2==e.tabActive));l(n,60,0,"ios-people-outline");l(n,63,0,1==e.user.type);l(n,66,0,2==e.user.type);l(n,78,0,2==e.tabActive);l(n,81,0,1==e.tabActive)},function(l,n){var e=n.component;l(n,3,0,S["ɵnov"](n,4)._sbPadding);l(n,18,0,S["ɵinlineInterpolate"](1,"",e.user.image,""));l(n,21,0,e.user.name);l(n,33,0,S["ɵnov"](n,34)._hidden);l(n,39,0,S["ɵnov"](n,40)._sbPadding);l(n,48,0,S["ɵnov"](n,49)._hidden);l(n,59,0,S["ɵnov"](n,60)._hidden);l(n,72,0,S["ɵnov"](n,73).statusbarPadding,S["ɵnov"](n,73)._hasRefresher)})}function y(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,22,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Zl.b,Zl.a)),S["ɵdid"](1,4374528,null,0,Gl.a,[fl.a,gl.a,yl.a,S.ElementRef,S.Renderer,pl.a,Ul.a,S.NgZone,[2,cl.a],[2,ml.a]],null,null),(l()(),S["ɵted"](-1,1,["\n\n  "])),(l()(),S["ɵeld"](3,0,null,1,18,"div",[["class","fit horizontal layout center center-justified"]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n    "])),(l()(),S["ɵeld"](5,0,null,null,15,"div",[["padding",""],["style","width: 100%"]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵeld"](7,0,null,null,5,"div",[["padding",""]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵeld"](9,0,null,null,2,"button",[["color","secondary"],["full",""],["ion-button",""]],null,[[null,"click"]],function(l,n,e){var t=!0;if("click"===n){t=!1!==l.component.selectUser(1)&&t}return t},Bl.b,Bl.a)),S["ɵdid"](10,1097728,null,0,Hl.a,[[8,""],fl.a,S.ElementRef,S.Renderer],{color:[0,"color"],full:[1,"full"]},null),(l()(),S["ɵted"](-1,0,["Account Doctor"])),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵeld"](14,0,null,null,5,"div",[["padding",""]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵeld"](16,0,null,null,2,"button",[["full",""],["ion-button",""]],null,[[null,"click"]],function(l,n,e){var t=!0;if("click"===n){t=!1!==l.component.selectUser(2)&&t}return t},Bl.b,Bl.a)),S["ɵdid"](17,1097728,null,0,Hl.a,[[8,""],fl.a,S.ElementRef,S.Renderer],{full:[0,"full"]},null),(l()(),S["ɵted"](-1,0,["Account Patient"])),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,null,["\n    "])),(l()(),S["ɵted"](-1,null,["\n  "])),(l()(),S["ɵted"](-1,1,["\n\n"])),(l()(),S["ɵted"](-1,null,["\n"]))],function(l,n){l(n,10,0,"secondary","");l(n,17,0,"")},function(l,n){l(n,0,0,S["ɵnov"](n,1).statusbarPadding,S["ɵnov"](n,1)._hasRefresher)})}function j(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,4,"div",[["class","text-center"],["padding",""]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n    "])),(l()(),S["ɵeld"](2,0,null,null,1,"ion-spinner",[],[[2,"spinner-paused",null]],null,null,Sl.b,Sl.a)),S["ɵdid"](3,114688,null,0,Dl.a,[fl.a,S.ElementRef,S.Renderer],null,null),(l()(),S["ɵted"](-1,null,["\n  "]))],function(l,n){l(n,3,0)},function(l,n){l(n,2,0,S["ɵnov"](n,3)._paused)})}function R(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,0,"img",[["alt",""],["class","message-user-avatar"]],[[8,"src",4]],null,null,null,null))],null,function(l,n){l(n,0,0,S["ɵinlineInterpolate"](1,"",n.parent.parent.context.$implicit.from.image,""))})}function I(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,4,"div",[],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n          "])),(l()(),S["ɵand"](16777216,null,null,1,null,R)),S["ɵdid"](3,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n        "]))],function(l,n){var e=n.component;l(n,3,0,n.parent.context.index==e.messages.length-1||n.parent.context.index<e.messages.length&&n.parent.context.$implicit.from.userId!=e.messages[n.parent.context.index+1].from.userId)},null)}function k(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,1,"div",[["class","message-text"]],null,null,null,null,null)),(l()(),S["ɵted"](1,null,["",""]))],null,function(l,n){l(n,1,0,n.parent.context.$implicit.text)})}function x(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,3,"div",[["class","message-image"]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n          "])),(l()(),S["ɵeld"](2,0,null,null,0,"img",[["alt",""]],[[8,"src",4]],null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n        "]))],null,function(l,n){l(n,2,0,S["ɵinlineInterpolate"](1,"",n.parent.context.$implicit.image,""))})}function C(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,7,"div",[["class","message-pdf"]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n          "])),(l()(),S["ɵeld"](2,0,null,null,4,"div",[["class","file-pdf"]],null,[[null,"click"]],function(l,n,e){var t=!0;if("click"===n){t=!1!==l.component.openFile(l.parent.context.$implicit.pdf)&&t}return t},null,null)),(l()(),S["ɵted"](-1,null,["\n            Click Open File PDF "])),(l()(),S["ɵeld"](4,0,null,null,1,"ion-icon",[["name","ios-document-outline"],["role","img"]],[[2,"hide",null]],null,null,null,null)),S["ɵdid"](5,147456,null,0,ql.a,[fl.a,S.ElementRef,S.Renderer],{name:[0,"name"]},null),(l()(),S["ɵted"](-1,null,["\n          "])),(l()(),S["ɵted"](-1,null,["\n        "]))],function(l,n){l(n,5,0,"ios-document-outline")},function(l,n){l(n,4,0,S["ɵnov"](n,5)._hidden)})}function w(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,4,"div",[["class","message-audio"]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n          "])),(l()(),S["ɵeld"](2,0,null,null,1,"audio",[["controls",""]],[[8,"src",4]],null,null,null,null)),S["ɵppd"](3,2),(l()(),S["ɵted"](-1,null,["\n        "]))],null,function(l,n){l(n,2,0,S["ɵunv"](n,2,0,l(n,3,0,S["ɵnov"](n.parent.parent,0),n.parent.context.$implicit.audio,"url")))})}function E(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,4,"div",[["class","message-video"]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n          "])),(l()(),S["ɵeld"](2,0,null,null,1,"video",[["controls",""]],[[8,"src",4]],null,null,null,null)),S["ɵppd"](3,2),(l()(),S["ɵted"](-1,null,["\n        "]))],null,function(l,n){l(n,2,0,S["ɵunv"](n,2,0,l(n,3,0,S["ɵnov"](n.parent.parent,0),n.parent.context.$implicit.video,"url")))})}function A(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,28,"li",[["class","chat__bubble"]],null,null,null,null,null)),S["ɵdid"](1,278528,null,0,Tl.g,[S.IterableDiffers,S.KeyValueDiffers,S.ElementRef,S.Renderer2],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),S["ɵpod"](2,{"chat__bubble--rcvd":0,"chat__bubble--sent":1,"chat__bubble--stop":2,"no-bg":3}),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵand"](16777216,null,null,1,null,I)),S["ɵdid"](5,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵand"](16777216,null,null,1,null,k)),S["ɵdid"](8,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵand"](16777216,null,null,1,null,x)),S["ɵdid"](11,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n\n        "])),(l()(),S["ɵand"](16777216,null,null,1,null,C)),S["ɵdid"](14,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n\n        "])),(l()(),S["ɵand"](16777216,null,null,1,null,w)),S["ɵdid"](17,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n\n        "])),(l()(),S["ɵand"](16777216,null,null,1,null,E)),S["ɵdid"](20,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵted"](-1,null,["\n\n        "])),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵted"](-1,null,["\n\n        "])),(l()(),S["ɵted"](-1,null,["\n\n        "])),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵted"](-1,null,["\n\n      "]))],function(l,n){var e=n.component;l(n,1,0,"chat__bubble",l(n,2,0,n.context.$implicit.from.userId!=e.myAccount.id,n.context.$implicit.from.userId==e.myAccount.id,n.context.index==e.messages.length-1||n.context.index<e.messages.length&&n.context.$implicit.from.userId!=e.messages[n.context.index+1].from.userId,n.context.$implicit.image||n.context.$implicit.pdf||n.context.$implicit.video||n.context.$implicit.audio||n.context.$implicit.voiceMessage));l(n,5,0,n.context.$implicit.from.userId!=e.myAccount.id);l(n,8,0,n.context.$implicit.text);l(n,11,0,n.context.$implicit.image);l(n,14,0,n.context.$implicit.pdf);l(n,17,0,n.context.$implicit.audio);l(n,20,0,n.context.$implicit.video)},null)}function T(l){return S["ɵvid"](0,[S["ɵpid"](0,O,[_.c]),S["ɵqud"](402653184,1,{content:0}),(l()(),S["ɵeld"](2,0,null,null,37,"ion-header",[["id","chat-header"]],null,null,null,null,null)),S["ɵdid"](3,16384,null,0,Ml.a,[fl.a,S.ElementRef,S.Renderer,[2,cl.a]],null,null),(l()(),S["ɵted"](-1,null,["\n  "])),(l()(),S["ɵeld"](5,0,null,null,33,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ln.b,ln.a)),S["ɵdid"](6,49152,null,0,Pl.a,[pl.a,[2,cl.a],[2,ml.a],fl.a,S.ElementRef,S.Renderer],null,null),(l()(),S["ɵted"](-1,3,["\n    "])),(l()(),S["ɵeld"](8,0,null,3,17,"ion-title",[],null,null,null,Ll.b,Ll.a)),S["ɵdid"](9,49152,null,0,Nl.a,[fl.a,S.ElementRef,S.Renderer,[2,Ol.a],[2,Pl.a]],null,null),(l()(),S["ɵted"](-1,0,["\n      "])),(l()(),S["ɵeld"](11,0,null,0,13,"div",[["class","horizontal layout center header-chat"]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵeld"](13,0,null,null,0,"img",[["alt",""]],[[8,"src",4]],null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵeld"](15,0,null,null,8,"div",[["class","flex"]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n          "])),(l()(),S["ɵeld"](17,0,null,null,1,"div",[["class","user-name"]],null,null,null,null,null)),(l()(),S["ɵted"](18,null,["",""])),(l()(),S["ɵted"](-1,null,["\n          "])),(l()(),S["ɵeld"](20,0,null,null,2,"div",[["class","user-status horizontal layout center"]],null,null,null,null,null)),(l()(),S["ɵeld"](21,0,null,null,0,"span",[["class","online-status"]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,[" Online"])),(l()(),S["ɵted"](-1,null,["\n        "])),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,0,["\n    "])),(l()(),S["ɵted"](-1,3,["\n\n    "])),(l()(),S["ɵeld"](27,0,null,2,10,"ion-buttons",[["end",""]],null,null,null,null,null)),S["ɵdid"](28,16384,null,1,Fl.a,[fl.a,S.ElementRef,S.Renderer,[2,Ol.a],[2,Pl.a]],null,null),S["ɵqud"](603979776,2,{_buttons:1}),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵeld"](31,0,null,null,5,"button",[["clear",""],["ion-button",""],["item-end",""],["style","padding-right: 0"]],null,null,null,Bl.b,Bl.a)),S["ɵdid"](32,1097728,[[2,4]],0,Hl.a,[[8,""],fl.a,S.ElementRef,S.Renderer],{clear:[0,"clear"]},null),(l()(),S["ɵted"](-1,0,["\n        "])),(l()(),S["ɵeld"](34,0,null,0,1,"ion-icon",[["name","ios-videocam"],["role","img"],["style","font-size: 2.2em;"]],[[2,"hide",null]],null,null,null,null)),S["ɵdid"](35,147456,null,0,ql.a,[fl.a,S.ElementRef,S.Renderer],{name:[0,"name"]},null),(l()(),S["ɵted"](-1,0,["\n      "])),(l()(),S["ɵted"](-1,null,["\n    "])),(l()(),S["ɵted"](-1,3,["\n\n  "])),(l()(),S["ɵted"](-1,null,["\n"])),(l()(),S["ɵted"](-1,null,["\n\n"])),(l()(),S["ɵeld"](41,0,null,null,23,"ion-content",[["id","chat-content"]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Zl.b,Zl.a)),S["ɵdid"](42,4374528,[[1,4]],0,Gl.a,[fl.a,gl.a,yl.a,S.ElementRef,S.Renderer,pl.a,Ul.a,S.NgZone,[2,cl.a],[2,ml.a]],null,null),(l()(),S["ɵted"](-1,1,["\n  "])),(l()(),S["ɵand"](16777216,null,1,1,null,j)),S["ɵdid"](45,16384,null,0,Tl.i,[S.ViewContainerRef,S.TemplateRef],{ngIf:[0,"ngIf"]},null),(l()(),S["ɵted"](-1,1,["\n  "])),(l()(),S["ɵeld"](47,0,null,1,16,"div",[["class","messages"],["id","messages"]],null,[[null,"click"]],function(l,n,e){var t=!0;if("click"===n){t=!1!==l.component.readMessage()&&t}return t},null,null)),(l()(),S["ɵted"](-1,null,["\n    "])),(l()(),S["ɵeld"](49,0,null,null,13,"ul",[["class","chat"]],null,null,null,null,null)),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵand"](16777216,null,null,1,null,A)),S["ɵdid"](53,802816,null,0,Tl.h,[S.ViewContainerRef,S.TemplateRef,S.IterableDiffers],{ngForOf:[0,"ngForOf"],ngForTrackBy:[1,"ngForTrackBy"]},null),(l()(),S["ɵted"](-1,null,["\n\n      "])),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,null,["\n      "])),(l()(),S["ɵted"](-1,null,["\n    "])),(l()(),S["ɵted"](-1,null,["\n  "])),(l()(),S["ɵted"](-1,1,["\n\n"])),(l()(),S["ɵted"](-1,null,["\n"])),(l()(),S["ɵeld"](66,0,null,null,25,"ion-footer",[["class","horizontal layout center chat-footer"]],null,null,null,null,null)),S["ɵdid"](67,16384,null,0,nn.a,[fl.a,S.ElementRef,S.Renderer,[2,cl.a]],null,null),(l()(),S["ɵted"](-1,null,["\n  "])),(l()(),S["ɵeld"](69,0,[["file",1]],null,0,"input",[["accept","image/*, application/pdf, video/*, audio/*"],["style","visibility: hidden; position: fixed; z-index: -99999"],["type","file"]],null,[[null,"change"]],function(l,n,e){var t=!0;if("change"===n){t=!1!==l.component.uploadFile(e)&&t}return t},null,null)),(l()(),S["ɵted"](-1,null,["\n  "])),(l()(),S["ɵeld"](71,0,null,null,5,"button",[["class","first-child"],["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,e){var t=!0;if("click"===n){t=!1!==S["ɵnov"](l,69).click()&&t}return t},Bl.b,Bl.a)),S["ɵdid"](72,1097728,null,0,Hl.a,[[8,""],fl.a,S.ElementRef,S.Renderer],{clear:[0,"clear"]},null),(l()(),S["ɵted"](-1,0,["\n    "])),(l()(),S["ɵeld"](74,0,null,0,1,"ion-icon",[["name","ios-add-circle"],["role","img"]],[[2,"hide",null]],null,null,null,null)),S["ɵdid"](75,147456,null,0,ql.a,[fl.a,S.ElementRef,S.Renderer],{name:[0,"name"]},null),(l()(),S["ɵted"](-1,0,["\n  "])),(l()(),S["ɵted"](-1,null,["\n  "])),(l()(),S["ɵeld"](78,0,null,null,5,"input",[["class","flex"],["placeholder","Text message..."],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"],[null,"input"],[null,"blur"],[null,"compositionstart"],[null,"compositionend"]],function(l,n,e){var t=!0,u=l.component;if("input"===n){t=!1!==S["ɵnov"](l,79)._handleInput(e.target.value)&&t}if("blur"===n){t=!1!==S["ɵnov"](l,79).onTouched()&&t}if("compositionstart"===n){t=!1!==S["ɵnov"](l,79)._compositionStart()&&t}if("compositionend"===n){t=!1!==S["ɵnov"](l,79)._compositionEnd(e.target.value)&&t}if("ngModelChange"===n){t=!1!==(u.text=e)&&t}return t},null,null)),S["ɵdid"](79,16384,null,0,M.b,[S.Renderer2,S.ElementRef,[2,M.a]],null,null),S["ɵprd"](1024,null,M.e,function(l){return[l]},[M.b]),S["ɵdid"](81,671744,null,0,M.h,[[8,null],[8,null],[8,null],[2,M.e]],{model:[0,"model"]},{update:"ngModelChange"}),S["ɵprd"](2048,null,M.f,null,[M.h]),S["ɵdid"](83,16384,null,0,M.g,[M.f],null,null),(l()(),S["ɵted"](-1,null,["\n  "])),(l()(),S["ɵeld"](85,0,null,null,5,"button",[["clear",""],["icon-start",""],["ion-button",""]],null,[[null,"click"]],function(l,n,e){var t=!0;if("click"===n){t=!1!==l.component.sendMessage()&&t}return t},Bl.b,Bl.a)),S["ɵdid"](86,1097728,null,0,Hl.a,[[8,""],fl.a,S.ElementRef,S.Renderer],{clear:[0,"clear"]},null),(l()(),S["ɵted"](-1,0,["\n    "])),(l()(),S["ɵeld"](88,0,null,0,1,"ion-icon",[["name","ios-send"],["role","img"]],[[2,"hide",null]],null,null,null,null)),S["ɵdid"](89,147456,null,0,ql.a,[fl.a,S.ElementRef,S.Renderer],{name:[0,"name"]},null),(l()(),S["ɵted"](-1,0,["\n  "])),(l()(),S["ɵted"](-1,null,["\n"])),(l()(),S["ɵted"](-1,null,["\n"]))],function(l,n){var e=n.component;l(n,32,0,"");l(n,35,0,"ios-videocam");l(n,45,0,e.isLoading);l(n,53,0,e.messages,e.index);l(n,72,0,"");l(n,75,0,"ios-add-circle");l(n,81,0,e.text);l(n,86,0,"");l(n,89,0,"ios-send")},function(l,n){var e=n.component;l(n,5,0,S["ɵnov"](n,6)._hidden,S["ɵnov"](n,6)._sbPadding);l(n,13,0,S["ɵinlineInterpolate"](1,"",e.user.image,""));l(n,18,0,e.user.name);l(n,34,0,S["ɵnov"](n,35)._hidden);l(n,41,0,S["ɵnov"](n,42).statusbarPadding,S["ɵnov"](n,42)._hasRefresher);l(n,74,0,S["ɵnov"](n,75)._hidden);l(n,78,0,S["ɵnov"](n,83).ngClassUntouched,S["ɵnov"](n,83).ngClassTouched,S["ɵnov"](n,83).ngClassPristine,S["ɵnov"](n,83).ngClassDirty,S["ɵnov"](n,83).ngClassValid,S["ɵnov"](n,83).ngClassInvalid,S["ɵnov"](n,83).ngClassPending);l(n,88,0,S["ɵnov"](n,89)._hidden)})}Object.defineProperty(n,"__esModule",{value:!0});var _=e(24),S=e(0),D=(e(4),e(52),e(81)),z=e(82),$=e(47),M=e(19),V=e(83),O=(e(381),function(){function l(l){this._sanitizer=l}return l.prototype.transform=function(l,n){switch(n){case"html":return this._sanitizer.bypassSecurityTrustHtml(l);case"style":return this._sanitizer.bypassSecurityTrustStyle(l);case"script":return this._sanitizer.bypassSecurityTrustScript(l);case"url":return this._sanitizer.bypassSecurityTrustUrl(l);case"resourceUrl":return this._sanitizer.bypassSecurityTrustResourceUrl(l);default:throw new Error("Unable to bypass security for invalid type: "+n)}},l}()),F=[{id:"doctor-01",name:"Devi Shetty",image:"./assets/imgs/doctor.jpg",specialist:"Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"},{id:"doctor-01",name:"Devi Shetty",image:"./assets/imgs/doctor1.jpg",specialist:"Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"},{id:"doctor-01",name:"Devi Shetty",image:"./assets/imgs/doctor2.jpg",specialist:"Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"},{id:"doctor-01",name:"Devi Shetty",image:"./assets/imgs/doctor3.jpg",specialist:"Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"},{id:"doctor-01",name:"Devi Shetty",image:"./assets/imgs/doctor4.jpg",specialist:"Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"},{id:"doctor-01",name:"Devi Shetty",image:"./assets/imgs/doctor5.jpg",specialist:"Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"},{id:"doctor-01",name:"Devi Shetty",image:"./assets/imgs/doctor6.jpg",specialist:"Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"},{id:"doctor-01",name:"Devi Shetty",image:"./assets/imgs/doctor6.jpg",specialist:"Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"},{id:"doctor-01",name:"Devi Shetty",image:"./assets/imgs/doctor8.jpg",specialist:"Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"},{id:"doctor-01",name:"Devi Shetty",image:"./assets/imgs/doctor9.jpg",specialist:"Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"}],P=[{id:"patient-01",name:"Woody",image:"./assets/imgs/user.jpg"},{id:"patient-02",name:"Buzz Lightyear",image:"./assets/imgs/user1.jpg"},{id:"patient-03",name:"Jessie",image:"./assets/imgs/user2.jpg"},{id:"patient-01",name:"Reuben",image:"./assets/imgs/user3.jpg"},{id:"patient-01",name:"Leone Battista",image:"./assets/imgs/user4.jpg"},{id:"patient-01",name:"Sherman",image:"./assets/imgs/user5.jpg"},{id:"patient-01",name:"Alphonse",image:"./assets/imgs/user6.jpg"},{id:"patient-01",name:"Hans Christian",image:"./assets/imgs/user7.jpg"},{id:"patient-01",name:"Sparky",image:"./assets/imgs/user8.jpg"},{id:"patient-01",name:"Beth",image:"./assets/imgs/user9.jpg"}],L={url:"http://174.138.88.121:8080",oneSignalId:"8a13c6fc-fa4a-4158-8938-b281c2832756",api:{login:"/auth/phone/",user:"/api/users/",upload:"/api/uploads/",channel:"/api/channels/",message:"/api/messages/",turn:"/api/turn/",webrtc:"/api/webrtc/",story:"/api/stories/",feedback:"/api/feedbacks/",qrcode:"/api/qrcode/",socket:"/api/socket/"}},N=(e(330),e(331)),B=e.n(N),H=B()(L.url,{path:"/socket.io-client"}),q=function(){function l(l,n,e,t,u,i,a){var s=this;this.navCtrl=l,this.navParams=n,this.platform=e,this.http=t,this.loadingCtrl=u,this.iab=i,this.events=a,this.user={id:null},this.myAccount={id:null,userId:null},this.channel={_id:null,users:[]},this.messages=[],this.isLoading=!0,this.text="",this.createAt="",this.image="",this.pdf="",this.video="",this.audio="",this.voiceMessage="",this.sticker="",this.location="",this.fileType="",this._clearMessage=function(){this.text="",this.createAt="",this.image="",this.pdf="",this.video="",this.audio="",this.voiceMessage="",this.sticker="",this.location="",this.fileType=""},this.user=this.navParams.get("user"),this.myAccount=JSON.parse(localStorage.getItem("user")),this.http.post(L.url+L.api.channel,{from:this.user.id,to:this.myAccount.id}).map(function(l){return l.json()}).subscribe(function(l){s.channel=l,s.http.get(L.url+L.api.message,{params:{channel:s.channel._id}}).map(function(l){return l.json()}).subscribe(function(l){s.isLoading=!1,s.messages=l,H.on("message:save",function(l){l.from.userId!=s.myAccount.id&&s.messages.push(l)})}),s.readMessage()}),a.subscribe("channel",function(l){s.channel=l}),this.platform.is("ios")&&(window.addEventListener("native.keyboardshow",this.keyboardShowHandler),window.addEventListener("native.keyboardhide",this.keyboardHideHandler))}return l.prototype.keyboardShowHandler=function(l){this.keyboardHeight=l.keyboardHeight;var n=window.document.getElementById("chat-header"),e=window.document.getElementById("messages");n.style.top=this.keyboardHeight+"px",n.style.position="fixed",e.style.paddingTop=this.keyboardHeight+"px",console.log("Keyboard height is: "+l.keyboardHeight,n)},l.prototype.keyboardHideHandler=function(l){this.keyboardHeight=0;var n=window.document.getElementById("chat-header");n.style.top="0px",n.style.position="absolute";window.document.getElementById("messages").style.paddingTop="0px",console.log("Keyboard off is: ")},l.prototype.ionViewWillEnter=function(){var l=this;setTimeout(function(){l.content.scrollToBottom(300)},1e3)},l.prototype.uploadFile=function(l){var n=this,e=l.srcElement.files[0];if(e){var t=this.loadingCtrl.create({content:"Uploading..."});this.fileType=e.type;var u=new FormData;u.append("file",e,e.name);var i=new Headers;i.append("Content-Type","multipart/form-data"),i.append("Accept","application/json"),this.http.post(L.url+L.api.upload,u).map(function(l){return l.json()}).subscribe(function(l){t.dismiss(),-1!==e.type.indexOf("image")?n.image=L.url+"/"+l.path:-1!==e.type.indexOf("video")?n.video=L.url+"/"+l.path:-1!==e.type.indexOf("audio")?n.audio=L.url+"/"+l.path:-1!==e.type.indexOf("pdf")&&(n.pdf=L.url+"/"+l.path),n._sendMessage()},function(l){return console.log(l)})}},l.prototype._sendMessage=function(){var l=this,n={from:this.myAccount,channel:this.channel._id,createdAt:new Date,text:"",image:"",voiceMessage:"",location:"",sticker:"",video:"",audio:"",fileType:"",pdf:""};n.from.userId=this.myAccount.id,this.text?n.text=this.text:delete n.text,this.image?n.image=this.image:delete n.image,this.voiceMessage?n.voiceMessage=this.voiceMessage:delete n.voiceMessage,this.location?n.location=this.location:delete n.location,this.sticker?n.sticker=this.sticker:delete n.sticker,this.video?n.video=this.video:delete n.video,this.audio?n.audio=this.audio:delete n.audio,this.fileType?n.fileType=this.fileType:delete n.fileType,this.pdf?n.pdf=this.pdf:delete n.pdf,this.messages.push(n);var e=this.messages.length-1;this._clearMessage(),setTimeout(function(){l.content.scrollToBottom(300)},300),this.http.post(L.url+L.api.message,n).map(function(l){return l.json()}).subscribe(function(n){l.messages[e]=n})},l.prototype.sendMessage=function(){this.text&&this._sendMessage()},l.prototype.openFile=function(l){this.iab.create(l)},l.prototype.readMessage=function(){for(var l=!1,n=0;n<this.channel.users.length;n++)if(this.channel.users[n].userId==this.myAccount.id&&this.channel.users[n].read){l=!0;break}l&&this.http.put(L.url+L.api.channel+this.channel._id,{read:0,user:this.myAccount.id}).subscribe(function(){})},l.prototype.ngOnDestroy=function(){H.removeAllListeners("message:save")},l}(),Z=e(344),G=e.n(Z),U={formatChannel:function(l,n){for(var e,t=0,u=0;u<l.users.length;u++)l.users[u].userId!=n.id?e=l.users[u].userId:t=l.users[u].read;return-1!==e.indexOf("doctor")?(l.userShow=G.a.find(F,{id:e}),l.userShow.read=t):-1!==e.indexOf("patient")&&(l.userShow=G.a.find(P,{id:e}),l.userShow.read=t),l}},K=function(){function l(l,n,e,t){var u=this;this.navCtrl=l,this.http=n,this.loadingCtrl=e,this.events=t,this.users=[],this.user={type:null,id:null},this.tabActive=1,this.channels=[],this.isLoading=!1;var i=B()(L.url,{path:"/socket.io-client"});this.user=JSON.parse(localStorage.getItem("user")),this.users=2==this.user.type?F:P,this.isLoading=!0,this.http.get(L.url+L.api.channel,{params:{userId:this.user.id}}).map(function(l){return l.json()}).subscribe(function(l){u.isLoading=!1,l.map(function(l){return l=U.formatChannel(l,u.user)}),u.channels=l,u.getBadge(),i.on("channel:save",function(l){for(var n=!1,e=0;e<l.users.length;e++)if(l.users[e].userId==u.user.id){n=!0;break}if(n){l=U.formatChannel(l,u.user);var t=!1;for(e=0;e<u.channels.length;e++)if(u.channels[e]._id==l._id){u.channels[e]=l,u.events.publish("channel",l),t=!0;break}t||u.channels.unshift(l),u.getBadge()}})},function(l){return console.log(l)})}return l.prototype.switchTab=function(l){this.tabActive=l},l.prototype.getBadge=function(){var l=this;this.read=0,G.a.each(this.channels,function(n){l.read+=n.userShow.read})},l.prototype.openChat=function(l){this.navCtrl.push(q,{user:l})},l.prototype.logOut=function(){localStorage.clear(),this.navCtrl.push(J)},l}(),J=function(){function l(l){this.navCtrl=l,console.log(F)}return l.prototype.selectUser=function(l){var n;1==l?n=F[0]:2==l&&(n=P[0]),n.type=l,localStorage.setItem("user",JSON.stringify(n)),this.navCtrl.push(K)},l}(),W=function(){return function(l,n,e){var t=JSON.parse(localStorage.getItem("user"));this.rootPage=t?K:J,l.ready().then(function(){n.styleDefault(),e.hide()})}}(),Y=function(){return function(){}}(),Q=e(53),X=e(404),ll=e(405),nl=e(406),el=e(407),tl=e(408),ul=e(409),il=e(410),al=e(411),sl=e(412),ol=e(413),dl=e(41),rl=e(60),cl=e(6),ml=e(17),pl=e(9),fl=e(2),gl=e(5),hl=e(8),vl=e(34),bl=e(16),yl=e(10),jl=S["ɵcrt"]({encapsulation:2,styles:[],data:{}}),Rl=S["ɵccf"]("ng-component",W,function(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,1,"ng-component",[],null,null,null,t,jl)),S["ɵdid"](1,49152,null,0,W,[gl.a,z.a,D.a],null,null)],null,null)},{},{},[]),Il=e(98),kl=e(345),xl=e(22),Cl=e(20),wl=e(44),El=e(71),Al=e(97),Tl=e(13),_l=e(58),Sl=e(132),Dl=e(46),zl=e(107),$l=e(128),Ml=e(79),Vl=e(414),Ol=e(38),Fl=e(80),Pl=e(28),Ll=e(346),Nl=e(62),Bl=e(30),Hl=e(18),ql=e(36),Zl=e(133),Gl=e(23),Ul=e(25),Kl=e(59),Jl=e(63),Wl=S["ɵcrt"]({encapsulation:2,styles:[],data:{}}),Yl=S["ɵccf"]("page-home",K,function(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,1,"page-home",[],null,null,null,b,Wl)),S["ɵdid"](1,49152,null,0,K,[ml.a,$.d,Kl.a,Jl.a],null,null)],null,null)},{},{},[]),Ql=S["ɵcrt"]({encapsulation:2,styles:[],data:{}}),Xl=S["ɵccf"]("page-login",J,function(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,1,"page-login",[],null,null,null,y,Ql)),S["ɵdid"](1,49152,null,0,J,[ml.a],null,null)],null,null)},{},{},[]),ln=e(415),nn=e(118),en=e(11),tn=S["ɵcrt"]({encapsulation:2,styles:[],data:{}}),un=S["ɵccf"]("page-chat",q,function(l){return S["ɵvid"](0,[(l()(),S["ɵeld"](0,0,null,null,1,"page-chat",[],null,null,null,T,tn)),S["ɵdid"](1,180224,null,0,q,[ml.a,en.a,gl.a,$.d,Kl.a,V.a,Jl.a],null,null)],null,null)},{},{},[]),an=e(125),sn=e(94),on=e(96),dn=e(37),rn=e(198),cn=e(55),mn=e(45),pn=e(104),fn=e(68),gn=e(110),hn=e(122),vn=e(117),bn=e(197),yn=e(123),jn=e(32),Rn=e(103),In=e(124),kn=e(325),xn=S["ɵcmf"](Y,[Q.b],function(l){return S["ɵmod"]([S["ɵmpd"](512,S.ComponentFactoryResolver,S["ɵCodegenComponentFactoryResolver"],[[8,[X.a,ll.a,nl.a,el.a,tl.a,ul.a,il.a,al.a,sl.a,Rl,Yl,Xl,un]],[3,S.ComponentFactoryResolver],S.NgModuleRef]),S["ɵmpd"](5120,S.LOCALE_ID,S["ɵm"],[[3,S.LOCALE_ID]]),S["ɵmpd"](4608,Tl.k,Tl.j,[S.LOCALE_ID,[2,Tl.s]]),S["ɵmpd"](5120,S.APP_ID,S["ɵf"],[]),S["ɵmpd"](5120,S.IterableDiffers,S["ɵk"],[]),S["ɵmpd"](5120,S.KeyValueDiffers,S["ɵl"],[]),S["ɵmpd"](4608,_.c,_.q,[Tl.c]),S["ɵmpd"](6144,S.Sanitizer,null,[_.c]),S["ɵmpd"](4608,_.f,an.a,[]),S["ɵmpd"](5120,_.d,function(l,n,e,t,u){return[new _.k(l,n),new _.o(e),new _.n(t,u)]},[Tl.c,S.NgZone,Tl.c,Tl.c,_.f]),S["ɵmpd"](4608,_.e,_.e,[_.d,S.NgZone]),S["ɵmpd"](135680,_.m,_.m,[Tl.c]),S["ɵmpd"](4608,_.l,_.l,[_.e,_.m]),S["ɵmpd"](6144,S.RendererFactory2,null,[_.l]),S["ɵmpd"](6144,_.p,null,[_.m]),S["ɵmpd"](4608,S.Testability,S.Testability,[S.NgZone]),S["ɵmpd"](4608,_.h,_.h,[Tl.c]),S["ɵmpd"](4608,_.i,_.i,[Tl.c]),S["ɵmpd"](4608,M.k,M.k,[]),S["ɵmpd"](4608,M.c,M.c,[]),S["ɵmpd"](4608,$.c,$.c,[]),S["ɵmpd"](4608,$.g,$.b,[]),S["ɵmpd"](5120,$.i,$.j,[]),S["ɵmpd"](4608,$.h,$.h,[$.c,$.g,$.i]),S["ɵmpd"](4608,$.f,$.a,[]),S["ɵmpd"](5120,$.d,$.k,[$.h,$.f]),S["ɵmpd"](4608,sn.a,sn.a,[pl.a,fl.a]),S["ɵmpd"](4608,on.a,on.a,[pl.a,fl.a]),S["ɵmpd"](4608,Jl.a,Jl.a,[]),S["ɵmpd"](4608,Cl.a,Cl.a,[]),S["ɵmpd"](4608,dn.a,dn.a,[gl.a]),S["ɵmpd"](4608,Ul.a,Ul.a,[fl.a,gl.a,S.NgZone,yl.a]),S["ɵmpd"](4608,Kl.a,Kl.a,[pl.a,fl.a]),S["ɵmpd"](5120,Tl.f,rn.b,[Tl.q,[2,Tl.a],fl.a]),S["ɵmpd"](4608,Tl.e,Tl.e,[Tl.f]),S["ɵmpd"](5120,cn.b,cn.d,[pl.a,cn.a]),S["ɵmpd"](5120,bl.a,bl.b,[pl.a,cn.b,Tl.e,mn.b,S.ComponentFactoryResolver]),S["ɵmpd"](4608,pn.a,pn.a,[pl.a,fl.a,bl.a]),S["ɵmpd"](4608,fn.a,fn.a,[pl.a,fl.a]),S["ɵmpd"](4608,gn.a,gn.a,[pl.a,fl.a,bl.a]),S["ɵmpd"](4608,hn.a,hn.a,[fl.a,gl.a,yl.a,pl.a,hl.l]),S["ɵmpd"](4608,vn.a,vn.a,[pl.a,fl.a]),S["ɵmpd"](4608,vl.a,vl.a,[gl.a,fl.a]),S["ɵmpd"](4608,z.a,z.a,[]),S["ɵmpd"](4608,D.a,D.a,[]),S["ɵmpd"](4608,V.a,V.a,[]),S["ɵmpd"](512,Tl.b,Tl.b,[]),S["ɵmpd"](512,S.ErrorHandler,bn.a,[]),S["ɵmpd"](256,fl.b,{},[]),S["ɵmpd"](1024,yn.a,yn.b,[]),S["ɵmpd"](1024,gl.a,gl.b,[_.b,yn.a,S.NgZone]),S["ɵmpd"](1024,fl.a,fl.c,[fl.b,gl.a]),S["ɵmpd"](512,yl.a,yl.a,[gl.a]),S["ɵmpd"](512,jn.a,jn.a,[]),S["ɵmpd"](512,pl.a,pl.a,[fl.a,gl.a,[2,jn.a]]),S["ɵmpd"](512,hl.l,hl.l,[pl.a]),S["ɵmpd"](256,cn.a,{links:[]},[]),S["ɵmpd"](512,S.Compiler,S.Compiler,[]),S["ɵmpd"](512,Rn.a,Rn.a,[S.Compiler]),S["ɵmpd"](1024,mn.b,mn.c,[Rn.a,S.Injector]),S["ɵmpd"](1024,S.APP_INITIALIZER,function(l,n,e,t,u,i,a,s,o,d,r,c,m){return[_.s(l),In.a(n),Jl.b(e,t),hn.b(u,i,a,s,o),mn.d(d,r,c,m)]},[[2,S.NgProbeToken],fl.a,gl.a,yl.a,fl.a,gl.a,yl.a,pl.a,hl.l,fl.a,cn.a,mn.b,S.NgZone]),S["ɵmpd"](512,S.ApplicationInitStatus,S.ApplicationInitStatus,[[2,S.APP_INITIALIZER]]),S["ɵmpd"](131584,S.ApplicationRef,S.ApplicationRef,[S.NgZone,S["ɵConsole"],S.Injector,S.ErrorHandler,S.ComponentFactoryResolver,S.ApplicationInitStatus]),S["ɵmpd"](512,S.ApplicationModule,S.ApplicationModule,[S.ApplicationRef]),S["ɵmpd"](512,_.a,_.a,[[3,_.a]]),S["ɵmpd"](512,M.j,M.j,[]),S["ɵmpd"](512,M.d,M.d,[]),S["ɵmpd"](512,M.i,M.i,[]),S["ɵmpd"](512,rn.a,rn.a,[]),S["ɵmpd"](512,$.e,$.e,[]),S["ɵmpd"](512,kn.MomentModule,kn.MomentModule,[]),S["ɵmpd"](512,Y,Y,[]),S["ɵmpd"](256,Q.a,W,[]),S["ɵmpd"](256,Tl.a,"/",[])])});Object(S.enableProdMode)(),Object(_.j)().bootstrapModuleFactory(xn)},382:function(l,n,e){function t(l){return e(u(l))}function u(l){var n=i[l];if(!(n+1))throw new Error("Cannot find module '"+l+"'.");return n}var i={"./af":201,"./af.js":201,"./ar":202,"./ar-dz":203,"./ar-dz.js":203,"./ar-kw":204,"./ar-kw.js":204,"./ar-ly":205,"./ar-ly.js":205,"./ar-ma":206,"./ar-ma.js":206,"./ar-sa":207,"./ar-sa.js":207,"./ar-tn":208,"./ar-tn.js":208,"./ar.js":202,"./az":209,"./az.js":209,"./be":210,"./be.js":210,"./bg":211,"./bg.js":211,"./bm":212,"./bm.js":212,"./bn":213,"./bn.js":213,"./bo":214,"./bo.js":214,"./br":215,"./br.js":215,"./bs":216,"./bs.js":216,"./ca":217,"./ca.js":217,"./cs":218,"./cs.js":218,"./cv":219,"./cv.js":219,"./cy":220,"./cy.js":220,"./da":221,"./da.js":221,"./de":222,"./de-at":223,"./de-at.js":223,"./de-ch":224,"./de-ch.js":224,"./de.js":222,"./dv":225,"./dv.js":225,"./el":226,"./el.js":226,"./en-au":227,"./en-au.js":227,"./en-ca":228,"./en-ca.js":228,"./en-gb":229,"./en-gb.js":229,"./en-ie":230,"./en-ie.js":230,"./en-nz":231,"./en-nz.js":231,"./eo":232,"./eo.js":232,"./es":233,"./es-do":234,"./es-do.js":234,"./es-us":235,"./es-us.js":235,"./es.js":233,"./et":236,"./et.js":236,"./eu":237,"./eu.js":237,"./fa":238,"./fa.js":238,"./fi":239,"./fi.js":239,"./fo":240,"./fo.js":240,"./fr":241,"./fr-ca":242,"./fr-ca.js":242,"./fr-ch":243,"./fr-ch.js":243,"./fr.js":241,"./fy":244,"./fy.js":244,"./gd":245,"./gd.js":245,"./gl":246,"./gl.js":246,"./gom-latn":247,"./gom-latn.js":247,"./gu":248,"./gu.js":248,"./he":249,"./he.js":249,"./hi":250,"./hi.js":250,"./hr":251,"./hr.js":251,"./hu":252,"./hu.js":252,"./hy-am":253,"./hy-am.js":253,"./id":254,"./id.js":254,"./is":255,"./is.js":255,"./it":256,"./it.js":256,"./ja":257,"./ja.js":257,"./jv":258,"./jv.js":258,"./ka":259,"./ka.js":259,"./kk":260,"./kk.js":260,"./km":261,"./km.js":261,"./kn":262,"./kn.js":262,"./ko":263,"./ko.js":263,"./ky":264,"./ky.js":264,"./lb":265,"./lb.js":265,"./lo":266,"./lo.js":266,"./lt":267,"./lt.js":267,"./lv":268,"./lv.js":268,"./me":269,"./me.js":269,"./mi":270,"./mi.js":270,"./mk":271,"./mk.js":271,"./ml":272,"./ml.js":272,"./mr":273,"./mr.js":273,"./ms":274,"./ms-my":275,"./ms-my.js":275,"./ms.js":274,"./my":276,"./my.js":276,"./nb":277,"./nb.js":277,"./ne":278,"./ne.js":278,"./nl":279,"./nl-be":280,"./nl-be.js":280,"./nl.js":279,"./nn":281,"./nn.js":281,"./pa-in":282,"./pa-in.js":282,"./pl":283,"./pl.js":283,"./pt":284,"./pt-br":285,"./pt-br.js":285,"./pt.js":284,"./ro":286,"./ro.js":286,"./ru":287,"./ru.js":287,"./sd":288,"./sd.js":288,"./se":289,"./se.js":289,"./si":290,"./si.js":290,"./sk":291,"./sk.js":291,"./sl":292,"./sl.js":292,"./sq":293,"./sq.js":293,"./sr":294,"./sr-cyrl":295,"./sr-cyrl.js":295,"./sr.js":294,"./ss":296,"./ss.js":296,"./sv":297,"./sv.js":297,"./sw":298,"./sw.js":298,"./ta":299,"./ta.js":299,"./te":300,"./te.js":300,"./tet":301,"./tet.js":301,"./th":302,"./th.js":302,"./tl-ph":303,"./tl-ph.js":303,"./tlh":304,"./tlh.js":304,"./tr":305,"./tr.js":305,"./tzl":306,"./tzl.js":306,"./tzm":307,"./tzm-latn":308,"./tzm-latn.js":308,"./tzm.js":307,"./uk":309,"./uk.js":309,"./ur":310,"./ur.js":310,"./uz":311,"./uz-latn":312,"./uz-latn.js":312,"./uz.js":311,"./vi":313,"./vi.js":313,"./x-pseudo":314,"./x-pseudo.js":314,"./yo":315,"./yo.js":315,"./zh-cn":316,"./zh-cn.js":316,"./zh-hk":317,"./zh-hk.js":317,"./zh-tw":318,"./zh-tw.js":318};t.keys=function(){return Object.keys(i)},t.resolve=u,l.exports=t,t.id=382},401:function(l,n){}},[347]);
+webpackJsonp([0],{
+
+/***/ 109:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_doctor__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_patient__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(112);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var LoginPage = (function () {
+    function LoginPage(navCtrl) {
+        this.navCtrl = navCtrl;
+        console.log(__WEBPACK_IMPORTED_MODULE_2__data_doctor__["a" /* Doctors */]);
+    }
+    LoginPage.prototype.selectUser = function (index) {
+        var user;
+        if (index == 1) {
+            user = __WEBPACK_IMPORTED_MODULE_2__data_doctor__["a" /* Doctors */][0];
+        }
+        else if (index == 2) {
+            user = __WEBPACK_IMPORTED_MODULE_3__data_patient__["a" /* Patients */][0];
+        }
+        user.type = index;
+        localStorage.setItem('user', JSON.stringify(user));
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__home_home__["a" /* HomePage */]);
+    };
+    LoginPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-login',template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/login/login.html"*/'<ion-content>\n\n  <div class="fit horizontal layout center center-justified">\n    <div padding style="width: 100%">\n      <div padding>\n        <button ion-button full color="secondary" (click)="selectUser(1)">Account Doctor</button>\n      </div>\n      <div padding>\n        <button ion-button full (click)="selectUser(2)">Account Patient</button>\n      </div>\n    </div>\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/login/login.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]])
+    ], LoginPage);
+    return LoginPage;
+}());
+
+//# sourceMappingURL=login.js.map
+
+/***/ }),
+
+/***/ 110:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Doctors; });
+var Doctors = [
+    {
+        "id": "doctor-01",
+        "name": "Devi Shetty",
+        "image": "./assets/imgs/doctor.jpg",
+        "specialist": "Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"
+    },
+    {
+        "id": "doctor-01",
+        "name": "Devi Shetty",
+        "image": "./assets/imgs/doctor1.jpg",
+        "specialist": "Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"
+    },
+    {
+        "id": "doctor-01",
+        "name": "Devi Shetty",
+        "image": "./assets/imgs/doctor2.jpg",
+        "specialist": "Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"
+    },
+    {
+        "id": "doctor-01",
+        "name": "Devi Shetty",
+        "image": "./assets/imgs/doctor3.jpg",
+        "specialist": "Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"
+    },
+    {
+        "id": "doctor-01",
+        "name": "Devi Shetty",
+        "image": "./assets/imgs/doctor4.jpg",
+        "specialist": "Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"
+    },
+    {
+        "id": "doctor-01",
+        "name": "Devi Shetty",
+        "image": "./assets/imgs/doctor5.jpg",
+        "specialist": "Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"
+    },
+    {
+        "id": "doctor-01",
+        "name": "Devi Shetty",
+        "image": "./assets/imgs/doctor6.jpg",
+        "specialist": "Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"
+    },
+    {
+        "id": "doctor-01",
+        "name": "Devi Shetty",
+        "image": "./assets/imgs/doctor6.jpg",
+        "specialist": "Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"
+    },
+    {
+        "id": "doctor-01",
+        "name": "Devi Shetty",
+        "image": "./assets/imgs/doctor8.jpg",
+        "specialist": "Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"
+    },
+    {
+        "id": "doctor-01",
+        "name": "Devi Shetty",
+        "image": "./assets/imgs/doctor9.jpg",
+        "specialist": "Allergist or Immunologist, Anesthesiologist, Cardiologist, Dermatologist, Gastroenterologist"
+    }
+];
+//# sourceMappingURL=doctor.js.map
+
+/***/ }),
+
+/***/ 111:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Patients; });
+var Patients = [
+    {
+        "id": "patient-01",
+        "name": "Woody",
+        "image": "./assets/imgs/user.jpg"
+    },
+    {
+        "id": "patient-02",
+        "name": "Buzz Lightyear",
+        "image": "./assets/imgs/user1.jpg"
+    },
+    {
+        "id": "patient-03",
+        "name": "Jessie",
+        "image": "./assets/imgs/user2.jpg"
+    },
+    {
+        "id": "patient-01",
+        "name": "Reuben",
+        "image": "./assets/imgs/user3.jpg"
+    },
+    {
+        "id": "patient-01",
+        "name": "Leone Battista",
+        "image": "./assets/imgs/user4.jpg"
+    },
+    {
+        "id": "patient-01",
+        "name": "Sherman",
+        "image": "./assets/imgs/user5.jpg"
+    },
+    {
+        "id": "patient-01",
+        "name": "Alphonse",
+        "image": "./assets/imgs/user6.jpg"
+    },
+    {
+        "id": "patient-01",
+        "name": "Hans Christian",
+        "image": "./assets/imgs/user7.jpg"
+    },
+    {
+        "id": "patient-01",
+        "name": "Sparky",
+        "image": "./assets/imgs/user8.jpg"
+    },
+    {
+        "id": "patient-01",
+        "name": "Beth",
+        "image": "./assets/imgs/user9.jpg"
+    }
+];
+//# sourceMappingURL=patient.js.map
+
+/***/ }),
+
+/***/ 112:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_doctor__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_patient__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__chat_chat__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_util__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_map__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_app_config__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_lodash__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_socket_io_client__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_socket_io_client__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+var self;
+var HomePage = (function () {
+    function HomePage(navCtrl, http, loadingCtrl, events) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.http = http;
+        this.loadingCtrl = loadingCtrl;
+        this.events = events;
+        this.users = [];
+        this.user = {
+            type: null,
+            id: null,
+            name: null
+        };
+        this.tabActive = 1;
+        this.channels = [];
+        this.isLoading = false;
+        var socket = __WEBPACK_IMPORTED_MODULE_11_socket_io_client___default()(__WEBPACK_IMPORTED_MODULE_9__app_app_config__["a" /* Config */].url, {
+            path: '/socket.io-client'
+        });
+        self = this;
+        this.user = JSON.parse(localStorage.getItem('user'));
+        if (this.user.type == 2) {
+            this.users = __WEBPACK_IMPORTED_MODULE_2__data_doctor__["a" /* Doctors */];
+        }
+        else {
+            this.users = __WEBPACK_IMPORTED_MODULE_3__data_patient__["a" /* Patients */];
+        }
+        this.isLoading = true;
+        this.http.get(__WEBPACK_IMPORTED_MODULE_9__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_9__app_app_config__["a" /* Config */].api.user).map(function (res) { return res.json(); })
+            .subscribe(function (response) {
+            __WEBPACK_IMPORTED_MODULE_10_lodash___default.a.forEach(_this.users, function (value) {
+                for (var i = 0; i < response.length; i++) {
+                    if (response[i].name == value.name) {
+                        value._id = response[i]._id;
+                    }
+                }
+            });
+        });
+        this.isLoading = true;
+        this.http.get(__WEBPACK_IMPORTED_MODULE_9__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_9__app_app_config__["a" /* Config */].api.channel, {
+            params: {
+                userId: this.user.id
+            }
+        }).map(function (res) { return res.json(); })
+            .subscribe(function (response) {
+            _this.isLoading = false;
+            response.map(function (channel) {
+                channel = __WEBPACK_IMPORTED_MODULE_6__app_util__["a" /* default */].formatChannel(channel, _this.user);
+                return channel;
+            });
+            _this.channels = response;
+            _this.getBadge();
+            socket.on('channel:save', function (channel) {
+                var isChannel = false;
+                for (var i = 0; i < channel.users.length; i++) {
+                    if (channel.users[i].userId == _this.user.id) {
+                        isChannel = true;
+                        break;
+                    }
+                }
+                if (isChannel) {
+                    channel = __WEBPACK_IMPORTED_MODULE_6__app_util__["a" /* default */].formatChannel(channel, _this.user);
+                    var isCheck = false;
+                    for (var i = 0; i < _this.channels.length; i++) {
+                        if (_this.channels[i]._id == channel._id) {
+                            _this.channels[i] = channel;
+                            _this.events.publish('channel', channel);
+                            isCheck = true;
+                            break;
+                        }
+                    }
+                    if (!isCheck) {
+                        _this.channels.unshift(channel);
+                    }
+                    _this.getBadge();
+                }
+            });
+        }, function (error) { return console.log(error); });
+        self.getUser();
+        document.addEventListener("deviceready", function () {
+            window.plugins.OneSignal.getIds(function (ids) {
+                var token = ids.pushToken;
+                var userPush = ids.userId;
+                if (userPush != self.user.userPush) {
+                    self.user.userPush = userPush;
+                    self.getUser(userPush);
+                }
+                self.user.userPush = userPush;
+                localStorage.setItem('user', self.user);
+                console.log('notification', userPush, token);
+            });
+        });
+    }
+    HomePage.prototype.getUser = function (userPush) {
+        self.http.post(__WEBPACK_IMPORTED_MODULE_9__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_9__app_app_config__["a" /* Config */].api.user, {
+            name: self.user.name,
+            userPush: userPush || null
+        }).map(function (res) { return res.json(); })
+            .subscribe(function (response) {
+            self.user._id = response._id;
+            localStorage.setItem('user', JSON.stringify(self.user));
+            //localStorage.setItem('user', self.user)
+            console.log(self.user);
+        });
+    };
+    HomePage.prototype.switchTab = function (index) {
+        this.tabActive = index;
+    };
+    HomePage.prototype.getBadge = function () {
+        var _this = this;
+        this.read = 0;
+        __WEBPACK_IMPORTED_MODULE_10_lodash___default.a.each(this.channels, function (channel) {
+            _this.read += channel.userShow.read;
+        });
+    };
+    HomePage.prototype.openChat = function (item) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__chat_chat__["a" /* ChatPage */], {
+            user: item
+        });
+    };
+    HomePage.prototype.logOut = function () {
+        localStorage.clear();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
+    };
+    HomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-home',template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-buttons start>\n    </ion-buttons>\n    <ion-title>\n      <div class="horizontal layout center user-info">\n        <div class="home-user flex horizontal layout center">\n          <img src="{{user.image}}" alt="" width="30" height="30" class="user-image">\n          <div class="user-name">{{user.name}}</div>\n        </div>\n      </div>\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button clear style="padding: 0 5px" (click)="logOut()">\n        <ion-icon name="ios-power" style="font-size: 1.8em;"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n\n  <ion-toolbar style="padding-top: 0">\n    <div class="tab-home horizontal layout center">\n      <div class="tab-button-home active" (click)="switchTab(1)" [ngClass]="{\'active\': tabActive == 1}">\n        <ion-icon name="ios-chatbubbles-outline"></ion-icon>\n        Messages\n        <ion-badge color="danger" *ngIf="read">{{read}}</ion-badge>\n      </div>\n      <div class="tab-button-home horizontal layout center center-justified" (click)="switchTab(2)" [ngClass]="{\'active\': tabActive == 2}">\n        <ion-icon name="ios-people-outline"></ion-icon>\n        &nbsp;\n        <span *ngIf="user.type == 1"> Patients</span>\n        <span *ngIf="user.type == 2"> Doctors</span>\n      </div>\n    </div>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div style="padding: 10px 0">\n    <div *ngIf="tabActive == 2">\n      <ion-list>\n        <ion-item *ngFor="let item of users; let i = index; trackBy: index" (click)="openChat(item)">\n          <ion-avatar item-start class="image-thumbnail">\n            <img src="{{item.image}}">\n            <div class="online-status" *ngIf="i == 0"></div>\n          </ion-avatar>\n          <h3>{{item.name}}</h3>\n          <p *ngIf="item.specialist">{{item.specialist}}</p>\n          <p *ngIf="!item.specialist">I need help!!!</p>\n        </ion-item>\n      </ion-list>\n    </div>\n\n    <div *ngIf="tabActive == 1">\n      <div padding class="text-center" *ngIf="isLoading">\n        <ion-spinner></ion-spinner>\n      </div>\n\n      <div class="text-center" padding *ngIf="!this.channels.length && !isLoading">\n        Your don\'t have message!!!\n      </div>\n      <ion-list>\n        <ion-item *ngFor="let item of channels; let i = index; trackBy: index" (click)="openChat(item.userShow)" class="item-channel" [ngClass]="{\'active\': item.userShow.read}">\n          <ion-avatar item-start class="image-thumbnail">\n            <img src="{{item.userShow.image}}">\n            <div class="online-status" *ngIf="i == 0"></div>\n          </ion-avatar>\n          <ion-note item-end class="time-ago">{{item.lastMessageTime | amTimeAgo}}</ion-note>\n          <ion-badge color="danger" class="channel-badge" *ngIf="item.userShow.read">{{item.userShow.read}}</ion-badge>\n\n          <h3>{{item.userShow.name}}</h3>\n          <p>{{item.lastMessage}}</p>\n        </ion-item>\n      </ion-list>\n    </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/home/home.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_7__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */]])
+    ], HomePage);
+    return HomePage;
+}());
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 113:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Config; });
+var Config = {
+    url: 'http://192.168.10.103:8080',
+    oneSignalId: '0aefe444-ad09-494a-b457-2d9febdbf78e',
+    api: {
+        login: '/auth/phone/',
+        user: '/api/users/',
+        upload: '/api/uploads/',
+        channel: '/api/channels/',
+        message: '/api/messages/',
+        turn: '/api/turn/',
+        webrtc: '/api/webrtc/',
+        story: '/api/stories/',
+        feedback: '/api/feedbacks/',
+        qrcode: '/api/qrcode/',
+        socket: '/api/socket/'
+    }
+};
+//# sourceMappingURL=app.config.js.map
+
+/***/ }),
+
+/***/ 126:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 126;
+
+/***/ }),
+
+/***/ 168:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 168;
+
+/***/ }),
+
+/***/ 342:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_config__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_socket_io_client__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_socket_io_client__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__video_modal__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_in_app_browser__ = __webpack_require__(211);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var socket = __WEBPACK_IMPORTED_MODULE_5_socket_io_client___default()(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url, {
+    path: '/socket.io-client'
+});
+var self;
+var peerConnection;
+var peerConnectionConfig = {
+    'iceServers': [{ "url": "stun:global.stun.twilio.com:3478?transport=udp" }, {
+            "url": "turn:global.turn.twilio.com:3478?transport=udp",
+            "username": "4689bcd70bf84954ec2e85b18a193833b7cb0d4d374b963d216b1197785ab7a2",
+            "credential": "p0xKPUOMcY/7IPW/Nf8fdzh5/6WqzVd7rH/y3ZA8tRk="
+        }, {
+            "url": "turn:global.turn.twilio.com:3478?transport=tcp",
+            "username": "4689bcd70bf84954ec2e85b18a193833b7cb0d4d374b963d216b1197785ab7a2",
+            "credential": "p0xKPUOMcY/7IPW/Nf8fdzh5/6WqzVd7rH/y3ZA8tRk="
+        }, {
+            "url": "turn:global.turn.twilio.com:443?transport=tcp",
+            "username": "4689bcd70bf84954ec2e85b18a193833b7cb0d4d374b963d216b1197785ab7a2",
+            "credential": "p0xKPUOMcY/7IPW/Nf8fdzh5/6WqzVd7rH/y3ZA8tRk="
+        }]
+};
+var modal;
+var ChatPage = (function () {
+    function ChatPage(navCtrl, navParams, platform, http, loadingCtrl, iab, events, alertCtrl, _ngZone, modalCtrl) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.platform = platform;
+        this.http = http;
+        this.loadingCtrl = loadingCtrl;
+        this.iab = iab;
+        this.events = events;
+        this.alertCtrl = alertCtrl;
+        this._ngZone = _ngZone;
+        this.modalCtrl = modalCtrl;
+        this.user = {
+            id: null,
+            _id: null
+        };
+        this.myAccount = {
+            id: null,
+            userId: null,
+            _id: null
+        };
+        this.channel = {
+            _id: null,
+            users: []
+        };
+        this.messages = [];
+        this.isLoading = true;
+        this.text = '';
+        this.createAt = '';
+        this.image = '';
+        this.pdf = '';
+        this.video = '';
+        this.audio = '';
+        this.voiceMessage = '';
+        this.sticker = '';
+        this.location = '';
+        this.fileType = '';
+        this._clearMessage = function () {
+            this.text = '';
+            this.createAt = '';
+            this.image = '';
+            this.pdf = '';
+            this.video = '';
+            this.audio = '';
+            this.voiceMessage = '';
+            this.sticker = '';
+            this.location = '';
+            this.fileType = '';
+        };
+        self = this;
+        this.user = this.navParams.get('user');
+        this.myAccount = JSON.parse(localStorage.getItem('user'));
+        this.http.post(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.channel, {
+            from: this.user.id,
+            to: this.myAccount.id,
+            userPush: [this.user._id, this.myAccount._id]
+        }).map(function (res) { return res.json(); })
+            .subscribe(function (response) {
+            _this.channel = response;
+            _this.http.get(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.message, {
+                params: {
+                    channel: _this.channel._id
+                }
+            }).map(function (res) { return res.json(); })
+                .subscribe(function (response) {
+                _this.isLoading = false;
+                _this.messages = response;
+                socket.on('message:save', function (message) {
+                    if (message.from.userId != _this.myAccount.id) {
+                        _this.messages.push(message);
+                    }
+                });
+            });
+            _this.readMessage();
+        });
+        events.subscribe('channel', function (channel) {
+            // user and time are the same arguments passed in `events.publish(user, time)`
+            _this.channel = channel;
+        });
+        events.subscribe('stopCall', function () {
+            self.closeCallUser();
+        });
+        this.http.get(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.turn).map(function (res) { return res.json(); })
+            .subscribe(function (response) {
+            peerConnectionConfig.iceServers = response;
+        });
+        socket.on('webrtc:save', function (message) {
+            if (message.status == 2 && self.myAccount._id == message.to._id) {
+                self.gotMessageFromServer(message);
+            }
+            if (message.status == 3 && self.myAccount._id == message.to._id) {
+                self.closeCallUser(true);
+                self.events.publish('dismiss');
+            }
+            if (message.status == 1 && self.myAccount._id == message.to._id) {
+                var prompt_1 = self.alertCtrl.create({
+                    title: 'Video Call',
+                    message: message.from.name + " Calling you...",
+                    buttons: [
+                        {
+                            text: 'Cancel',
+                            handler: function (data) {
+                                console.log('Cancel clicked');
+                            }
+                        },
+                        {
+                            text: 'Ok',
+                            handler: function (data) {
+                                self.startCallUser(message.from, true);
+                            }
+                        }
+                    ]
+                });
+                prompt_1.present();
+            }
+        });
+        if (this.platform.is('ios')) {
+            //cordova.plugins.Keyboard.disableScroll(true)
+            window.addEventListener('native.keyboardshow', this.keyboardShowHandler);
+            window.addEventListener('native.keyboardhide', this.keyboardHideHandler);
+        }
+    }
+    ChatPage.prototype.keyboardShowHandler = function (e) {
+        this.keyboardHeight = e.keyboardHeight;
+        var header = window.document.getElementById('chat-header');
+        var messages = window.document.getElementById('messages');
+        header.style.top = this.keyboardHeight + 'px';
+        header.style.position = 'fixed';
+        messages.style.paddingTop = this.keyboardHeight + 'px';
+        console.log('Keyboard height is: ' + e.keyboardHeight, header);
+    };
+    ChatPage.prototype.keyboardHideHandler = function (e) {
+        this.keyboardHeight = 0;
+        var header = window.document.getElementById('chat-header');
+        header.style.top = 0 + 'px';
+        header.style.position = 'absolute';
+        var messages = window.document.getElementById('messages');
+        messages.style.paddingTop = 0 + 'px';
+    };
+    ChatPage.prototype.ionViewWillEnter = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.content.scrollToBottom(300);
+        }, 1000);
+    };
+    ChatPage.prototype.uploadFile = function (event) {
+        var _this = this;
+        var file = event.srcElement.files[0];
+        if (!file)
+            return;
+        var loader = this.loadingCtrl.create({
+            content: "Uploading..."
+        });
+        this.fileType = file.type;
+        var formData = new FormData();
+        formData.append('file', file, file.name);
+        var headers = new Headers();
+        headers.append('Content-Type', 'multipart/form-data');
+        headers.append('Accept', 'application/json');
+        this.http.post(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.upload, formData)
+            .map(function (res) { return res.json(); })
+            .subscribe(function (response) {
+            loader.dismiss();
+            if (file.type.indexOf('image') !== -1) {
+                _this.image = __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + '/' + response.path;
+            }
+            else if (file.type.indexOf('video') !== -1) {
+                _this.video = __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + '/' + response.path;
+            }
+            else if (file.type.indexOf('audio') !== -1) {
+                _this.audio = __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + '/' + response.path;
+            }
+            else if (file.type.indexOf('pdf') !== -1) {
+                _this.pdf = __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + '/' + response.path;
+            }
+            _this._sendMessage();
+        }, function (error) { return console.log(error); });
+    };
+    ChatPage.prototype._sendMessage = function () {
+        var _this = this;
+        var params = {
+            from: this.myAccount,
+            channel: this.channel._id,
+            createdAt: new Date(),
+            text: '',
+            image: '',
+            voiceMessage: '',
+            location: '',
+            sticker: '',
+            video: '',
+            audio: '',
+            fileType: '',
+            pdf: '',
+            fromId: this.myAccount._id
+        };
+        params.from.userId = this.myAccount.id;
+        if (this.text) {
+            params.text = this.text;
+        }
+        else {
+            delete params.text;
+        }
+        if (this.image) {
+            params.image = this.image;
+        }
+        else {
+            delete params.image;
+        }
+        if (this.voiceMessage) {
+            params.voiceMessage = this.voiceMessage;
+        }
+        else {
+            delete params.voiceMessage;
+        }
+        if (this.location) {
+            params.location = this.location;
+        }
+        else {
+            delete params.location;
+        }
+        if (this.sticker) {
+            params.sticker = this.sticker;
+        }
+        else {
+            delete params.sticker;
+        }
+        if (this.video) {
+            params.video = this.video;
+        }
+        else {
+            delete params.video;
+        }
+        if (this.audio) {
+            params.audio = this.audio;
+        }
+        else {
+            delete params.audio;
+        }
+        if (this.fileType) {
+            params.fileType = this.fileType;
+        }
+        else {
+            delete params.fileType;
+        }
+        if (this.pdf) {
+            params.pdf = this.pdf;
+        }
+        else {
+            delete params.pdf;
+        }
+        this.messages.push(params);
+        var index = this.messages.length - 1;
+        this._clearMessage();
+        setTimeout(function () {
+            _this.content.scrollToBottom(300);
+        }, 300);
+        this.http.post(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.message, params).map(function (res) { return res.json(); })
+            .subscribe(function (response) {
+            _this.messages[index] = response;
+        });
+    };
+    ;
+    ChatPage.prototype.sendMessage = function () {
+        if (this.text) {
+            this._sendMessage();
+        }
+    };
+    ChatPage.prototype.openFile = function (url) {
+        this.iab.create(url);
+    };
+    ChatPage.prototype.readMessage = function () {
+        var check = false;
+        for (var i = 0; i < this.channel.users.length; i++) {
+            if (this.channel.users[i].userId == this.myAccount.id && this.channel.users[i].read) {
+                check = true;
+                break;
+            }
+        }
+        if (check) {
+            this.http.put(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.channel + this.channel._id, {
+                read: 0,
+                user: this.myAccount.id
+            }).subscribe(function () {
+            });
+        }
+    };
+    ;
+    //Start video call
+    ChatPage.prototype.startCallUser = function (user, isConnecting) {
+        console.log(__WEBPACK_IMPORTED_MODULE_6__video_modal__["a" /* VideoPage */]);
+        modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_6__video_modal__["a" /* VideoPage */]);
+        modal.present();
+        self.receiveUser = user;
+        navigator.webkitGetUserMedia({
+            video: true,
+            audio: true
+        }, function (stream) {
+            self.localStream = stream;
+            self.localStream.src = window.URL.createObjectURL(stream);
+            self.isOpenCall = true;
+            self._ngZone.run(function () {
+                console.log('Outside Done!');
+            });
+            self.events.publish('stream', {
+                localStream: self.localStream,
+                user: user
+            });
+            if (!isConnecting) {
+                self.http.post(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.webrtc, {
+                    to: user,
+                    status: 1,
+                    from: self.myAccount,
+                    option: {
+                        audio: true,
+                        video: true
+                    },
+                }).subscribe(function (res) {
+                    console.log('res', res);
+                });
+            }
+            else {
+                self.connect(true);
+            }
+        }, function (e) {
+            console.log('No live audio input: ' + e);
+        });
+    };
+    ChatPage.prototype.connect = function (isCaller) {
+        peerConnection = new RTCPeerConnection(peerConnectionConfig);
+        peerConnection.onicecandidate = function (event) { return self.gotIceCandidate(event); };
+        peerConnection.onaddstream = function (stream) { return self.gotRemoteStream(stream); };
+        peerConnection.addStream(self.localStream);
+        self._ngZone.run(function () {
+            console.log('Outside Done!');
+        });
+        if (isCaller) {
+            peerConnection.createOffer().then(function (des) { return self.createdDescription(des); }).catch(this.errorHandler);
+            self._ngZone.run(function () {
+                console.log('Outside Done!');
+            });
+        }
+    };
+    ;
+    ChatPage.prototype.gotMessageFromServer = function (message) {
+        var self = this;
+        if (!peerConnection)
+            self.connect(false);
+        var signal = message;
+        // Ignore messages from ourself
+        if (signal.to._id == self.receiveUser._id)
+            return;
+        if (signal.sdp) {
+            peerConnection.setRemoteDescription(new RTCSessionDescription(signal.sdp)).then(function () {
+                // Only create answers in response to offers
+                if (signal.sdp.type == 'offer') {
+                    peerConnection.createAnswer().then(self.createdDescription).catch(self.errorHandler);
+                    self._ngZone.run(function () {
+                        console.log('Outside Done!');
+                    });
+                }
+            }).catch(this.errorHandler);
+        }
+        else if (signal.ice) {
+            peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(self.errorHandler);
+        }
+    };
+    ChatPage.prototype.gotIceCandidate = function (event) {
+        if (event.candidate != null) {
+            console.log(event);
+            self.http.post(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.webrtc, {
+                ice: event.candidate,
+                to: self.receiveUser,
+                status: 2
+            }).subscribe(function (res) {
+                console.log('res', res);
+            });
+        }
+    };
+    ChatPage.prototype.gotRemoteStream = function (event) {
+        console.log('event', event);
+        self.remoteStream = event.stream;
+        self.remoteStream.src = window.URL.createObjectURL(event.stream);
+        self.events.publish('stream', {
+            remoteStream: self.remoteStream
+        });
+        self._ngZone.run(function () {
+            console.log('Outside Done!');
+        });
+    };
+    ChatPage.prototype.createdDescription = function (description) {
+        peerConnection.setLocalDescription(description).then(function () {
+            self.http.post(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.webrtc, {
+                sdp: peerConnection.localDescription,
+                to: self.receiveUser,
+                status: 2
+            }).subscribe(function (res) {
+                console.log('res', res);
+            });
+        }).catch(self.errorHandler);
+    };
+    ChatPage.prototype.errorHandler = function (error) {
+        console.log(error);
+    };
+    ChatPage.prototype.stopMediaTrack = function (stream) {
+        stream.getTracks().forEach(function (track) {
+            track.stop();
+        });
+        stream = null;
+        self._ngZone.run(function () {
+            console.log('Outside Done!');
+        });
+    };
+    ;
+    ChatPage.prototype.closeCallUser = function (isStop) {
+        self.isOpenCall = false;
+        if (self.platform.is('ios')) {
+            self.localStream.stop();
+            self.localStream = null;
+            if (self.remoteStream) {
+                self.remoteStream.stop();
+                self.remoteStream = null;
+            }
+        }
+        else {
+            self.stopMediaTrack(self.localStream);
+            if (self.remoteStream) {
+                self.stopMediaTrack(self.remoteStream);
+            }
+        }
+        if (peerConnection) {
+            peerConnection.close();
+            peerConnection = null;
+        }
+        self._ngZone.run(function () {
+            console.log('Outside Done!');
+        });
+        if (!isStop) {
+            self.http.post(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.webrtc, {
+                to: self.receiveUser,
+                status: 3,
+                from: self.myAccount
+            }).subscribe(function (res) {
+                console.log('res', res);
+            });
+        }
+    };
+    ;
+    //End video call
+    ChatPage.prototype.ngOnDestroy = function () {
+        socket.removeAllListeners('message:save');
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Content */])
+    ], ChatPage.prototype, "content", void 0);
+    ChatPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-chat',template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/chat/chat.html"*/'<ion-header id="chat-header">\n  <ion-navbar>\n    <ion-title>\n      <div class="horizontal layout center header-chat">\n        <img src="{{user.image}}" alt="">\n        <div class="flex">\n          <div class="user-name">{{user.name}}</div>\n          <div class="user-status horizontal layout center"><span class="online-status"></span> Online</div>\n        </div>\n      </div>\n    </ion-title>\n\n    <ion-buttons end>\n      <button ion-button clear item-end style="padding-right: 0" (click)="startCallUser(user, false)">\n        <ion-icon name="ios-videocam" style="font-size: 2.2em;"></ion-icon>\n      </button>\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content id="chat-content">\n  <div padding class="text-center" *ngIf="isLoading">\n    <ion-spinner></ion-spinner>\n  </div>\n  <div class="messages" (click)="readMessage()" id="messages">\n    <ul class="chat">\n      <!--[ngClass]="{\'chat__bubble&#45;&#45;rcvd\': item.from.userId != myAccount.id, \'chat__bubble&#45;&#45;sent\': item.from.userId == myAccount.id, \'chat__bubble&#45;&#45;stop\': index == messages.length - 1 || item.from.userId != data.messages[index + 1].from.userId}"-->\n      <li class="chat__bubble" *ngFor="let item of messages; let i = index; trackBy: index" [ngClass]="{\'chat__bubble--rcvd\': item.from.userId != myAccount.id, \'chat__bubble--sent\': item.from.userId == myAccount.id, \'chat__bubble--stop\': (i == messages.length - 1) || i < messages.length && item.from.userId != messages[i + 1].from.userId, \'no-bg\': item.image || item.pdf || item.video || item.audio || item.voiceMessage}">\n        <div *ngIf="item.from.userId != myAccount.id">\n          <img src="{{item.from.image}}" alt="" *ngIf="i == (messages.length - 1) || i < messages.length && item.from.userId != messages[i + 1].from.userId" class="message-user-avatar">\n        </div>\n        <div *ngIf="item.text" class="message-text">{{item.text}}</div>\n        <div *ngIf="item.image" class="message-image">\n          <img src="{{item.image}}" alt="">\n        </div>\n\n        <div *ngIf="item.pdf" class="message-pdf">\n          <div class="file-pdf" (click)="openFile(item.pdf)">\n            Click Open File PDF <ion-icon name="ios-document-outline"></ion-icon>\n          </div>\n        </div>\n\n        <div *ngIf="item.audio" class="message-audio">\n          <audio controls [src]="item.audio | safe:\'url\'"></audio>\n        </div>\n\n        <div *ngIf="item.video" class="message-video">\n          <video controls [src]="item.video | safe:\'url\'"></video>\n        </div>\n        <!--<div style="width: 100%; min-width: 230px" ng-if="item.audio">-->\n\n        <!--<audio ng-src="{{item.audio | trustUrl}}" controls ></audio>-->\n        <!--</div>-->\n\n        <!--<img ng-src="{{item.sticker}}" alt="" class="img-responsive" ng-if="item.sticker">-->\n\n        <!--<div class="message-time" ng-show="item.showTime || $index == data.messages.length - 1">{{item.createdAt |-->\n        <!--date:\'short\'}}-->\n        <!--</div>-->\n\n      </li>\n\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd chat__bubble&#45;&#45;stop">What are you up to?</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">Not much.</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">Just writing some CSS.</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">I just LOVE writing CSS.</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent chat__bubble&#45;&#45;stop">Do you?</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd">Yeah!</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd">It\'s super fun.</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd chat__bubble&#45;&#45;stop">... SUPER fun.</li>-->\n    </ul>\n  </div>\n\n</ion-content>\n<ion-footer class="horizontal layout center chat-footer">\n  <input type="file" accept="*" #file\n         style="visibility: hidden; position: fixed; z-index: -99999" (change)="uploadFile($event)">\n  <button clear icon-start ion-button (click)="file.click()" class="first-child">\n    <ion-icon name="ios-add-circle"></ion-icon>\n  </button>\n  <input type="text" placeholder="Text message..." class="flex" [(ngModel)]="text">\n  <button clear icon-start ion-button (click)="sendMessage()">\n    <ion-icon name="ios-send"></ion-icon>\n  </button>\n</ion-footer>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/chat/chat.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_in_app_browser__["a" /* InAppBrowser */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
+    ], ChatPage);
+    return ChatPage;
+}());
+
+//# sourceMappingURL=chat.js.map
+
+/***/ }),
+
+/***/ 357:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VideoPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(33);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var self;
+var VideoPage = (function () {
+    function VideoPage(platform, params, viewCtrl, events, _ngZone) {
+        this.platform = platform;
+        this.params = params;
+        this.viewCtrl = viewCtrl;
+        this.events = events;
+        this._ngZone = _ngZone;
+        self = this;
+        events.subscribe('stream', function (stream) {
+            console.log(stream);
+            if (stream.localStream)
+                self.localStream = stream.localStream;
+            if (stream.remoteStream)
+                self.remoteStream = stream.remoteStream;
+            if (stream.user)
+                self.user = stream.user;
+            // user and time are the same arguments passed in `events.publish(user, time)`
+        });
+        events.subscribe('dismiss', function (stream) {
+            console.log(stream);
+            self.closeCall(true);
+            // user and time are the same arguments passed in `events.publish(user, time)`
+        });
+    }
+    VideoPage.prototype.stopMediaTrack = function (stream) {
+        stream.getTracks().forEach(function (track) {
+            track.stop();
+        });
+        stream = null;
+        self._ngZone.run(function () {
+            console.log('Outside Done!');
+        });
+    };
+    ;
+    VideoPage.prototype.closeCall = function (boolean) {
+        if (self.platform.is('ios')) {
+            self.localStream.stop();
+            self.localStream = null;
+            if (self.remoteStream) {
+                self.remoteStream.stop();
+                self.remoteStream = null;
+            }
+        }
+        else {
+            self.stopMediaTrack(self.localStream);
+            if (self.remoteStream) {
+                self.stopMediaTrack(self.remoteStream);
+            }
+        }
+        if (!boolean) {
+            this.events.publish('stopCall');
+        }
+        this.viewCtrl.dismiss();
+    };
+    VideoPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-video',template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/video/modal.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Video Call\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button clear item-end style="padding-right: 0" (click)="closeCall()">\n        <ion-icon name="ios-close-circle-outline" style="font-size: 3.2em; color: #fff"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content style="overflow: hidden" class="horizontal layout center center-justified">\n  <div *ngIf="!remoteStream && user">\n    Calling {{user.name}}...\n  </div>\n  <div *ngIf="remoteStream">\n    <video [src]="remoteStream.src | safe:\'url\'" autoplay style="width: 100%; height: 100%"></video>\n  </div>\n</ion-content>\n\n<ion-footer>\n  <div class="horizontal layout">\n    <div class="flex"></div>\n    <video [src]="localStream.src | safe:\'url\'" autoplay muted style="height: 80px; width: auto; margin-bottom: 5px; margin-right: 5px" *ngIf="localStream"></video>\n\n  </div>\n</ion-footer>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/video/modal.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]])
+    ], VideoPage);
+    return VideoPage;
+}());
+
+//# sourceMappingURL=modal.js.map
+
+/***/ }),
+
+/***/ 359:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(383);
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 383:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_in_app_browser__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular2_moment__ = __webpack_require__(433);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_angular2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pipe__ = __webpack_require__(437);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_component__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_home_home__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_chat_chat__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_video_modal__ = __webpack_require__(357);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_chat_chat__["a" /* ChatPage */],
+                __WEBPACK_IMPORTED_MODULE_9__pipe__["a" /* SafePipe */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_video_modal__["a" /* VideoPage */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */], {}, {
+                    links: []
+                }),
+                __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_8_angular2_moment__["MomentModule"]
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicApp */]],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_chat_chat__["a" /* ChatPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_video_modal__["a" /* VideoPage */]
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_7__ionic_native_in_app_browser__["a" /* InAppBrowser */]
+            ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_9__pipe__["a" /* SafePipe */]
+            ]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 434:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./af": 213,
+	"./af.js": 213,
+	"./ar": 214,
+	"./ar-dz": 215,
+	"./ar-dz.js": 215,
+	"./ar-kw": 216,
+	"./ar-kw.js": 216,
+	"./ar-ly": 217,
+	"./ar-ly.js": 217,
+	"./ar-ma": 218,
+	"./ar-ma.js": 218,
+	"./ar-sa": 219,
+	"./ar-sa.js": 219,
+	"./ar-tn": 220,
+	"./ar-tn.js": 220,
+	"./ar.js": 214,
+	"./az": 221,
+	"./az.js": 221,
+	"./be": 222,
+	"./be.js": 222,
+	"./bg": 223,
+	"./bg.js": 223,
+	"./bm": 224,
+	"./bm.js": 224,
+	"./bn": 225,
+	"./bn.js": 225,
+	"./bo": 226,
+	"./bo.js": 226,
+	"./br": 227,
+	"./br.js": 227,
+	"./bs": 228,
+	"./bs.js": 228,
+	"./ca": 229,
+	"./ca.js": 229,
+	"./cs": 230,
+	"./cs.js": 230,
+	"./cv": 231,
+	"./cv.js": 231,
+	"./cy": 232,
+	"./cy.js": 232,
+	"./da": 233,
+	"./da.js": 233,
+	"./de": 234,
+	"./de-at": 235,
+	"./de-at.js": 235,
+	"./de-ch": 236,
+	"./de-ch.js": 236,
+	"./de.js": 234,
+	"./dv": 237,
+	"./dv.js": 237,
+	"./el": 238,
+	"./el.js": 238,
+	"./en-au": 239,
+	"./en-au.js": 239,
+	"./en-ca": 240,
+	"./en-ca.js": 240,
+	"./en-gb": 241,
+	"./en-gb.js": 241,
+	"./en-ie": 242,
+	"./en-ie.js": 242,
+	"./en-nz": 243,
+	"./en-nz.js": 243,
+	"./eo": 244,
+	"./eo.js": 244,
+	"./es": 245,
+	"./es-do": 246,
+	"./es-do.js": 246,
+	"./es-us": 247,
+	"./es-us.js": 247,
+	"./es.js": 245,
+	"./et": 248,
+	"./et.js": 248,
+	"./eu": 249,
+	"./eu.js": 249,
+	"./fa": 250,
+	"./fa.js": 250,
+	"./fi": 251,
+	"./fi.js": 251,
+	"./fo": 252,
+	"./fo.js": 252,
+	"./fr": 253,
+	"./fr-ca": 254,
+	"./fr-ca.js": 254,
+	"./fr-ch": 255,
+	"./fr-ch.js": 255,
+	"./fr.js": 253,
+	"./fy": 256,
+	"./fy.js": 256,
+	"./gd": 257,
+	"./gd.js": 257,
+	"./gl": 258,
+	"./gl.js": 258,
+	"./gom-latn": 259,
+	"./gom-latn.js": 259,
+	"./gu": 260,
+	"./gu.js": 260,
+	"./he": 261,
+	"./he.js": 261,
+	"./hi": 262,
+	"./hi.js": 262,
+	"./hr": 263,
+	"./hr.js": 263,
+	"./hu": 264,
+	"./hu.js": 264,
+	"./hy-am": 265,
+	"./hy-am.js": 265,
+	"./id": 266,
+	"./id.js": 266,
+	"./is": 267,
+	"./is.js": 267,
+	"./it": 268,
+	"./it.js": 268,
+	"./ja": 269,
+	"./ja.js": 269,
+	"./jv": 270,
+	"./jv.js": 270,
+	"./ka": 271,
+	"./ka.js": 271,
+	"./kk": 272,
+	"./kk.js": 272,
+	"./km": 273,
+	"./km.js": 273,
+	"./kn": 274,
+	"./kn.js": 274,
+	"./ko": 275,
+	"./ko.js": 275,
+	"./ky": 276,
+	"./ky.js": 276,
+	"./lb": 277,
+	"./lb.js": 277,
+	"./lo": 278,
+	"./lo.js": 278,
+	"./lt": 279,
+	"./lt.js": 279,
+	"./lv": 280,
+	"./lv.js": 280,
+	"./me": 281,
+	"./me.js": 281,
+	"./mi": 282,
+	"./mi.js": 282,
+	"./mk": 283,
+	"./mk.js": 283,
+	"./ml": 284,
+	"./ml.js": 284,
+	"./mr": 285,
+	"./mr.js": 285,
+	"./ms": 286,
+	"./ms-my": 287,
+	"./ms-my.js": 287,
+	"./ms.js": 286,
+	"./my": 288,
+	"./my.js": 288,
+	"./nb": 289,
+	"./nb.js": 289,
+	"./ne": 290,
+	"./ne.js": 290,
+	"./nl": 291,
+	"./nl-be": 292,
+	"./nl-be.js": 292,
+	"./nl.js": 291,
+	"./nn": 293,
+	"./nn.js": 293,
+	"./pa-in": 294,
+	"./pa-in.js": 294,
+	"./pl": 295,
+	"./pl.js": 295,
+	"./pt": 296,
+	"./pt-br": 297,
+	"./pt-br.js": 297,
+	"./pt.js": 296,
+	"./ro": 298,
+	"./ro.js": 298,
+	"./ru": 299,
+	"./ru.js": 299,
+	"./sd": 300,
+	"./sd.js": 300,
+	"./se": 301,
+	"./se.js": 301,
+	"./si": 302,
+	"./si.js": 302,
+	"./sk": 303,
+	"./sk.js": 303,
+	"./sl": 304,
+	"./sl.js": 304,
+	"./sq": 305,
+	"./sq.js": 305,
+	"./sr": 306,
+	"./sr-cyrl": 307,
+	"./sr-cyrl.js": 307,
+	"./sr.js": 306,
+	"./ss": 308,
+	"./ss.js": 308,
+	"./sv": 309,
+	"./sv.js": 309,
+	"./sw": 310,
+	"./sw.js": 310,
+	"./ta": 311,
+	"./ta.js": 311,
+	"./te": 312,
+	"./te.js": 312,
+	"./tet": 313,
+	"./tet.js": 313,
+	"./th": 314,
+	"./th.js": 314,
+	"./tl-ph": 315,
+	"./tl-ph.js": 315,
+	"./tlh": 316,
+	"./tlh.js": 316,
+	"./tr": 317,
+	"./tr.js": 317,
+	"./tzl": 318,
+	"./tzl.js": 318,
+	"./tzm": 319,
+	"./tzm-latn": 320,
+	"./tzm-latn.js": 320,
+	"./tzm.js": 319,
+	"./uk": 321,
+	"./uk.js": 321,
+	"./ur": 322,
+	"./ur.js": 322,
+	"./uz": 323,
+	"./uz-latn": 324,
+	"./uz-latn.js": 324,
+	"./uz.js": 323,
+	"./vi": 325,
+	"./vi.js": 325,
+	"./x-pseudo": 326,
+	"./x-pseudo.js": 326,
+	"./yo": 327,
+	"./yo.js": 327,
+	"./zh-cn": 328,
+	"./zh-cn.js": 328,
+	"./zh-hk": 329,
+	"./zh-hk.js": 329,
+	"./zh-tw": 330,
+	"./zh-tw.js": 330
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 434;
+
+/***/ }),
+
+/***/ 437:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SafePipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(23);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SafePipe = (function () {
+    function SafePipe(_sanitizer) {
+        this._sanitizer = _sanitizer;
+    }
+    SafePipe.prototype.transform = function (value, type) {
+        switch (type) {
+            case 'html':
+                return this._sanitizer.bypassSecurityTrustHtml(value);
+            case 'style':
+                return this._sanitizer.bypassSecurityTrustStyle(value);
+            case 'script':
+                return this._sanitizer.bypassSecurityTrustScript(value);
+            case 'url':
+                return this._sanitizer.bypassSecurityTrustUrl(value);
+            case 'resourceUrl':
+                return this._sanitizer.bypassSecurityTrustResourceUrl(value);
+            default:
+                throw new Error("Unable to bypass security for invalid type: " + type);
+        }
+    };
+    SafePipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+            name: 'safe'
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */]])
+    ], SafePipe);
+    return SafePipe;
+}());
+
+//# sourceMappingURL=pipe.js.map
+
+/***/ }),
+
+/***/ 455:
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 458:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_doctor__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_patient__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash__);
+
+
+
+function formatChannel(channel, user) {
+    var userId;
+    var read = 0;
+    for (var i = 0; i < channel.users.length; i++) {
+        if (channel.users[i].userId != user.id) {
+            userId = channel.users[i].userId;
+        }
+        else {
+            read = channel.users[i].read;
+        }
+    }
+    if (userId.indexOf('doctor') !== -1) {
+        channel.userShow = __WEBPACK_IMPORTED_MODULE_2_lodash___default.a.find(__WEBPACK_IMPORTED_MODULE_0__data_doctor__["a" /* Doctors */], { id: userId });
+        channel.userShow.read = read;
+    }
+    else if (userId.indexOf('patient') !== -1) {
+        channel.userShow = __WEBPACK_IMPORTED_MODULE_2_lodash___default.a.find(__WEBPACK_IMPORTED_MODULE_1__data_patient__["a" /* Patients */], { id: userId });
+        channel.userShow.read = read;
+    }
+    return channel;
+}
+/* harmony default export */ __webpack_exports__["a"] = ({
+    formatChannel: formatChannel
+});
+//# sourceMappingURL=util.js.map
+
+/***/ }),
+
+/***/ 459:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_config__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(112);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var MyApp = (function () {
+    function MyApp(platform, statusBar, splashScreen) {
+        var user = JSON.parse(localStorage.getItem('user'));
+        if (user)
+            this.rootPage = __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */];
+        else
+            this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_login_login__["a" /* LoginPage */];
+        platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            statusBar.styleDefault();
+            splashScreen.hide();
+            var notificationOpenedCallback = function (jsonData) {
+                console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+                if (jsonData.notification.payload.additionalData.channel) {
+                    //$state.go('app.chatDetail', {id: jsonData.notification.payload.additionalData.channel})
+                }
+            };
+            document.addEventListener("deviceready", function () {
+                window.plugins.OneSignal
+                    .startInit(__WEBPACK_IMPORTED_MODULE_4__app_config__["a" /* Config */].oneSignalId)
+                    .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.Notification)
+                    .handleNotificationOpened(notificationOpenedCallback)
+                    .endInit();
+                console.log(window.plugins.OneSignal);
+            });
+        });
+    }
+    MyApp = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/app/app.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    ], MyApp);
+    return MyApp;
+}());
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ })
+
+},[359]);
+//# sourceMappingURL=main.js.map

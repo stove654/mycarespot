@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Video Call
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button clear item-end style="padding-right: 0" (click)="closeCall()">
+        <ion-icon name="ios-close-circle-outline" style="font-size: 3.2em; color: #fff"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="overflow: hidden" class="horizontal layout center center-justified">
+  <div *ngIf="!remoteStream && user">
+    Calling {{user.name}}...
+  </div>
+  <div *ngIf="remoteStream">
+    <video [src]="remoteStream.src | safe:'url'" autoplay style="width: 100%; height: 100%"></video>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="horizontal layout">
+    <div class="flex"></div>
+    <video [src]="localStream.src | safe:'url'" autoplay muted style="height: 80px; width: auto; margin-bottom: 5px; margin-right: 5px" *ngIf="localStream"></video>
+
+  </div>
+</ion-footer>

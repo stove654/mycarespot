@@ -11,7 +11,7 @@
     </ion-title>
 
     <ion-buttons end>
-      <button ion-button clear item-end style="padding-right: 0">
+      <button ion-button clear item-end style="padding-right: 0" (click)="startCallUser(user, false)">
         <ion-icon name="ios-videocam" style="font-size: 2.2em;"></ion-icon>
       </button>
     </ion-buttons>
@@ -74,7 +74,7 @@
 
 </ion-content>
 <ion-footer class="horizontal layout center chat-footer">
-  <input type="file" accept="image/*, application/pdf, video/*, audio/*" #file
+  <input type="file" accept="*" #file
          style="visibility: hidden; position: fixed; z-index: -99999" (change)="uploadFile($event)">
   <button clear icon-start ion-button (click)="file.click()" class="first-child">
     <ion-icon name="ios-add-circle"></ion-icon>
