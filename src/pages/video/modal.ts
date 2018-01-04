@@ -49,14 +49,18 @@ export class VideoPage {
 
   closeCall(boolean) {
     if (self.platform.is('ios')) {
-      self.localStream.stop();
-      self.localStream = null;
       if (self.remoteStream) {
         self.remoteStream.stop();
         self.remoteStream = null;
       }
+      if (self.localStream) {
+        self.localStream.stop();
+        self.localStream = null;
+      }
     } else {
-      self.stopMediaTrack(self.localStream);
+      if (self.localStream) {
+        self.stopMediaTrack(self.localStream);
+      }
       if (self.remoteStream) {
         self.stopMediaTrack(self.remoteStream);
       }
