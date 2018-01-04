@@ -371,7 +371,7 @@ var HomePage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Config; });
 var Config = {
-    url: 'http://192.168.10.103:8080',
+    url: 'http://192.168.10.106:8080',
     oneSignalId: '0aefe444-ad09-494a-b457-2d9febdbf78e',
     api: {
         login: '/auth/phone/',
@@ -600,6 +600,29 @@ var ChatPage = (function () {
             window.addEventListener('native.keyboardshow', this.keyboardShowHandler);
             window.addEventListener('native.keyboardhide', this.keyboardHideHandler);
         }
+        document.addEventListener("deviceready", function () {
+            if (self.platform.is('android')) {
+                var checkPermissionCallback = function (status) {
+                    console.log('status', status);
+                    if (!status.hasPermission) {
+                        var errorCallback_1 = function () {
+                            console.log('Camera permission is not turned on, please open setting on your device!');
+                        };
+                        permissions_1.requestPermissions(listPer_1, function (status) {
+                            if (!status.hasPermission)
+                                errorCallback_1();
+                        }, errorCallback_1);
+                    }
+                };
+                var permissions_1 = cordova.plugins.permissions;
+                var listPer_1 = [
+                    permissions_1.CAMERA,
+                    permissions_1.RECORD_AUDIO
+                ];
+                permissions_1.checkPermission(listPer_1, checkPermissionCallback, null);
+                console.log('permissions', permissions_1);
+            }
+        });
     }
     ChatPage.prototype.keyboardShowHandler = function (e) {
         this.keyboardHeight = e.keyboardHeight;
@@ -772,10 +795,75 @@ var ChatPage = (function () {
         modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_6__video_modal__["a" /* VideoPage */]);
         modal.present();
         self.receiveUser = user;
-        navigator.webkitGetUserMedia({
+        if (self.platform.is('ios')) {
+            self._callVideo({ video: true, audio: true }, isConnecting, user);
+            // cordova.plugins.iosrtc.getUserMedia(
+            //   // constraints
+            //   { audio: true, video: true },
+            //   // success callback
+            //   function (stream) {
+            //     self.localStream = stream;
+            //     self.localStream.src = window.URL.createObjectURL(stream);
+            //     self.isOpenCall = true;
+            //     self._ngZone.run(() => {
+            //       console.log('Outside Done!');
+            //     });
+            //     self.events.publish('stream', {
+            //       localStream: self.localStream,
+            //       user: user
+            //     });
+            //     if (!isConnecting) {
+            //
+            //       self.http.post(Config.url + Config.api.webrtc, {
+            //         to: user,
+            //         status: 1,
+            //         from: self.myAccount,
+            //         option: {
+            //           audio: true,
+            //           video: true
+            //         },
+            //       }).subscribe(res => {
+            //         console.log('res', res);
+            //       })
+            //     } else {
+            //       self.connect(true)
+            //     }
+            //   },
+            //   // failure callback
+            //   function (error) {
+            //     console.error('getUserMedia failed: ', error);
+            //   }
+            // )
+        }
+        else {
+            navigator.mediaDevices.enumerateDevices()
+                .then(function (devices) {
+                var deviceId;
+                for (var i = 0; i < devices.length; i++) {
+                    if (devices[i].kind == 'videoinput') {
+                        deviceId = devices[i].deviceId;
+                        break;
+                    }
+                }
+                var constraints = {
+                    audio: true,
+                    video: {
+                        mandatory: {},
+                        optional: [{
+                                sourceId: deviceId
+                            }]
+                    }
+                };
+                self._callVideo(constraints, isConnecting, user);
+            });
+        }
+    };
+    ChatPage.prototype._callVideo = function (option, isConnecting, user) {
+        option = option || {
             video: true,
             audio: true
-        }, function (stream) {
+        };
+        navigator.webkitGetUserMedia(option, function (stream) {
             self.localStream = stream;
             self.localStream.src = window.URL.createObjectURL(stream);
             self.isOpenCall = true;
@@ -806,8 +894,15 @@ var ChatPage = (function () {
             console.log('No live audio input: ' + e);
         });
     };
+    ;
     ChatPage.prototype.connect = function (isCaller) {
-        peerConnection = new RTCPeerConnection(peerConnectionConfig);
+        if (self.platform.is('ios')) {
+            peerConnection = new window.RTCPeerConnection(peerConnectionConfig);
+        }
+        else {
+            peerConnection = new RTCPeerConnection(peerConnectionConfig);
+        }
+        //peerConnection = new RTCPeerConnection(peerConnectionConfig);
         peerConnection.onicecandidate = function (event) { return self.gotIceCandidate(event); };
         peerConnection.onaddstream = function (stream) { return self.gotRemoteStream(stream); };
         peerConnection.addStream(self.localStream);
@@ -1550,6 +1645,17 @@ var MyApp = (function () {
                     .handleNotificationOpened(notificationOpenedCallback)
                     .endInit();
                 console.log(window.plugins.OneSignal);
+                if (platform.is('ios')) {
+                    console.log('2222');
+                    cordova.plugins.iosrtc.registerGlobals();
+                    console.log(cordova.plugins.iosrtc);
+                    // load adapter.js
+                    var script = document.createElement("script");
+                    script.type = "text/javascript";
+                    script.src = "js/adapter-latest.js";
+                    script.async = false;
+                    document.getElementsByTagName("head")[0].appendChild(script);
+                }
             });
         });
     }

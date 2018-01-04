@@ -1,12 +1,22 @@
 import {Component, ViewChild, NgZone} from '@angular/core';
-import {NavController, NavParams, Platform, LoadingController, Content, Events, AlertController, ModalController} from 'ionic-angular';
+import {
+  NavController,
+  NavParams,
+  Platform,
+  LoadingController,
+  Content,
+  Events,
+  AlertController,
+  ModalController
+} from 'ionic-angular';
 import {Http} from '@angular/http';
 import {Config} from '../../app/app.config';
 import 'rxjs/add/operator/map';
 import io from 'socket.io-client';
-import { VideoPage } from '../video/modal';
+import {VideoPage} from '../video/modal';
 
 import {InAppBrowser} from '@ionic-native/in-app-browser';
+
 declare let cordova: any;
 declare let localStorage: any;
 
@@ -35,6 +45,7 @@ let peerConnectionConfig = {
   }]
 };
 let modal;
+
 @Component({
   selector: 'page-chat',
   templateUrl: 'chat.html'
@@ -152,6 +163,7 @@ export class ChatPage {
         prompt.present();
       }
 
+
     });
 
     if (this.platform.is('ios')) {
@@ -159,6 +171,34 @@ export class ChatPage {
       window.addEventListener('native.keyboardshow', this.keyboardShowHandler);
       window.addEventListener('native.keyboardhide', this.keyboardHideHandler);
     }
+
+    document.addEventListener("deviceready", function () {
+      if (self.platform.is('android')) {
+        let checkPermissionCallback = function (status) {
+          console.log('status', status)
+          if (!status.hasPermission) {
+            let errorCallback = function () {
+              console.log('Camera permission is not turned on, please open setting on your device!');
+            }
+
+            permissions.requestPermissions(
+              listPer,
+              function (status) {
+                if (!status.hasPermission) errorCallback();
+              },
+              errorCallback);
+          }
+        }
+        let permissions = cordova.plugins.permissions;
+        let listPer = [
+          permissions.CAMERA,
+          permissions.RECORD_AUDIO
+        ]
+        permissions.checkPermission(listPer, checkPermissionCallback, null);
+        console.log('permissions', permissions)
+      }
+
+    })
   }
 
   keyboardShowHandler(e) {
@@ -354,10 +394,77 @@ export class ChatPage {
 
     self.receiveUser = user;
 
-    navigator.webkitGetUserMedia({
+    if (self.platform.is('ios')) {
+      self._callVideo({video: true, audio: true}, isConnecting, user)
+
+      // cordova.plugins.iosrtc.getUserMedia(
+      //   // constraints
+      //   { audio: true, video: true },
+      //   // success callback
+      //   function (stream) {
+      //     self.localStream = stream;
+      //     self.localStream.src = window.URL.createObjectURL(stream);
+      //     self.isOpenCall = true;
+      //     self._ngZone.run(() => {
+      //       console.log('Outside Done!');
+      //     });
+      //     self.events.publish('stream', {
+      //       localStream: self.localStream,
+      //       user: user
+      //     });
+      //     if (!isConnecting) {
+      //
+      //       self.http.post(Config.url + Config.api.webrtc, {
+      //         to: user,
+      //         status: 1,
+      //         from: self.myAccount,
+      //         option: {
+      //           audio: true,
+      //           video: true
+      //         },
+      //       }).subscribe(res => {
+      //         console.log('res', res);
+      //       })
+      //     } else {
+      //       self.connect(true)
+      //     }
+      //   },
+      //   // failure callback
+      //   function (error) {
+      //     console.error('getUserMedia failed: ', error);
+      //   }
+      // )
+    } else {
+      navigator.mediaDevices.enumerateDevices()
+        .then(function (devices) {
+          let deviceId;
+          for (let i = 0; i < devices.length; i++) {
+            if (devices[i].kind == 'videoinput') {
+              deviceId = devices[i].deviceId;
+              break;
+            }
+          }
+          let constraints = {
+            audio: true,
+            video: {
+              mandatory: {},
+              optional: [{
+                sourceId: deviceId
+              }]
+            }
+          };
+          self._callVideo(constraints, isConnecting, user)
+        })
+    }
+  }
+
+  _callVideo(option, isConnecting, user) {
+    option = option || {
       video: true,
       audio: true
-    }, function (stream) {
+    };
+
+    navigator.webkitGetUserMedia(option, function (stream) {
       self.localStream = stream;
       self.localStream.src = window.URL.createObjectURL(stream);
       self.isOpenCall = true;
@@ -387,11 +494,18 @@ export class ChatPage {
     }, function (e) {
       console.log('No live audio input: ' + e);
     });
-  }
+  };
 
   connect(isCaller) {
+    if (self.platform.is('ios')) {
+      peerConnection = new window.RTCPeerConnection(peerConnectionConfig)
 
-    peerConnection = new RTCPeerConnection(peerConnectionConfig);
+    } else {
+      peerConnection = new RTCPeerConnection(peerConnectionConfig);
+
+    }
+    //peerConnection = new RTCPeerConnection(peerConnectionConfig);
+
     peerConnection.onicecandidate = (event) => self.gotIceCandidate(event);
     peerConnection.onaddstream = (stream) => self.gotRemoteStream(stream);
     peerConnection.addStream(self.localStream);

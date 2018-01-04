@@ -14,6 +14,7 @@ let self;
 
 declare let localStorage:any;
 declare let window:any;
+declare let cordova:any;
 
 @Component({
   selector: 'page-home',

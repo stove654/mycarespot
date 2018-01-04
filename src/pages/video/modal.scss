@@ -9,13 +9,13 @@ page-video {
     color: #fff;
   }
 
-  .toolbar-background.toolbar-background-md {
-    background-color: #000;
+  .toolbar-background {
+    background-color: #000 !important;
     box-shadow: none;
   }
 
-  ion-content.content.content-md {
-    background-color: #000;
+  ion-content.content {
+    background-color: #000 !important;
   }
 
   .scroll-content {

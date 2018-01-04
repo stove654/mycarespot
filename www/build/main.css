@@ -26239,14 +26239,14 @@ page-video div {
   color: #fff;
 }
 
-page-video .toolbar-background.toolbar-background-md {
-  background-color: #000;
+page-video .toolbar-background {
+  background-color: #000 !important;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 
-page-video ion-content.content.content-md {
-  background-color: #000;
+page-video ion-content.content {
+  background-color: #000 !important;
 }
 
 page-video .scroll-content {

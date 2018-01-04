@@ -28,10 +28,15 @@
     "android-versions": "^1.2.1",
     "angular2-moment": "^1.7.0",
     "cordova-android": "^7.0.0",
-    "cordova-ios": "~4.5.4",
+    "cordova-ios": "^4.5.4",
+    "cordova-plugin-android-permissions": "^1.0.0",
+    "cordova-plugin-camera": "~4.0.1",
+    "cordova-plugin-crosswalk-webview": "~2.3.0",
     "cordova-plugin-device": "^1.1.4",
     "cordova-plugin-inappbrowser": "^1.7.2",
     "cordova-plugin-ionic-webview": "^1.1.16",
+    "cordova-plugin-iosrtc": "^4.0.2",
+    "cordova-plugin-media": "~5.0.1",
     "cordova-plugin-splashscreen": "^4.0.3",
     "cordova-plugin-whitelist": "^1.3.1",
     "ionic-angular": "3.9.2",
@@ -42,6 +47,7 @@
     "rxjs": "5.5.2",
     "socket.io-client": "^2.0.4",
     "sw-toolbox": "3.6.0",
+    "xcode": "^1.0.0",
     "zone.js": "0.8.18"
   },
   "devDependencies": {
@@ -56,11 +62,28 @@
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
-      "cordova-plugin-inappbrowser": {}
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-crosswalk-webview": {
+        "XWALK_VERSION": "23+",
+        "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+        "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+        "XWALK_MODE": "embedded",
+        "XWALK_MULTIPLEAPK": "true"
+      },
+      "cordova-plugin-camera": {
+        "CAMERA_USAGE_DESCRIPTION": "your usage message",
+        "PHOTOLIBRARY_USAGE_DESCRIPTION": "your usage message"
+      },
+      "cordova-plugin-media": {
+        "MICROPHONE_USAGE_DESCRIPTION": " "
+      },
+      "cordova-plugin-android-permissions": {},
+      "onesignal-cordova-plugin": {},
+      "cordova-plugin-iosrtc": {}
     },
     "platforms": [
-      "ios",
-      "android"
+      "android",
+      "ios"
     ]
   }
 }

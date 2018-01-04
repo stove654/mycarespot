@@ -7,7 +7,7 @@ import { Config } from './app.config';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 //import { ChatPage } from '../pages/chat/chat';
-
+declare let cordova;
 declare let localStorage:any;
 declare let window:any;
 @Component({
@@ -44,7 +44,22 @@ export class MyApp {
           .handleNotificationOpened(notificationOpenedCallback)
           .endInit();
         console.log(window.plugins.OneSignal)
+
+        if (platform.is('ios')) {
+          console.log('2222')
+          cordova.plugins.iosrtc.registerGlobals();
+          console.log( cordova.plugins.iosrtc)
+          // load adapter.js
+          let script = document.createElement("script");
+          script.type = "text/javascript";
+          script.src = "js/adapter-latest.js";
+          script.async = false;
+          document.getElementsByTagName("head")[0].appendChild(script);
+        }
+
       })
+
+
 
     });
   }
