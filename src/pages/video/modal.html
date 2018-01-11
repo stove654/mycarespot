@@ -16,7 +16,7 @@
     Calling {{user.name}}...
   </div>
   <div *ngIf="remoteStream">
-    <video [src]="remoteStream.src | safe:'url'" autoplay style="width: 100%; height: 100%"></video>
+    <video [src]="remoteStream.src | safe:'url'" autoplay style="width: 100%; height: 100%; object-fit: cover;"></video>
   </div>
 </ion-content>
 

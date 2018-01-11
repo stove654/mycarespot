@@ -85,6 +85,7 @@ export class ChatPage {
   };
   localStream: null;
   remoteStream: null;
+  isCalling: false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, public http: Http, public loadingCtrl: LoadingController, private iab: InAppBrowser, public events: Events, public alertCtrl: AlertController, private _ngZone: NgZone, public modalCtrl: ModalController) {
     self = this;
@@ -132,6 +133,7 @@ export class ChatPage {
       })
 
     socket.on('webrtc:save', (message) => {
+      console.log(message);
       if (message.status == 2 && self.myAccount._id == message.to._id) {
         self.gotMessageFromServer(message);
       }
@@ -141,26 +143,32 @@ export class ChatPage {
         self.events.publish('dismiss');
       }
       if (message.status == 1 && self.myAccount._id == message.to._id) {
+        if (!self.isCalling ) {
+          self.isCalling = true;
+          let prompt = self.alertCtrl.create({
+            title: 'Video Call',
+            message: message.from.name + " Calling you...",
+            buttons: [
+              {
+                text: 'Cancel',
+                handler: data => {
+                  console.log('Cancel clicked');
+                  self.isCalling = false;
+                  self.closeCallUser();
+                }
+              },
+              {
+                text: 'Ok',
+                handler: data => {
+                  self.startCallUser(message.from, true)
+                  self.isCalling = false;
+                }
+              }
+            ]
+          });
+          prompt.present();
+        }
 
-        let prompt = self.alertCtrl.create({
-          title: 'Video Call',
-          message: message.from.name + " Calling you...",
-          buttons: [
-            {
-              text: 'Cancel',
-              handler: data => {
-                console.log('Cancel clicked');
-              }
-            },
-            {
-              text: 'Ok',
-              handler: data => {
-                self.startCallUser(message.from, true)
-              }
-            }
-          ]
-        });
-        prompt.present();
       }
 
 
@@ -599,7 +607,7 @@ export class ChatPage {
   };
 
   closeCallUser(isStop) {
-    self.isOpenCall = false
+    self.isOpenCall = false;
     if (self.platform.is('ios')) {
 
       if (self.remoteStream) {
