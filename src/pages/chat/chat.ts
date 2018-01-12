@@ -650,5 +650,6 @@ export class ChatPage {
 
   ngOnDestroy() {
     socket.removeAllListeners('message:save');
+    socket.removeAllListeners('webrtc:save');
   }
 }
