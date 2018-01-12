@@ -26116,6 +26116,7 @@ page-chat .file-pdf {
   padding: 10px;
   border-radius: 5px;
   color: #000;
+  display: block;
 }
 
 page-chat .message-audio audio {

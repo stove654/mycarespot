@@ -373,8 +373,7 @@ export class ChatPage {
   }
 
   openFile(url) {
-    this.iab.create(url);
-
+    this.iab.create(url,'_system', "location=yes");
   }
 
   readMessage() {
