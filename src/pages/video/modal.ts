@@ -70,5 +70,6 @@ export class VideoPage {
       this.events.publish('stopCall');
     }
     this.viewCtrl.dismiss();
+
   }
 }

@@ -45,6 +45,7 @@ let peerConnectionConfig = {
   }]
 };
 let modal;
+let prompt;
 
 @Component({
   selector: 'page-chat',
@@ -124,6 +125,12 @@ export class ChatPage {
 
     events.subscribe('stopCall', () => {
       self.closeCallUser()
+      self.http.post(Config.url + Config.api.webrtc, {
+        to: self.receiveUser,
+        status: 4
+      }).subscribe(res => {
+        console.log('res', res);
+      })
     });
 
 
@@ -134,6 +141,9 @@ export class ChatPage {
 
     socket.on('webrtc:save', (message) => {
       console.log(message);
+      if (!message.to) {
+        message.to = {}
+      }
       if (message.status == 2 && self.myAccount._id == message.to._id) {
         self.gotMessageFromServer(message);
       }
@@ -145,7 +155,7 @@ export class ChatPage {
       if (message.status == 1 && self.myAccount._id == message.to._id) {
         if (!self.isCalling ) {
           self.isCalling = true;
-          let prompt = self.alertCtrl.create({
+          prompt = self.alertCtrl.create({
             title: 'Video Call',
             message: message.from.name + " Calling you...",
             buttons: [
@@ -169,6 +179,11 @@ export class ChatPage {
           prompt.present();
         }
 
+      }
+
+      if (message.status == 4 && self.myAccount._id == message.to._id) {
+        prompt.dismiss();
+        self.isCalling = false
       }
 
 
