@@ -110,6 +110,12 @@ export class HomePage {
       );
 
     self.getUser();
+
+    events.subscribe('open-noti', (channel) => {
+      channel = Util.formatChannel(channel, self.user);
+      self.openChat(channel.userShow)
+    });
+
     document.addEventListener("deviceready", function () {
       window.plugins.OneSignal.getIds(function (ids) {
         let token = ids.pushToken;
@@ -159,6 +165,12 @@ export class HomePage {
   }
 
   logOut() {
+    self.http.put(Config.url + Config.api.user + self.user._id, {
+      userPush: null
+    }).map(res => res.json())
+      .subscribe(
+        response => {
+        })
     localStorage.clear()
     this.navCtrl.push(LoginPage);
   }

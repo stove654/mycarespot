@@ -91,6 +91,7 @@ export class ChatPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, public http: Http, public loadingCtrl: LoadingController, private iab: InAppBrowser, public events: Events, public alertCtrl: AlertController, private _ngZone: NgZone, public modalCtrl: ModalController) {
     self = this;
     this.user = this.navParams.get('user');
+    console.log(this.user)
     this.myAccount = JSON.parse(localStorage.getItem('user'));
     this.http.post(Config.url + Config.api.channel, {
       from: this.user.id,
@@ -181,8 +182,10 @@ export class ChatPage {
 
       }
 
-      if (message.status == 4 && self.myAccount._id == message.to._id) {
-        prompt.dismiss();
+      if (message.status == 4 && self.myAccount._id == message.to._id ) {
+        if (prompt) {
+          prompt.dismiss();
+        }
         self.isCalling = false
       }
 
