@@ -112,8 +112,10 @@ export class HomePage {
     self.getUser();
 
     events.subscribe('open-noti', (channel) => {
-      channel = Util.formatChannel(channel, self.user);
-      self.openChat(channel.userShow)
+      if (self.navCtrl.getActive().component.name != 'ChatPage') {
+        channel = Util.formatChannel(channel, self.user);
+        self.openChat(channel.userShow)
+      }
     });
 
     document.addEventListener("deviceready", function () {
