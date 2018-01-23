@@ -107,7 +107,7 @@ export class ChatPage {
         }).map(res => res.json())
           .subscribe(response => {
             this.isLoading = false;
-            this.messages = response;
+            this.messages = response.reverse();
 
             socket.on('message:save', (message) => {
               if (message.from.userId != this.myAccount.id) {
