@@ -81,6 +81,10 @@
   <button clear icon-start ion-button (click)="file.click()" class="first-child">
     <ion-icon name="ios-add-circle"></ion-icon>
   </button>
+
+  <button clear icon-start ion-button (click)="presentActionSheet()" class="first-child">
+    <ion-icon name="ios-camera"></ion-icon>
+  </button>
   <input type="text" placeholder="Text message..." class="flex" [(ngModel)]="text">
   <button clear icon-start ion-button (click)="sendMessage()">
     <ion-icon name="ios-send"></ion-icon>

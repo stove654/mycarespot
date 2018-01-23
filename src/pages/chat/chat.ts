@@ -7,13 +7,17 @@ import {
   Content,
   Events,
   AlertController,
-  ModalController
+  ModalController,
+  ActionSheetController
 } from 'ionic-angular';
 import {Http} from '@angular/http';
 import {Config} from '../../app/app.config';
 import 'rxjs/add/operator/map';
 import io from 'socket.io-client';
 import {VideoPage} from '../video/modal';
+import {FileTransfer, FileTransferObject} from '@ionic-native/file-transfer';
+import {File} from '@ionic-native/file';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 import {InAppBrowser} from '@ionic-native/in-app-browser';
 
@@ -22,6 +26,7 @@ declare let localStorage: any;
 
 declare let navigator: any;
 declare let RTCPeerConnection: any;
+declare let FileUploadOptions: any;
 
 declare let window: any;
 const socket = io(Config.url, {
@@ -49,7 +54,9 @@ let prompt;
 
 @Component({
   selector: 'page-chat',
-  templateUrl: 'chat.html'
+  templateUrl: 'chat.html',
+  providers: [FileTransfer, FileTransferObject, File, Camera  ]
+
 })
 export class ChatPage {
   @ViewChild(Content) content: Content;
@@ -88,7 +95,7 @@ export class ChatPage {
   remoteStream: null;
   isCalling: false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, public http: Http, public loadingCtrl: LoadingController, private iab: InAppBrowser, public events: Events, public alertCtrl: AlertController, private _ngZone: NgZone, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, public http: Http, public loadingCtrl: LoadingController, private iab: InAppBrowser, public events: Events, public alertCtrl: AlertController, private _ngZone: NgZone, public modalCtrl: ModalController, private transfer: FileTransfer, private file: File, private camera: Camera, public actionSheetCtrl: ActionSheetController) {
     self = this;
     this.user = this.navParams.get('user');
     console.log(this.user)
@@ -199,6 +206,7 @@ export class ChatPage {
     }
 
     document.addEventListener("deviceready", function () {
+      self.isPlatform = 'device';
       if (self.platform.is('android')) {
         let checkPermissionCallback = function (status) {
           console.log('status', status)
@@ -283,6 +291,69 @@ export class ChatPage {
         },
         error => console.log(error)
       );
+  }
+
+  deviceUploadFile(boolean) {
+    let options =   {
+      quality: 50,
+      destinationType: self.camera.DestinationType.FILE_URI,
+      sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
+      encodingType: 0,     // 0=JPG 1=PNG
+      correctOrientation: true
+    }
+
+    if (boolean) {
+      options.sourceType = 0;
+    }
+
+    let onSuccess = function(FILE_URI) {
+
+      let optionsUpload = new FileUploadOptions();
+      optionsUpload.fileKey="file";
+      optionsUpload.chunkedMode = false;
+      const fileTransfer = new FileTransferObject();
+      fileTransfer.upload(FILE_URI, encodeURI(Config.url + Config.api.upload), optionsUpload, true).then((result) => {
+        let data = JSON.parse(result.response);
+        console.log(data)
+        self.image = Config.url + '/' + data.path;
+        self._sendMessage();
+      });
+    };
+
+    let onFail = function(e) {
+      console.log("On fail " + e);
+    }
+
+    navigator.camera.getPicture(onSuccess,onFail,options);
+
+  }
+
+  presentActionSheet() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Upload',
+      buttons: [
+        {
+          text: 'Take photo',
+          handler: () => {
+            console.log('Archive clicked');
+            self.deviceUploadFile()
+          }
+        }, {
+          text: 'Choose photo',
+          handler: () => {
+            self.deviceUploadFile(true)
+            console.log('Archive clicked');
+          }
+        },{
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    actionSheet.present();
   }
 
   _clearMessage = function () {
