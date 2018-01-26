@@ -6,7 +6,7 @@ import {Config} from './app.config';
 
 import {LoginPage} from '../pages/login/login';
 import {HomePage} from '../pages/home/home';
-import {ChatPage} from '../pages/chat/chat';
+//import {ChatPage} from '../pages/chat/chat';
 
 declare let cordova;
 declare let localStorage: any;

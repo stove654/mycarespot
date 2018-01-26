@@ -17,7 +17,7 @@ import io from 'socket.io-client';
 import {VideoPage} from '../video/modal';
 import {FileTransfer, FileTransferObject} from '@ionic-native/file-transfer';
 import {File} from '@ionic-native/file';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera } from '@ionic-native/camera';
 
 import {InAppBrowser} from '@ionic-native/in-app-browser';
 
@@ -88,17 +88,19 @@ export class ChatPage {
   location = '';
   fileType = '';
   keyboardHeight: 0;
-  receiveUser: {
+  receiveUser = {
     _id: null
   };
-  localStream: null;
-  remoteStream: null;
-  isCalling: false;
+  localStream = null;
+  remoteStream = null;
+  isCalling = false;
+  platformName = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, public http: Http, public loadingCtrl: LoadingController, private iab: InAppBrowser, public events: Events, public alertCtrl: AlertController, private _ngZone: NgZone, public modalCtrl: ModalController, private transfer: FileTransfer, private file: File, private camera: Camera, public actionSheetCtrl: ActionSheetController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, public http: Http, public loadingCtrl: LoadingController, private iab: InAppBrowser, public events: Events, public alertCtrl: AlertController, private _ngZone: NgZone, public modalCtrl: ModalController, public actionSheetCtrl: ActionSheetController) {
     self = this;
     this.user = this.navParams.get('user');
     console.log(this.user)
+    self.receiveUser = this.user;
     this.myAccount = JSON.parse(localStorage.getItem('user'));
     this.http.post(Config.url + Config.api.channel, {
       from: this.user.id,
@@ -132,6 +134,7 @@ export class ChatPage {
     });
 
     events.subscribe('stopCall', () => {
+      console.log('1111', self.receiveUser)
       self.closeCallUser()
       self.http.post(Config.url + Config.api.webrtc, {
         to: self.receiveUser,
@@ -159,6 +162,8 @@ export class ChatPage {
       if (message.status == 3 && self.myAccount._id == message.to._id) {
         self.closeCallUser(true);
         self.events.publish('dismiss');
+        //self.viewCtrl.dismiss();
+
       }
       if (message.status == 1 && self.myAccount._id == message.to._id) {
         if (!self.isCalling ) {
@@ -199,8 +204,9 @@ export class ChatPage {
 
     });
 
-    if (this.platform.is('ios')) {
+    if (self.platform.is('ios')) {
       //cordova.plugins.Keyboard.disableScroll(true)
+      self.platformName = 'ios'
       window.addEventListener('native.keyboardshow', this.keyboardShowHandler);
       window.addEventListener('native.keyboardhide', this.keyboardHideHandler);
     }
@@ -230,6 +236,11 @@ export class ChatPage {
         ]
         permissions.checkPermission(listPer, checkPermissionCallback, null);
         console.log('permissions', permissions)
+      }
+
+      if (self.platform.is('ios')) {
+        //cordova.plugins.Keyboard.disableScroll(true)
+        self.platformName = 'ios'
       }
 
     })
@@ -688,9 +699,6 @@ export class ChatPage {
       track.stop();
     })
     stream = null;
-    self._ngZone.run(() => {
-      console.log('Outside Done!');
-    });
 
   };
 
@@ -724,6 +732,7 @@ export class ChatPage {
     });
 
     if (!isStop) {
+      console.log('222', self.receiveUser)
       self.http.post(Config.url + Config.api.webrtc, {
         to: self.receiveUser,
         status: 3,

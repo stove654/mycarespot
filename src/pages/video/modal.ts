@@ -1,4 +1,4 @@
-import {Component, NgZone} from '@angular/core';
+import {Component} from '@angular/core';
 import {NavParams, Platform, ViewController, Events} from 'ionic-angular';
 let self;
 @Component({
@@ -14,8 +14,7 @@ export class VideoPage {
     public platform: Platform,
     public params: NavParams,
     public viewCtrl: ViewController,
-    public events: Events,
-    private _ngZone: NgZone
+    public events: Events
   ) {
 
     self = this;
@@ -40,9 +39,6 @@ export class VideoPage {
       track.stop();
     })
     stream = null;
-    self._ngZone.run(() => {
-      console.log('Outside Done!');
-    });
 
   };
 

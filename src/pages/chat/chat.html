@@ -82,7 +82,7 @@
     <ion-icon name="ios-add-circle"></ion-icon>
   </button>
 
-  <button clear icon-start ion-button (click)="presentActionSheet()" class="first-child">
+  <button clear icon-start ion-button (click)="presentActionSheet()" class="first-child" *ngIf="platformName == 'ios'">
     <ion-icon name="ios-camera"></ion-icon>
   </button>
   <input type="text" placeholder="Text message..." class="flex" [(ngModel)]="text">
