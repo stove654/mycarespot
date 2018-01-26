@@ -96,7 +96,7 @@ export class ChatPage {
   isCalling = false;
   platformName = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, public http: Http, public loadingCtrl: LoadingController, private iab: InAppBrowser, public events: Events, public alertCtrl: AlertController, private _ngZone: NgZone, public modalCtrl: ModalController, public actionSheetCtrl: ActionSheetController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, public http: Http, public loadingCtrl: LoadingController, private iab: InAppBrowser, public events: Events, public alertCtrl: AlertController, private _ngZone: NgZone, public modalCtrl: ModalController, private transfer: FileTransfer, private file: File, private camera: Camera, public actionSheetCtrl: ActionSheetController) {
     self = this;
     this.user = this.navParams.get('user');
     console.log(this.user)
