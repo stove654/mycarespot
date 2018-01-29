@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { MomentModule } from 'angular2-moment';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 import { SafePipe } from './pipe';
 
@@ -31,7 +32,8 @@ import { VideoPage } from '../pages/video/modal';
     IonicModule.forRoot(MyApp),
     HttpModule,
     FormsModule,
-    MomentModule
+    MomentModule,
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

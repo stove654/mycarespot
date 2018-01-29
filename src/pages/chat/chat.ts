@@ -504,43 +504,6 @@ export class ChatPage {
     if (self.platform.is('ios')) {
       self._callVideo({video: true, audio: true}, isConnecting, user)
 
-      // cordova.plugins.iosrtc.getUserMedia(
-      //   // constraints
-      //   { audio: true, video: true },
-      //   // success callback
-      //   function (stream) {
-      //     self.localStream = stream;
-      //     self.localStream.src = window.URL.createObjectURL(stream);
-      //     self.isOpenCall = true;
-      //     self._ngZone.run(() => {
-      //       console.log('Outside Done!');
-      //     });
-      //     self.events.publish('stream', {
-      //       localStream: self.localStream,
-      //       user: user
-      //     });
-      //     if (!isConnecting) {
-      //
-      //       self.http.post(Config.url + Config.api.webrtc, {
-      //         to: user,
-      //         status: 1,
-      //         from: self.myAccount,
-      //         option: {
-      //           audio: true,
-      //           video: true
-      //         },
-      //       }).subscribe(res => {
-      //         console.log('res', res);
-      //       })
-      //     } else {
-      //       self.connect(true)
-      //     }
-      //   },
-      //   // failure callback
-      //   function (error) {
-      //     console.error('getUserMedia failed: ', error);
-      //   }
-      // )
     } else {
       navigator.mediaDevices.enumerateDevices()
         .then(function (devices) {
@@ -557,7 +520,11 @@ export class ChatPage {
               mandatory: {},
               optional: [{
                 sourceId: deviceId
-              }]
+              }],
+              minWidth: 320,
+              maxWidth: 320,
+              minHeight: 720,
+              maxHeight: 720,
             }
           };
           self._callVideo(constraints, isConnecting, user)
@@ -745,6 +712,10 @@ export class ChatPage {
   };
 
   //End video call
+
+  openImage (image) {
+
+  }
 
   ngOnDestroy() {
     socket.removeAllListeners('message:save');
