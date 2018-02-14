@@ -278,6 +278,7 @@ export class ChatPage {
     let loader = this.loadingCtrl.create({
       content: "Uploading..."
     });
+    loader.present();
     this.fileType = file.type;
     let formData: FormData = new FormData();
     formData.append('file', file, file.name);
@@ -305,6 +306,12 @@ export class ChatPage {
   }
 
   deviceUploadFile(boolean) {
+    let loading = this.loadingCtrl.create({
+      content: 'Uploading...'
+    });
+
+    loading.present();
+
     let options =   {
       quality: 50,
       destinationType: self.camera.DestinationType.FILE_URI,
@@ -324,6 +331,7 @@ export class ChatPage {
       optionsUpload.chunkedMode = false;
       const fileTransfer = new FileTransferObject();
       fileTransfer.upload(FILE_URI, encodeURI(Config.url + Config.api.upload), optionsUpload, true).then((result) => {
+        loading.dismiss();
         let data = JSON.parse(result.response);
         console.log(data)
         self.image = Config.url + '/' + data.path;
