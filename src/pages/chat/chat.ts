@@ -17,7 +17,7 @@ import io from 'socket.io-client';
 import {VideoPage} from '../video/modal';
 import {FileTransfer, FileTransferObject} from '@ionic-native/file-transfer';
 import {File} from '@ionic-native/file';
-import { Camera } from '@ionic-native/camera';
+import {Camera} from '@ionic-native/camera';
 
 import {InAppBrowser} from '@ionic-native/in-app-browser';
 
@@ -55,7 +55,7 @@ let prompt;
 @Component({
   selector: 'page-chat',
   templateUrl: 'chat.html',
-  providers: [FileTransfer, FileTransferObject, File, Camera  ]
+  providers: [FileTransfer, FileTransferObject, File, Camera]
 
 })
 export class ChatPage {
@@ -95,20 +95,65 @@ export class ChatPage {
   remoteStream = null;
   isCalling = false;
   platformName = '';
+  doctor = {
+    avatar: "https://images.freeimages.com/images/premium/large-thumbs/3023/30232130-asian-doctor.jpg",
+    color: "#BC003B",
+    contacts: [],
+    createdAt: "2018-02-27T12:03:18.583Z",
+    email: "stove@gmail.com",
+    hideInfo: false,
+    name: "Stove",
+    notification: true,
+    provider: "local",
+    role: "user",
+    updatedAt: "2018-02-27T12:03:18.583Z",
+
+    _id: "5a9549067242b4c2d6dff7c9"
+  }
+  patient = {
+    avatar:
+      "http://www.freepngimg.com/thumb/pokemon/6-2-pokemon-png-hd-thumb.png",
+    block:
+      [],
+    color:
+      "#BC003B",
+    contacts:
+      [],
+    createdAt:
+      "2018-02-27T12:03:18.581Z",
+    email:
+      "johannah@gmail.com",
+    hideInfo:
+      false,
+    name:
+      "Johannah",
+    notification:
+      true,
+    provider:
+      "local",
+    role:
+      "user",
+    updatedAt:
+      "2018-02-27T12:03:18.581Z",
+
+    _id:
+      "5a9549067242b4c2d6dff7c8"
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, public http: Http, public loadingCtrl: LoadingController, private iab: InAppBrowser, public events: Events, public alertCtrl: AlertController, private _ngZone: NgZone, public modalCtrl: ModalController, private transfer: FileTransfer, private file: File, private camera: Camera, public actionSheetCtrl: ActionSheetController) {
     self = this;
-    this.user = this.navParams.get('user');
+    self.user = this.doctor
     console.log(this.user)
-    self.receiveUser = this.user;
-    this.myAccount = JSON.parse(localStorage.getItem('user'));
+    self.receiveUser = self.patient;
+    self.myAccount = this.doctor;
     this.http.post(Config.url + Config.api.channel, {
-      from: this.user.id,
-      to: this.myAccount.id,
-      userPush: [this.user._id, this.myAccount._id]
+      from: this.user._id,
+      to: this.receiveUser._id,
+      userPush: [this.user._id, this.receiveUser._id]
     }).map(res => res.json())
       .subscribe(response => {
         this.channel = response;
+        console.log(this.channel)
         this.http.get(Config.url + Config.api.message, {
           params: {
             channel: this.channel._id
@@ -119,7 +164,7 @@ export class ChatPage {
             this.messages = response.reverse();
 
             socket.on('message:save', (message) => {
-              if (message.from.userId != this.myAccount.id) {
+              if (message.from._id != this.myAccount._id) {
                 this.messages.push(message)
               }
             });
@@ -127,6 +172,7 @@ export class ChatPage {
 
         this.readMessage();
       })
+
 
     events.subscribe('channel', (channel) => {
       // user and time are the same arguments passed in `events.publish(user, time)`
@@ -166,7 +212,7 @@ export class ChatPage {
 
       }
       if (message.status == 1 && self.myAccount._id == message.to._id) {
-        if (!self.isCalling ) {
+        if (!self.isCalling) {
           self.isCalling = true;
           prompt = self.alertCtrl.create({
             title: 'Video Call',
@@ -194,7 +240,7 @@ export class ChatPage {
 
       }
 
-      if (message.status == 4 && self.myAccount._id == message.to._id ) {
+      if (message.status == 4 && self.myAccount._id == message.to._id) {
         if (prompt) {
           prompt.dismiss();
         }
@@ -312,7 +358,7 @@ export class ChatPage {
 
     loading.present();
 
-    let options =   {
+    let options = {
       quality: 50,
       destinationType: self.camera.DestinationType.FILE_URI,
       sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
@@ -324,10 +370,10 @@ export class ChatPage {
       options.sourceType = 0;
     }
 
-    let onSuccess = function(FILE_URI) {
+    let onSuccess = function (FILE_URI) {
 
       let optionsUpload = new FileUploadOptions();
-      optionsUpload.fileKey="file";
+      optionsUpload.fileKey = "file";
       optionsUpload.chunkedMode = false;
       const fileTransfer = new FileTransferObject();
       fileTransfer.upload(FILE_URI, encodeURI(Config.url + Config.api.upload), optionsUpload, true).then((result) => {
@@ -339,11 +385,11 @@ export class ChatPage {
       });
     };
 
-    let onFail = function(e) {
+    let onFail = function (e) {
       console.log("On fail " + e);
     }
 
-    navigator.camera.getPicture(onSuccess,onFail,options);
+    navigator.camera.getPicture(onSuccess, onFail, options);
 
   }
 
@@ -363,7 +409,7 @@ export class ChatPage {
             self.deviceUploadFile(true)
             console.log('Archive clicked');
           }
-        },{
+        }, {
           text: 'Cancel',
           role: 'cancel',
           handler: () => {
@@ -481,7 +527,7 @@ export class ChatPage {
   }
 
   openFile(url) {
-    this.iab.create(url,'_system', "location=yes");
+    this.iab.create(url, '_system', "location=yes");
   }
 
   readMessage() {
@@ -721,7 +767,7 @@ export class ChatPage {
 
   //End video call
 
-  openImage (image) {
+  openImage(image) {
 
   }
 

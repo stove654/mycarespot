@@ -2,9 +2,9 @@
   <ion-navbar>
     <ion-title>
       <div class="horizontal layout center header-chat">
-        <img src="{{user.image}}" alt="">
+        <img src="{{receiveUser.avatar}}" alt="">
         <div class="flex">
-          <div class="user-name">{{user.name}}</div>
+          <div class="user-name">{{receiveUser.name}}</div>
           <div class="user-status horizontal layout center"><span class="online-status"></span> Online</div>
         </div>
       </div>
@@ -28,7 +28,7 @@
       <!--[ngClass]="{'chat__bubble&#45;&#45;rcvd': item.from.userId != myAccount.id, 'chat__bubble&#45;&#45;sent': item.from.userId == myAccount.id, 'chat__bubble&#45;&#45;stop': index == messages.length - 1 || item.from.userId != data.messages[index + 1].from.userId}"-->
       <li class="chat__bubble" *ngFor="let item of messages; let i = index; trackBy: index" [ngClass]="{'chat__bubble--rcvd': item.from.userId != myAccount.id, 'chat__bubble--sent': item.from.userId == myAccount.id, 'chat__bubble--stop': (i == messages.length - 1) || i < messages.length && item.from.userId != messages[i + 1].from.userId, 'no-bg': item.image || item.pdf || item.video || item.audio || item.voiceMessage}">
         <div *ngIf="item.from.userId != myAccount.id">
-          <img src="{{item.from.image}}" alt="" *ngIf="i == (messages.length - 1) || i < messages.length && item.from.userId != messages[i + 1].from.userId" class="message-user-avatar">
+          <img src="{{item.from.avatar}}" alt="" *ngIf="i == (messages.length - 1) || i < messages.length && item.from.userId != messages[i + 1].from.userId" class="message-user-avatar">
         </div>
         <div *ngIf="item.text" class="message-text">{{item.text}}</div>
         <div *ngIf="item.image" class="message-image">
