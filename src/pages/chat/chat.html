@@ -26,8 +26,8 @@
   <div class="messages" (click)="readMessage()" id="messages">
     <ul class="chat">
       <!--[ngClass]="{'chat__bubble&#45;&#45;rcvd': item.from.userId != myAccount.id, 'chat__bubble&#45;&#45;sent': item.from.userId == myAccount.id, 'chat__bubble&#45;&#45;stop': index == messages.length - 1 || item.from.userId != data.messages[index + 1].from.userId}"-->
-      <li class="chat__bubble" *ngFor="let item of messages; let i = index; trackBy: index" [ngClass]="{'chat__bubble--rcvd': item.from.userId != myAccount.id, 'chat__bubble--sent': item.from.userId == myAccount.id, 'chat__bubble--stop': (i == messages.length - 1) || i < messages.length && item.from.userId != messages[i + 1].from.userId, 'no-bg': item.image || item.pdf || item.video || item.audio || item.voiceMessage}">
-        <div *ngIf="item.from.userId != myAccount.id">
+      <li class="chat__bubble" *ngFor="let item of messages; let i = index; trackBy: index" [ngClass]="{'chat__bubble--rcvd': item.from._id != myAccount._id, 'chat__bubble--sent': item.from._id == myAccount._id, 'chat__bubble--stop': (i == messages.length - 1) || i < messages.length && item.from.userId != messages[i + 1].from._id, 'no-bg': item.image || item.pdf || item.video || item.audio || item.voiceMessage}">
+        <div *ngIf="item.from._id != myAccount._id">
           <img src="{{item.from.avatar}}" alt="" *ngIf="i == (messages.length - 1) || i < messages.length && item.from.userId != messages[i + 1].from.userId" class="message-user-avatar">
         </div>
         <div *ngIf="item.text" class="message-text">{{item.text}}</div>

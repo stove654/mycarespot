@@ -164,8 +164,14 @@ export class ChatPage {
             this.messages = response.reverse();
 
             socket.on('message:save', (message) => {
+              console.log(message.from, this.myAccount)
               if (message.from._id != this.myAccount._id) {
+                console.log(message.from, this.myAccount)
+
                 this.messages.push(message)
+                self._ngZone.run(() => {
+                  console.log('Outside Done!');
+                });
               }
             });
           });
