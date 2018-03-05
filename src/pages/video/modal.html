@@ -23,7 +23,7 @@
 <ion-footer>
   <div class="horizontal layout">
     <div class="flex"></div>
-    <video [src]="localStream.src | safe:'url'" autoplay muted style="height: 80px; width: auto; margin-bottom: 5px; margin-right: 5px" *ngIf="localStream"></video>
+    <video [src]="localStream.src | safe:'url'" muted style="height: 80px; width: auto; margin-bottom: 5px; margin-right: 5px" *ngIf="localStream" id="local-stream"></video>
 
   </div>
 </ion-footer>
