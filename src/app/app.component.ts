@@ -21,11 +21,11 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public events: Events) {
     let self = this;
     let user = JSON.parse(localStorage.getItem('user'));
-    // if (user)
-    //   this.rootPage = HomePage;
-    // else
-    //   this.rootPage = LoginPage;
-    this.rootPage = ChatPage;
+    if (user)
+      this.rootPage = HomePage;
+    else
+      this.rootPage = LoginPage;
+    //this.rootPage = ChatPage;
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.

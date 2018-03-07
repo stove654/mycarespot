@@ -5,8 +5,8 @@
     <ion-title>
       <div class="horizontal layout center user-info">
         <div class="home-user flex horizontal layout center">
-          <img src="{{user.image}}" alt="" width="30" height="30" class="user-image">
-          <div class="user-name">{{user.name}}</div>
+          <img src="{{user.mycarespot.profileImage}}" alt="" width="30" height="30" class="user-image">
+          <div class="user-name">{{user.mycarespot.fullName}}</div>
         </div>
       </div>
     </ion-title>
@@ -17,60 +17,29 @@
     </ion-buttons>
   </ion-toolbar>
 
-  <ion-toolbar style="padding-top: 0">
-    <div class="tab-home horizontal layout center">
-      <div class="tab-button-home active" (click)="switchTab(1)" [ngClass]="{'active': tabActive == 1}">
-        <ion-icon name="ios-chatbubbles-outline"></ion-icon>
-        Messages
-        <ion-badge color="danger" *ngIf="read">{{read}}</ion-badge>
-      </div>
-      <div class="tab-button-home horizontal layout center center-justified" (click)="switchTab(2)" [ngClass]="{'active': tabActive == 2}">
-        <ion-icon name="ios-people-outline"></ion-icon>
-        &nbsp;
-        <span *ngIf="user.type == 1"> Patients</span>
-        <span *ngIf="user.type == 2"> Doctors</span>
-      </div>
-    </div>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div style="padding: 10px 0">
-    <div *ngIf="tabActive == 2">
-      <ion-list>
-        <ion-item *ngFor="let item of users; let i = index; trackBy: index" (click)="openChat(item)">
-          <ion-avatar item-start class="image-thumbnail">
-            <img src="{{item.image}}">
-            <div class="online-status" *ngIf="i == 0"></div>
-          </ion-avatar>
-          <h3>{{item.name}}</h3>
-          <p *ngIf="item.specialist">{{item.specialist}}</p>
-          <p *ngIf="!item.specialist">I need help!!!</p>
-        </ion-item>
-      </ion-list>
+    <div padding class="text-center" *ngIf="isLoading">
+      <ion-spinner></ion-spinner>
     </div>
 
-    <div *ngIf="tabActive == 1">
-      <div padding class="text-center" *ngIf="isLoading">
-        <ion-spinner></ion-spinner>
-      </div>
-
-      <div class="text-center" padding *ngIf="!this.channels.length && !isLoading">
-        Your don't have message!!!
-      </div>
-      <ion-list>
-        <ion-item *ngFor="let item of channels; let i = index; trackBy: index" (click)="openChat(item.userShow)" class="item-channel" [ngClass]="{'active': item.userShow.read}">
-          <ion-avatar item-start class="image-thumbnail">
-            <img src="{{item.userShow.image}}">
-            <div class="online-status" *ngIf="i == 0"></div>
-          </ion-avatar>
-          <ion-note item-end class="time-ago">{{item.lastMessageTime | amTimeAgo}}</ion-note>
-          <ion-badge color="danger" class="channel-badge" *ngIf="item.userShow.read">{{item.userShow.read}}</ion-badge>
-
-          <h3>{{item.userShow.name}}</h3>
-          <p>{{item.lastMessage}}</p>
-        </ion-item>
-      </ion-list>
+    <div class="text-center" padding *ngIf="!this.channels.length && !isLoading">
+      Your don't have message!!!
     </div>
+    <ion-list>
+      <ion-item *ngFor="let item of channels; let i = index; trackBy: index" (click)="openChat(item.userShow)" class="item-channel" [ngClass]="{'active': item.userShow.read}">
+        <ion-avatar item-start class="image-thumbnail">
+          <img src="{{item.userShow.image}}">
+          <div class="online-status" *ngIf="i == 0"></div>
+        </ion-avatar>
+        <ion-note item-end class="time-ago">{{item.lastMessageTime | amTimeAgo}}</ion-note>
+        <ion-badge color="danger" class="channel-badge" *ngIf="item.userShow.read">{{item.userShow.read}}</ion-badge>
+
+        <h3>{{item.userShow.name}}</h3>
+        <p>{{item.lastMessage}}</p>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>

@@ -25,7 +25,7 @@ export class HomePage {
   users = [];
   user = {
     type: null,
-    id: null,
+    _id: null,
     name: null
   };
 
@@ -42,42 +42,23 @@ export class HomePage {
     self = this;
 
     this.user = JSON.parse(localStorage.getItem('user'))
-    if (this.user.type == 2) {
-      this.users = Doctors;
-    } else {
-      this.users = Patients;
-    }
-
-    this.isLoading = true;
-    this.http.get(Config.url + Config.api.user).map(res => res.json())
-      .subscribe(
-        response => {
-          _.forEach(this.users, function (value) {
-            for (let i = 0; i < response.length; i++) {
-              if (response[i].name == value.name) {
-                value._id = response[i]._id;
-              }
-            }
-          })
-        })
-
-
+    console.log(this.user)
     this.isLoading = true;
     this.http.get(Config.url + Config.api.channel, {
       params: {
-        userId: this.user.id
+        userId: this.user._id
       }
     }).map(res => res.json())
       .subscribe(
         response => {
           this.isLoading = false;
+          console.log(response)
           response.map((channel) => {
             channel = Util.formatChannel(channel, this.user);
             return channel
           });
           this.channels = response;
-          this.getBadge();
-
+          console.log(this.channels)
           socket.on('channel:save', (channel) => {
             let isChannel = false
             for (let i = 0; i < channel.users.length; i++) {
@@ -101,14 +82,11 @@ export class HomePage {
               if (!isCheck) {
                 this.channels.unshift(channel);
               }
-              this.getBadge();
             }
           });
         },
         error => console.log(error)
       );
-
-    self.getUser();
 
     events.subscribe('open-noti', (channel) => {
 
@@ -127,7 +105,6 @@ export class HomePage {
         let userPush = ids.userId;
         if (userPush != self.user.userPush) {
           self.user.userPush = userPush;
-          self.getUser(userPush);
         }
         self.user.userPush = userPush;
         localStorage.setItem('user', JSON.stringify(self.user))
@@ -137,20 +114,6 @@ export class HomePage {
 
   }
 
-  getUser(userPush) {
-    self.http.post(Config.url + Config.api.user, {
-      name: self.user.name,
-      userPush: userPush || null
-    }).map(res => res.json())
-      .subscribe(
-        response => {
-          self.user._id = response._id;
-          localStorage.setItem('user', JSON.stringify(self.user))
-
-          //localStorage.setItem('user', self.user)
-          console.log(self.user)
-        })
-  }
 
   switchTab(index) {
     this.tabActive = index;

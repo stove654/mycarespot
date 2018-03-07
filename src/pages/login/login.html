@@ -1,14 +1,14 @@
 <ion-content>
-
-  <div class="fit horizontal layout center center-justified">
-    <div padding style="width: 100%">
-      <div padding>
-        <button ion-button full color="secondary" (click)="selectUser(1)">Account Doctor</button>
-      </div>
-      <div padding>
-        <button ion-button full (click)="selectUser(2)">Account Patient</button>
-      </div>
-    </div>
-  </div>
+  <h1 class="text-center">Doctors</h1>
+  <ion-list>
+    <ion-item *ngFor="let item of doctors; let i = index; trackBy: index" (click)="selectUser(item)">
+      <ion-thumbnail item-start>
+        <img src="{{item.profileImage}}">
+      </ion-thumbnail>
+      <h2>{{item.fullName}}</h2>
+      <p>{{item.medicalSpeciality}} • {{item.dob | date}}</p>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
