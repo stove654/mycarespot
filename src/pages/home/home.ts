@@ -62,7 +62,7 @@ export class HomePage {
           socket.on('channel:save', (channel) => {
             let isChannel = false
             for (let i = 0; i < channel.users.length; i++) {
-              if (channel.users[i].userId == this.user.id) {
+              if (channel.users[i].userId == this.user._id) {
                 isChannel = true;
                 break;
               }

@@ -988,7 +988,7 @@ var HomePage = (function () {
             socket.on('channel:save', function (channel) {
                 var isChannel = false;
                 for (var i = 0; i < channel.users.length; i++) {
-                    if (channel.users[i].userId == _this.user.id) {
+                    if (channel.users[i].userId == _this.user._id) {
                         isChannel = true;
                         break;
                     }
