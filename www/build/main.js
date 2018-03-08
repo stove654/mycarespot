@@ -776,7 +776,6 @@ var ChatPage = (function () {
         console.log(__WEBPACK_IMPORTED_MODULE_6__video_modal__["a" /* VideoPage */]);
         modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_6__video_modal__["a" /* VideoPage */]);
         modal.present();
-        self.receiveUser = user;
         if (self.platform.is('ios')) {
             self._callVideo({ video: true, audio: true }, isConnecting, user);
         }

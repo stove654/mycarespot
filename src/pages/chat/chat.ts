@@ -504,8 +504,6 @@ export class ChatPage {
     modal = this.modalCtrl.create(VideoPage);
     modal.present();
 
-    self.receiveUser = user;
-
     if (self.platform.is('ios')) {
       self._callVideo({video: true, audio: true}, isConnecting, user)
 
