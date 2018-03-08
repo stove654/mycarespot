@@ -505,7 +505,7 @@ export class ChatPage {
     modal.present();
 
     if (self.platform.is('ios')) {
-      self._callVideo({video: true, audio: true}, isConnecting, user)
+      self._callVideo({video: true, audio: true}, isConnecting, self.receiveUser)
 
     } else {
       navigator.mediaDevices.enumerateDevices()
@@ -555,12 +555,12 @@ export class ChatPage {
       });
       self.events.publish('stream', {
         localStream: self.localStream,
-        user: user
+        user: self.receiveUser
       });
       if (!isConnecting) {
 
         self.http.post(Config.url + Config.api.webrtc, {
-          to: user,
+          to: self.receiveUser,
           status: 1,
           from: self.user,
           option: {

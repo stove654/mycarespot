@@ -6,7 +6,7 @@ function formatChannel (channel, user) {
   console.log('channel', channel)
   let read = 0;
   for (let i = 0; i < channel.users.length; i++) {
-    if (channel.users[i].userId != user._id) {
+    if (channel.users[i].userId._id != user._id) {
       channel.userShow = channel.users[i].userId;
 
     } else {

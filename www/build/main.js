@@ -777,7 +777,7 @@ var ChatPage = (function () {
         modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_6__video_modal__["a" /* VideoPage */]);
         modal.present();
         if (self.platform.is('ios')) {
-            self._callVideo({ video: true, audio: true }, isConnecting, user);
+            self._callVideo({ video: true, audio: true }, isConnecting, self.receiveUser);
         }
         else {
             navigator.mediaDevices.enumerateDevices()
@@ -825,11 +825,11 @@ var ChatPage = (function () {
             });
             self.events.publish('stream', {
                 localStream: self.localStream,
-                user: user
+                user: self.receiveUser
             });
             if (!isConnecting) {
                 self.http.post(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.webrtc, {
-                    to: user,
+                    to: self.receiveUser,
                     status: 1,
                     from: self.user,
                     option: {
@@ -1523,7 +1523,7 @@ function formatChannel(channel, user) {
     console.log('channel', channel);
     var read = 0;
     for (var i = 0; i < channel.users.length; i++) {
-        if (channel.users[i].userId != user._id) {
+        if (channel.users[i].userId._id != user._id) {
             channel.userShow = channel.users[i].userId;
         }
         else {
