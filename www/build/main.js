@@ -1,22 +1,323 @@
 webpackJsonp([0],{
 
+/***/ 135:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_config__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var LoginPage = (function () {
+    function LoginPage(navCtrl, http, _ngZone, loadingCtrl) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.http = http;
+        this._ngZone = _ngZone;
+        this.loadingCtrl = loadingCtrl;
+        this.doctors = [];
+        var loader = this.loadingCtrl.create({
+            content: "Uploading..."
+        });
+        loader.present();
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json', "X-Developer-Id": "ddfe7623e35a427f9d5de7d4d274ce5f",
+            "X-Api-Key": "6aac2f923eec5d721f58111c3a9ce3336a0ba4a5" });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        var url = 'https://mycarespot.sandbox.connectedcare.md/api/v2/account/token';
+        this.http.post(url, {
+            "userTypeId": 2,
+            "hospitalId": 149,
+            "email": "snapmcgrath+149@gmail.com",
+            "password": "Password@123"
+        }, options)
+            .map(function (res) { return res.json(); })
+            .subscribe(function (response) {
+            console.log(response);
+            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json', "X-Developer-Id": "ddfe7623e35a427f9d5de7d4d274ce5f",
+                "X-Api-Key": "6aac2f923eec5d721f58111c3a9ce3336a0ba4a5", "Authorization": "Bearer " + response.data[0].access_token });
+            var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+            var url = 'https://mycarespot.sandbox.connectedcare.md/api/v2/physicians';
+            _this.http.get(url, options)
+                .map(function (res) { return res.json(); })
+                .subscribe(function (response) {
+                _this.doctors = response.data[0];
+                console.log(_this.doctors);
+                loader.dismiss();
+            }, function (error) { return console.log(error); });
+        }, function (error) { return console.log(error); });
+    }
+    LoginPage.prototype.selectUser = function (item) {
+        var _this = this;
+        console.log(item);
+        var doctor = {
+            id: item.userId,
+            mycarespot: item,
+            mycarespotRole: 'doctor'
+        };
+        var loader = this.loadingCtrl.create({
+            content: "Uploading..."
+        });
+        loader.present();
+        this.http.post(__WEBPACK_IMPORTED_MODULE_4__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_4__app_app_config__["a" /* Config */].api.user, doctor)
+            .map(function (res) { return res.json(); })
+            .subscribe(function (response) {
+            localStorage.setItem('user', JSON.stringify(response));
+            loader.dismiss();
+            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+        });
+        // let user;
+        // if (index == 1) {
+        //   user = Doctors[0];
+        // } else if (index == 2) {
+        //   user = Patients[0]
+        // }
+        // user.type = index;
+        // localStorage.setItem('user', JSON.stringify(user));
+        // this.navCtrl.push(HomePage);
+    };
+    LoginPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-login',template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/login/login.html"*/'<ion-content>\n  <h1 class="text-center">Doctors</h1>\n  <ion-list>\n    <ion-item *ngFor="let item of doctors; let i = index; trackBy: index" (click)="selectUser(item)">\n      <ion-thumbnail item-start>\n        <img src="{{item.profileImage}}">\n      </ion-thumbnail>\n      <h2>{{item.fullName}}</h2>\n      <p>{{item.medicalSpeciality}} • {{item.dob | date}}</p>\n      <button ion-button clear item-end>View</button>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/login/login.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["r" /* NavController */], __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["p" /* LoadingController */]])
+    ], LoginPage);
+    return LoginPage;
+}());
+
+//# sourceMappingURL=login.js.map
+
+/***/ }),
+
 /***/ 136:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat_chat__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_util__ = __webpack_require__(593);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_app_config__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash__ = __webpack_require__(594);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_socket_io_client__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_socket_io_client__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+var self;
+var HomePage = (function () {
+    function HomePage(navCtrl, http, loadingCtrl, events) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.http = http;
+        this.loadingCtrl = loadingCtrl;
+        this.events = events;
+        this.users = [];
+        this.user = {
+            type: null,
+            _id: null,
+            name: null
+        };
+        this.tabActive = 1;
+        this.channels = [];
+        this.isLoading = false;
+        var socket = __WEBPACK_IMPORTED_MODULE_9_socket_io_client___default()(__WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].url, {
+            path: '/socket.io-client'
+        });
+        self = this;
+        this.user = JSON.parse(localStorage.getItem('user'));
+        console.log(this.user);
+        this.isLoading = true;
+        this.http.get(__WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].api.channel, {
+            params: {
+                userId: this.user._id
+            }
+        }).map(function (res) { return res.json(); })
+            .subscribe(function (response) {
+            _this.isLoading = false;
+            console.log(response);
+            response.map(function (channel) {
+                channel = __WEBPACK_IMPORTED_MODULE_4__app_util__["a" /* default */].formatChannel(channel, _this.user);
+                return channel;
+            });
+            _this.channels = response;
+            console.log(_this.channels);
+            socket.on('channel:save', function (channel) {
+                var isChannel = false;
+                for (var i = 0; i < channel.users.length; i++) {
+                    if (channel.users[i].userId == _this.user._id) {
+                        isChannel = true;
+                        break;
+                    }
+                }
+                if (isChannel) {
+                    _this.http.get(__WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].api.channel + channel._id).map(function (res) { return res.json(); })
+                        .subscribe(function (response) {
+                        var channel = response;
+                        channel = __WEBPACK_IMPORTED_MODULE_4__app_util__["a" /* default */].formatChannel(channel, _this.user);
+                        var isCheck = false;
+                        for (var i = 0; i < _this.channels.length; i++) {
+                            if (_this.channels[i]._id == channel._id) {
+                                _this.channels[i] = channel;
+                                _this.events.publish('channel', channel);
+                                isCheck = true;
+                                break;
+                            }
+                        }
+                    });
+                }
+            });
+        }, function (error) { return console.log(error); });
+        events.subscribe('open-noti', function (channel) {
+            setTimeout(function () {
+                if (self.navCtrl.getActive().component.name != 'ChatPage') {
+                    self.openChat(channel);
+                }
+            }, 500);
+        });
+        document.addEventListener("deviceready", function () {
+            window.plugins.OneSignal.getIds(function (ids) {
+                var token = ids.pushToken;
+                var userPush = ids.userId;
+                if (userPush != self.user.userPush) {
+                    self.user.userPush = userPush;
+                }
+                self.user.userPush = userPush;
+                localStorage.setItem('user', JSON.stringify(self.user));
+                console.log('notification', userPush, token);
+            });
+        });
+    }
+    HomePage.prototype.switchTab = function (index) {
+        this.tabActive = index;
+    };
+    HomePage.prototype.getBadge = function () {
+        var _this = this;
+        this.read = 0;
+        __WEBPACK_IMPORTED_MODULE_8_lodash___default.a.each(this.channels, function (channel) {
+            _this.read += channel.userShow.read;
+        });
+    };
+    HomePage.prototype.openChat = function (item) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__chat_chat__["a" /* ChatPage */], {
+            channel: item
+        });
+    };
+    HomePage.prototype.logOut = function () {
+        self.http.put(__WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].api.user + self.user._id, {
+            userPush: null
+        }).map(function (res) { return res.json(); })
+            .subscribe(function (response) {
+        });
+        localStorage.clear();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__login_login__["a" /* LoginPage */]);
+    };
+    HomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-home',template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-buttons start>\n    </ion-buttons>\n    <ion-title>\n      <div class="horizontal layout center user-info">\n        <div class="home-user flex horizontal layout center">\n          <img src="{{user.mycarespot.profileImage}}" alt="" width="30" height="30" class="user-image">\n          <div class="user-name">{{user.mycarespot.fullName}}</div>\n        </div>\n      </div>\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button clear style="padding: 0 5px" (click)="logOut()">\n        <ion-icon name="ios-power" style="font-size: 1.8em;"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-header>\n\n<ion-content>\n  <div style="padding: 10px 0">\n    <div padding class="text-center" *ngIf="isLoading">\n      <ion-spinner></ion-spinner>\n    </div>\n\n    <div class="text-center" padding *ngIf="!this.channels.length && !isLoading">\n      Your don\'t have message!!!\n    </div>\n    <ion-list>\n      <ion-item *ngFor="let item of channels; let i = index; trackBy: index" (click)="openChat(item)" class="item-channel" [ngClass]="{\'active\': item.userShow.read}">\n        <ion-avatar item-start class="image-thumbnail">\n          <img src="{{item.userShow.mycarespot.Image}}">\n          <div class="online-status" *ngIf="i == 0"></div>\n        </ion-avatar>\n        <ion-note item-end class="time-ago">{{item.lastMessageTime | amTimeAgo}}</ion-note>\n        <ion-badge color="danger" class="channel-badge" *ngIf="item.userShow.read">{{item.userShow.read}}</ion-badge>\n\n        <h3>{{item.userShow.mycarespot.Name}}</h3>\n        <p>{{item.lastMessage}}</p>\n      </ion-item>\n    </ion-list>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/home/home.html"*/
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */]) === "function" && _d || Object])
+    ], HomePage);
+    return HomePage;
+    var _a, _b, _c, _d;
+}());
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 150:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 150;
+
+/***/ }),
+
+/***/ 193:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 193;
+
+/***/ }),
+
+/***/ 389:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_config__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_config__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_socket_io_client__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_socket_io_client__ = __webpack_require__(390);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_socket_io_client__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__video_modal__ = __webpack_require__(405);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(593);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__ = __webpack_require__(594);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_camera__ = __webpack_require__(595);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__video_modal__ = __webpack_require__(403);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(590);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__ = __webpack_require__(591);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_camera__ = __webpack_require__(592);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_in_app_browser__ = __webpack_require__(237);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -81,11 +382,6 @@ var ChatPage = (function () {
             id: null,
             _id: null
         };
-        this.myAccount = {
-            id: null,
-            userId: null,
-            _id: null
-        };
         this.channel = {
             _id: null,
             users: []
@@ -109,35 +405,7 @@ var ChatPage = (function () {
         this.remoteStream = null;
         this.isCalling = false;
         this.platformName = '';
-        this.doctor = {
-            avatar: "https://images.freeimages.com/images/premium/large-thumbs/3023/30232130-asian-doctor.jpg",
-            color: "#BC003B",
-            contacts: [],
-            createdAt: "2018-02-27T12:03:18.583Z",
-            email: "stove@gmail.com",
-            hideInfo: false,
-            name: "Stove",
-            notification: true,
-            provider: "local",
-            role: "user",
-            updatedAt: "2018-02-27T12:03:18.583Z",
-            _id: "5a9549067242b4c2d6dff7c9"
-        };
-        this.patient = {
-            avatar: "http://www.freepngimg.com/thumb/pokemon/6-2-pokemon-png-hd-thumb.png",
-            block: [],
-            color: "#BC003B",
-            contacts: [],
-            createdAt: "2018-02-27T12:03:18.581Z",
-            email: "johannah@gmail.com",
-            hideInfo: false,
-            name: "Johannah",
-            notification: true,
-            provider: "local",
-            role: "user",
-            updatedAt: "2018-02-27T12:03:18.581Z",
-            _id: "5a9549067242b4c2d6dff7c8"
-        };
+        this.doctor = {};
         this._clearMessage = function () {
             this.text = '';
             this.createAt = '';
@@ -151,15 +419,11 @@ var ChatPage = (function () {
             this.fileType = '';
         };
         self = this;
-        self.user = this.doctor;
-        console.log(this.user);
-        self.receiveUser = self.patient;
-        self.myAccount = this.doctor;
-        this.http.post(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.channel, {
-            from: this.user._id,
-            to: this.receiveUser._id,
-            userPush: [this.user._id, this.receiveUser._id]
-        }).map(function (res) { return res.json(); })
+        self.user = JSON.parse(localStorage.getItem('user'));
+        var channelId = navParams.get('channel')._id;
+        self.receiveUser = navParams.get('channel').userShow;
+        console.log(navParams.get('channel'));
+        this.http.get(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.channel + channelId).map(function (res) { return res.json(); })
             .subscribe(function (response) {
             _this.channel = response;
             console.log(_this.channel);
@@ -172,10 +436,8 @@ var ChatPage = (function () {
                 _this.isLoading = false;
                 _this.messages = response.reverse();
                 socket.on('message:save', function (message) {
-                    console.log(message.from, _this.myAccount);
-                    if (message.from._id != _this.myAccount._id) {
-                        console.log(message.from, _this.myAccount);
-                        _this.messages.push(message);
+                    if (message.from._id != self.user._id) {
+                        self.messages.push(message);
                         self._ngZone.run(function () {
                             console.log('Outside Done!');
                         });
@@ -207,15 +469,15 @@ var ChatPage = (function () {
             if (!message.to) {
                 message.to = {};
             }
-            if (message.status == 2 && self.myAccount._id == message.to._id) {
+            if (message.status == 2 && self.user._id == message.to._id) {
                 self.gotMessageFromServer(message);
             }
-            if (message.status == 3 && self.myAccount._id == message.to._id) {
+            if (message.status == 3 && self.user._id == message.to._id) {
                 self.closeCallUser(true);
                 self.events.publish('dismiss');
                 //self.viewCtrl.dismiss();
             }
-            if (message.status == 1 && self.myAccount._id == message.to._id) {
+            if (message.status == 1 && self.user._id == message.to._id) {
                 if (!self.isCalling) {
                     self.isCalling = true;
                     prompt = self.alertCtrl.create({
@@ -242,7 +504,7 @@ var ChatPage = (function () {
                     prompt.present();
                 }
             }
-            if (message.status == 4 && self.myAccount._id == message.to._id) {
+            if (message.status == 4 && self.user._id == message.to._id) {
                 if (prompt) {
                     prompt.dismiss();
                 }
@@ -404,7 +666,7 @@ var ChatPage = (function () {
     ChatPage.prototype._sendMessage = function () {
         var _this = this;
         var params = {
-            from: this.myAccount,
+            from: this.user,
             channel: this.channel._id,
             createdAt: new Date(),
             text: '',
@@ -416,9 +678,8 @@ var ChatPage = (function () {
             audio: '',
             fileType: '',
             pdf: '',
-            fromId: this.myAccount._id
+            fromId: this.user._id
         };
-        params.from.userId = this.myAccount.id;
         if (this.text) {
             params.text = this.text;
         }
@@ -496,7 +757,7 @@ var ChatPage = (function () {
     ChatPage.prototype.readMessage = function () {
         var check = false;
         for (var i = 0; i < this.channel.users.length; i++) {
-            if (this.channel.users[i].userId == this.myAccount.id && this.channel.users[i].read) {
+            if (this.channel.users[i].userId == this.user._id && this.channel.users[i].read) {
                 check = true;
                 break;
             }
@@ -504,7 +765,7 @@ var ChatPage = (function () {
         if (check) {
             this.http.put(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.channel + this.channel._id, {
                 read: 0,
-                user: this.myAccount.id
+                user: this.user._id
             }).subscribe(function () {
             });
         }
@@ -571,7 +832,7 @@ var ChatPage = (function () {
                 self.http.post(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.webrtc, {
                     to: user,
                     status: 1,
-                    from: self.myAccount,
+                    from: self.user,
                     option: {
                         audio: true,
                         video: true
@@ -709,7 +970,7 @@ var ChatPage = (function () {
             self.http.post(__WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_3__app_app_config__["a" /* Config */].api.webrtc, {
                 to: self.receiveUser,
                 status: 3,
-                from: self.myAccount
+                from: self.user
             }).subscribe(function (res) {
                 console.log('res', res);
             });
@@ -725,351 +986,24 @@ var ChatPage = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Content */]) === "function" && _a || Object)
     ], ChatPage.prototype, "content", void 0);
     ChatPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-chat',template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/chat/chat.html"*/'<ion-header id="chat-header">\n  <ion-navbar>\n    <ion-title>\n      <div class="horizontal layout center header-chat">\n        <img src="{{receiveUser.avatar}}" alt="">\n        <div class="flex">\n          <div class="user-name">{{receiveUser.name}}</div>\n          <div class="user-status horizontal layout center"><span class="online-status"></span> Online</div>\n        </div>\n      </div>\n    </ion-title>\n\n    <ion-buttons end>\n      <button ion-button clear item-end style="padding-right: 0" (click)="startCallUser(user, false)">\n        <ion-icon name="ios-videocam" style="font-size: 2.2em;"></ion-icon>\n      </button>\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content id="chat-content">\n  <div padding class="text-center" *ngIf="isLoading">\n    <ion-spinner></ion-spinner>\n  </div>\n  <div class="messages" (click)="readMessage()" id="messages">\n    <ul class="chat">\n      <!--[ngClass]="{\'chat__bubble&#45;&#45;rcvd\': item.from.userId != myAccount.id, \'chat__bubble&#45;&#45;sent\': item.from.userId == myAccount.id, \'chat__bubble&#45;&#45;stop\': index == messages.length - 1 || item.from.userId != data.messages[index + 1].from.userId}"-->\n      <li class="chat__bubble" *ngFor="let item of messages; let i = index; trackBy: index" [ngClass]="{\'chat__bubble--rcvd\': item.from._id != myAccount._id, \'chat__bubble--sent\': item.from._id == myAccount._id, \'chat__bubble--stop\': (i == messages.length - 1) || i < messages.length && item.from.userId != messages[i + 1].from._id, \'no-bg\': item.image || item.pdf || item.video || item.audio || item.voiceMessage}">\n        <div *ngIf="item.from._id != myAccount._id">\n          <img src="{{item.from.avatar}}" alt="" *ngIf="i == (messages.length - 1) || i < messages.length && item.from.userId != messages[i + 1].from.userId" class="message-user-avatar">\n        </div>\n        <div *ngIf="item.text" class="message-text">{{item.text}}</div>\n        <div *ngIf="item.image" class="message-image">\n          <img src="{{item.image}}" alt="" imageViewer>\n        </div>\n\n        <div *ngIf="item.pdf" class="message-pdf">\n          <div class="file-pdf" (click)="openFile(item.pdf)">\n            Click Open File PDF <ion-icon name="ios-document-outline"></ion-icon>\n          </div>\n          <!--<a href="{{item.pdf}}" class="file-pdf" target="_blank">Click Open File PDF <ion-icon name="ios-document-outline"></ion-icon>-->\n          <!--</a>-->\n        </div>\n\n        <div *ngIf="item.audio" class="message-audio">\n          <audio controls [src]="item.audio | safe:\'url\'"></audio>\n        </div>\n\n        <div *ngIf="item.video" class="message-video">\n          <video controls [src]="item.video | safe:\'url\'"></video>\n        </div>\n        <!--<div style="width: 100%; min-width: 230px" ng-if="item.audio">-->\n\n        <!--<audio ng-src="{{item.audio | trustUrl}}" controls ></audio>-->\n        <!--</div>-->\n\n        <!--<img ng-src="{{item.sticker}}" alt="" class="img-responsive" ng-if="item.sticker">-->\n\n        <!--<div class="message-time" ng-show="item.showTime || $index == data.messages.length - 1">{{item.createdAt |-->\n        <!--date:\'short\'}}-->\n        <!--</div>-->\n\n      </li>\n\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd chat__bubble&#45;&#45;stop">What are you up to?</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">Not much.</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">Just writing some CSS.</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">I just LOVE writing CSS.</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent chat__bubble&#45;&#45;stop">Do you?</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd">Yeah!</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd">It\'s super fun.</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd chat__bubble&#45;&#45;stop">... SUPER fun.</li>-->\n    </ul>\n  </div>\n\n</ion-content>\n<ion-footer class="horizontal layout center chat-footer">\n  <input type="file" accept="*" #file\n         style="visibility: hidden; position: fixed; z-index: -99999" (change)="uploadFile($event)">\n  <button clear icon-start ion-button (click)="file.click()" class="first-child">\n    <ion-icon name="ios-add-circle"></ion-icon>\n  </button>\n\n  <button clear icon-start ion-button (click)="presentActionSheet()" class="first-child" *ngIf="platformName == \'ios\'">\n    <ion-icon name="ios-camera"></ion-icon>\n  </button>\n  <input type="text" placeholder="Text message..." class="flex" [(ngModel)]="text">\n  <button clear icon-start ion-button (click)="sendMessage()">\n    <ion-icon name="ios-send"></ion-icon>\n  </button>\n</ion-footer>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/chat/chat.html"*/,
+            selector: 'page-chat',template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/chat/chat.html"*/'<ion-header id="chat-header">\n  <ion-navbar>\n    <ion-title>\n      <div class="horizontal layout center header-chat">\n        <img src="{{receiveUser.mycarespot.Image}}" alt="">\n        <div class="flex">\n          <div class="user-name">{{receiveUser.mycarespot.Name}}</div>\n          <div class="user-status horizontal layout center"><span class="online-status"></span> Online</div>\n        </div>\n      </div>\n    </ion-title>\n\n    <ion-buttons end>\n      <button ion-button clear item-end style="padding-right: 0" (click)="startCallUser(user, false)">\n        <ion-icon name="ios-videocam" style="font-size: 2.2em;"></ion-icon>\n      </button>\n    </ion-buttons>\n\n  </ion-navbar>\n</ion-header>\n\n<ion-content id="chat-content">\n  <div padding class="text-center" *ngIf="isLoading">\n    <ion-spinner></ion-spinner>\n  </div>\n  <div class="messages" (click)="readMessage()" id="messages">\n    <ul class="chat">\n      <li class="chat__bubble" *ngFor="let item of messages; let i = index; trackBy: index" [ngClass]="{\'chat__bubble--rcvd\': item.from._id != user._id, \'chat__bubble--sent\': item.from._id == user._id, \'chat__bubble--stop\': (i == messages.length - 1) || i < messages.length && item.from.userId != messages[i + 1].from._id, \'no-bg\': item.image || item.pdf || item.video || item.audio || item.voiceMessage}">\n        <div *ngIf="item.from._id != user._id">\n          <img src="{{item.from.avatar}}" alt="" *ngIf="i == (messages.length - 1) || i < messages.length && item.from.userId != messages[i + 1].from.userId" class="message-user-avatar">\n        </div>\n        <div *ngIf="item.text" class="message-text">{{item.text}}</div>\n        <div *ngIf="item.image" class="message-image">\n          <img src="{{item.image}}" alt="" imageViewer>\n        </div>\n\n        <div *ngIf="item.pdf" class="message-pdf">\n          <div class="file-pdf" (click)="openFile(item.pdf)">\n            Click Open File PDF <ion-icon name="ios-document-outline"></ion-icon>\n          </div>\n          <!--<a href="{{item.pdf}}" class="file-pdf" target="_blank">Click Open File PDF <ion-icon name="ios-document-outline"></ion-icon>-->\n          <!--</a>-->\n        </div>\n\n        <div *ngIf="item.audio" class="message-audio">\n          <audio controls [src]="item.audio | safe:\'url\'"></audio>\n        </div>\n\n        <div *ngIf="item.video" class="message-video">\n          <video controls [src]="item.video | safe:\'url\'"></video>\n        </div>\n        <!--<div style="width: 100%; min-width: 230px" ng-if="item.audio">-->\n\n        <!--<audio ng-src="{{item.audio | trustUrl}}" controls ></audio>-->\n        <!--</div>-->\n\n        <!--<img ng-src="{{item.sticker}}" alt="" class="img-responsive" ng-if="item.sticker">-->\n\n        <!--<div class="message-time" ng-show="item.showTime || $index == data.messages.length - 1">{{item.createdAt |-->\n        <!--date:\'short\'}}-->\n        <!--</div>-->\n\n      </li>\n\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd chat__bubble&#45;&#45;stop">What are you up to?</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">Not much.</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">Just writing some CSS.</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">I just LOVE writing CSS.</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent chat__bubble&#45;&#45;stop">Do you?</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd">Yeah!</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd">It\'s super fun.</li>-->\n      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd chat__bubble&#45;&#45;stop">... SUPER fun.</li>-->\n    </ul>\n  </div>\n\n</ion-content>\n<ion-footer class="horizontal layout center chat-footer">\n  <input type="file" accept="*" #file\n         style="visibility: hidden; position: fixed; z-index: -99999" (change)="uploadFile($event)">\n  <button clear icon-start ion-button (click)="file.click()" class="first-child">\n    <ion-icon name="ios-add-circle"></ion-icon>\n  </button>\n\n  <button clear icon-start ion-button (click)="presentActionSheet()" class="first-child" *ngIf="platformName == \'ios\'">\n    <ion-icon name="ios-camera"></ion-icon>\n  </button>\n  <input type="text" placeholder="Text message..." class="flex" [(ngModel)]="text">\n  <button clear icon-start ion-button (click)="sendMessage()">\n    <ion-icon name="ios-send"></ion-icon>\n  </button>\n</ion-footer>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/chat/chat.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__["b" /* FileTransferObject */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__["a" /* File */], __WEBPACK_IMPORTED_MODULE_9__ionic_native_camera__["a" /* Camera */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_10__ionic_native_in_app_browser__["a" /* InAppBrowser */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ModalController */], __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__["a" /* FileTransfer */], __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__["a" /* File */], __WEBPACK_IMPORTED_MODULE_9__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* LoadingController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_10__ionic_native_in_app_browser__["a" /* InAppBrowser */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__ionic_native_in_app_browser__["a" /* InAppBrowser */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ModalController */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__["a" /* FileTransfer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__["a" /* FileTransfer */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__["a" /* File */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__["a" /* File */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_9__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__ionic_native_camera__["a" /* Camera */]) === "function" && _p || Object, typeof (_q = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _q || Object])
     ], ChatPage);
     return ChatPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
 }());
 
 //# sourceMappingURL=chat.js.map
 
 /***/ }),
 
-/***/ 137:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Config; });
-var Config = {
-    url: 'http://13.90.243.45:3000',
-    oneSignalId: '0aefe444-ad09-494a-b457-2d9febdbf78e',
-    api: {
-        login: '/auth/phone/',
-        user: '/api/users/',
-        upload: '/api/uploads/',
-        channel: '/api/channels/',
-        message: '/api/messages/',
-        turn: '/api/turn/',
-        webrtc: '/api/webrtc/',
-        story: '/api/stories/',
-        feedback: '/api/feedbacks/',
-        qrcode: '/api/qrcode/',
-        socket: '/api/socket/'
-    }
-};
-//# sourceMappingURL=app.config.js.map
-
-/***/ }),
-
-/***/ 150:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 150;
-
-/***/ }),
-
-/***/ 193:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 193;
-
-/***/ }),
-
-/***/ 389:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(390);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_config__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(391);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-var LoginPage = (function () {
-    function LoginPage(navCtrl, http, _ngZone, loadingCtrl) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.http = http;
-        this._ngZone = _ngZone;
-        this.loadingCtrl = loadingCtrl;
-        this.doctors = [];
-        var loader = this.loadingCtrl.create({
-            content: "Uploading..."
-        });
-        loader.present();
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json', "X-Developer-Id": "ddfe7623e35a427f9d5de7d4d274ce5f",
-            "X-Api-Key": "6aac2f923eec5d721f58111c3a9ce3336a0ba4a5" });
-        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
-        var url = 'https://mycarespot.sandbox.connectedcare.md/api/v2/account/token';
-        this.http.post(url, {
-            "userTypeId": 2,
-            "hospitalId": 149,
-            "email": "snapmcgrath+149@gmail.com",
-            "password": "Password@123"
-        }, options)
-            .map(function (res) { return res.json(); })
-            .subscribe(function (response) {
-            console.log(response);
-            var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json', "X-Developer-Id": "ddfe7623e35a427f9d5de7d4d274ce5f",
-                "X-Api-Key": "6aac2f923eec5d721f58111c3a9ce3336a0ba4a5", "Authorization": "Bearer " + response.data[0].access_token });
-            var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
-            var url = 'https://mycarespot.sandbox.connectedcare.md/api/v2/physicians';
-            _this.http.get(url, options)
-                .map(function (res) { return res.json(); })
-                .subscribe(function (response) {
-                _this.doctors = response.data[0];
-                console.log(_this.doctors);
-                loader.dismiss();
-            }, function (error) { return console.log(error); });
-        }, function (error) { return console.log(error); });
-    }
-    LoginPage.prototype.selectUser = function (item) {
-        var _this = this;
-        console.log(item);
-        var doctor = {
-            id: item.userId,
-            mycarespot: item,
-            mycarespotRole: 'doctor'
-        };
-        var loader = this.loadingCtrl.create({
-            content: "Uploading..."
-        });
-        loader.present();
-        this.http.post(__WEBPACK_IMPORTED_MODULE_4__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_4__app_app_config__["a" /* Config */].api.user, doctor)
-            .map(function (res) { return res.json(); })
-            .subscribe(function (response) {
-            localStorage.setItem('user', JSON.stringify(response));
-            loader.dismiss();
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
-        });
-        // let user;
-        // if (index == 1) {
-        //   user = Doctors[0];
-        // } else if (index == 2) {
-        //   user = Patients[0]
-        // }
-        // user.type = index;
-        // localStorage.setItem('user', JSON.stringify(user));
-        // this.navCtrl.push(HomePage);
-    };
-    LoginPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/login/login.html"*/'<ion-content>\n  <h1 class="text-center">Doctors</h1>\n  <ion-list>\n    <ion-item *ngFor="let item of doctors; let i = index; trackBy: index" (click)="selectUser(item)">\n      <ion-thumbnail item-start>\n        <img src="{{item.profileImage}}">\n      </ion-thumbnail>\n      <h2>{{item.fullName}}</h2>\n      <p>{{item.medicalSpeciality}} • {{item.dob | date}}</p>\n      <button ion-button clear item-end>View</button>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/login/login.html"*/
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["r" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["r" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["p" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["p" /* LoadingController */]) === "function" && _d || Object])
-    ], LoginPage);
-    return LoginPage;
-    var _a, _b, _c, _d;
-}());
-
-//# sourceMappingURL=login.js.map
-
-/***/ }),
-
-/***/ 390:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat_chat__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_util__ = __webpack_require__(596);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(391);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_app_config__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash__ = __webpack_require__(406);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_socket_io_client__ = __webpack_require__(392);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_socket_io_client__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-var self;
-var HomePage = (function () {
-    function HomePage(navCtrl, http, loadingCtrl, events) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.http = http;
-        this.loadingCtrl = loadingCtrl;
-        this.events = events;
-        this.users = [];
-        this.user = {
-            type: null,
-            _id: null,
-            name: null
-        };
-        this.tabActive = 1;
-        this.channels = [];
-        this.isLoading = false;
-        var socket = __WEBPACK_IMPORTED_MODULE_9_socket_io_client___default()(__WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].url, {
-            path: '/socket.io-client'
-        });
-        self = this;
-        this.user = JSON.parse(localStorage.getItem('user'));
-        console.log(this.user);
-        this.isLoading = true;
-        this.http.get(__WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].api.channel, {
-            params: {
-                userId: this.user._id
-            }
-        }).map(function (res) { return res.json(); })
-            .subscribe(function (response) {
-            _this.isLoading = false;
-            console.log(response);
-            response.map(function (channel) {
-                channel = __WEBPACK_IMPORTED_MODULE_4__app_util__["a" /* default */].formatChannel(channel, _this.user);
-                return channel;
-            });
-            _this.channels = response;
-            console.log(_this.channels);
-            socket.on('channel:save', function (channel) {
-                var isChannel = false;
-                for (var i = 0; i < channel.users.length; i++) {
-                    if (channel.users[i].userId == _this.user._id) {
-                        isChannel = true;
-                        break;
-                    }
-                }
-                if (isChannel) {
-                    channel = __WEBPACK_IMPORTED_MODULE_4__app_util__["a" /* default */].formatChannel(channel, _this.user);
-                    var isCheck = false;
-                    for (var i = 0; i < _this.channels.length; i++) {
-                        if (_this.channels[i]._id == channel._id) {
-                            _this.channels[i] = channel;
-                            _this.events.publish('channel', channel);
-                            isCheck = true;
-                            break;
-                        }
-                    }
-                    if (!isCheck) {
-                        _this.channels.unshift(channel);
-                    }
-                }
-            });
-        }, function (error) { return console.log(error); });
-        events.subscribe('open-noti', function (channel) {
-            setTimeout(function () {
-                if (self.navCtrl.getActive().component.name != 'ChatPage') {
-                    channel = __WEBPACK_IMPORTED_MODULE_4__app_util__["a" /* default */].formatChannel(channel, self.user);
-                    self.openChat(channel.userShow);
-                }
-            }, 500);
-        });
-        document.addEventListener("deviceready", function () {
-            window.plugins.OneSignal.getIds(function (ids) {
-                var token = ids.pushToken;
-                var userPush = ids.userId;
-                if (userPush != self.user.userPush) {
-                    self.user.userPush = userPush;
-                }
-                self.user.userPush = userPush;
-                localStorage.setItem('user', JSON.stringify(self.user));
-                console.log('notification', userPush, token);
-            });
-        });
-    }
-    HomePage.prototype.switchTab = function (index) {
-        this.tabActive = index;
-    };
-    HomePage.prototype.getBadge = function () {
-        var _this = this;
-        this.read = 0;
-        __WEBPACK_IMPORTED_MODULE_8_lodash___default.a.each(this.channels, function (channel) {
-            _this.read += channel.userShow.read;
-        });
-    };
-    HomePage.prototype.openChat = function (item) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__chat_chat__["a" /* ChatPage */], {
-            user: item
-        });
-    };
-    HomePage.prototype.logOut = function () {
-        self.http.put(__WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].api.user + self.user._id, {
-            userPush: null
-        }).map(function (res) { return res.json(); })
-            .subscribe(function (response) {
-        });
-        localStorage.clear();
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__login_login__["a" /* LoginPage */]);
-    };
-    HomePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-buttons start>\n    </ion-buttons>\n    <ion-title>\n      <div class="horizontal layout center user-info">\n        <div class="home-user flex horizontal layout center">\n          <img src="{{user.mycarespot.profileImage}}" alt="" width="30" height="30" class="user-image">\n          <div class="user-name">{{user.mycarespot.fullName}}</div>\n        </div>\n      </div>\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button clear style="padding: 0 5px" (click)="logOut()">\n        <ion-icon name="ios-power" style="font-size: 1.8em;"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-header>\n\n<ion-content>\n  <div style="padding: 10px 0">\n    <div padding class="text-center" *ngIf="isLoading">\n      <ion-spinner></ion-spinner>\n    </div>\n\n    <div class="text-center" padding *ngIf="!this.channels.length && !isLoading">\n      Your don\'t have message!!!\n    </div>\n    <ion-list>\n      <ion-item *ngFor="let item of channels; let i = index; trackBy: index" (click)="openChat(item.userShow)" class="item-channel" [ngClass]="{\'active\': item.userShow.read}">\n        <ion-avatar item-start class="image-thumbnail">\n          <img src="{{item.userShow.image}}">\n          <div class="online-status" *ngIf="i == 0"></div>\n        </ion-avatar>\n        <ion-note item-end class="time-ago">{{item.lastMessageTime | amTimeAgo}}</ion-note>\n        <ion-badge color="danger" class="channel-badge" *ngIf="item.userShow.read">{{item.userShow.read}}</ion-badge>\n\n        <h3>{{item.userShow.name}}</h3>\n        <p>{{item.lastMessage}}</p>\n      </ion-item>\n    </ion-list>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/home/home.html"*/
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */]) === "function" && _d || Object])
-    ], HomePage);
-    return HomePage;
-    var _a, _b, _c, _d;
-}());
-
-//# sourceMappingURL=home.js.map
-
-/***/ }),
-
-/***/ 405:
+/***/ 403:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1158,13 +1092,13 @@ var VideoPage = (function () {
 
 /***/ }),
 
-/***/ 407:
+/***/ 404:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(408);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(417);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(405);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(414);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1172,7 +1106,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 417:
+/***/ 414:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1182,18 +1116,18 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(234);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(236);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(127);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_in_app_browser__ = __webpack_require__(237);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular2_moment__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular2_moment__ = __webpack_require__(460);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_angular2_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ionic_img_viewer__ = __webpack_require__(467);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pipe__ = __webpack_require__(572);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_login__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__(597);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_home_home__ = __webpack_require__(390);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_chat_chat__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_video_modal__ = __webpack_require__(405);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ionic_img_viewer__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pipe__ = __webpack_require__(569);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_login__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__(595);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_home_home__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_chat_chat__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_video_modal__ = __webpack_require__(403);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1265,7 +1199,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 464:
+/***/ 461:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -1520,11 +1454,11 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 464;
+webpackContext.id = 461;
 
 /***/ }),
 
-/***/ 572:
+/***/ 569:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1575,28 +1509,29 @@ var SafePipe = (function () {
 
 /***/ }),
 
-/***/ 590:
+/***/ 587:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
 
-/***/ 596:
+/***/ 593:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 function formatChannel(channel, user) {
-    var userId;
+    console.log('channel', channel);
     var read = 0;
     for (var i = 0; i < channel.users.length; i++) {
         if (channel.users[i].userId != user._id) {
-            userId = channel.users[i].userId;
+            channel.userShow = channel.users[i].userId;
         }
         else {
             read = channel.users[i].read;
         }
     }
+    channel.userShow.read = read;
     return channel;
 }
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -1606,7 +1541,7 @@ function formatChannel(channel, user) {
 
 /***/ }),
 
-/***/ 597:
+/***/ 595:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1615,9 +1550,9 @@ function formatChannel(channel, user) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(236);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(234);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_config__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_config__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(136);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1680,15 +1615,40 @@ var MyApp = (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=app.component.js.map
 
+/***/ }),
+
+/***/ 73:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Config; });
+var Config = {
+    url: 'http://13.90.243.45:3000',
+    oneSignalId: '0aefe444-ad09-494a-b457-2d9febdbf78e',
+    api: {
+        login: '/auth/phone/',
+        user: '/api/users/',
+        upload: '/api/uploads/',
+        channel: '/api/channels/',
+        message: '/api/messages/',
+        turn: '/api/turn/',
+        webrtc: '/api/webrtc/',
+        story: '/api/stories/',
+        feedback: '/api/feedbacks/',
+        qrcode: '/api/qrcode/',
+        socket: '/api/socket/'
+    }
+};
+//# sourceMappingURL=app.config.js.map
+
 /***/ })
 
-},[407]);
+},[404]);
 //# sourceMappingURL=main.js.map

@@ -29,15 +29,15 @@
       Your don't have message!!!
     </div>
     <ion-list>
-      <ion-item *ngFor="let item of channels; let i = index; trackBy: index" (click)="openChat(item.userShow)" class="item-channel" [ngClass]="{'active': item.userShow.read}">
+      <ion-item *ngFor="let item of channels; let i = index; trackBy: index" (click)="openChat(item)" class="item-channel" [ngClass]="{'active': item.userShow.read}">
         <ion-avatar item-start class="image-thumbnail">
-          <img src="{{item.userShow.image}}">
+          <img src="{{item.userShow.mycarespot.Image}}">
           <div class="online-status" *ngIf="i == 0"></div>
         </ion-avatar>
         <ion-note item-end class="time-ago">{{item.lastMessageTime | amTimeAgo}}</ion-note>
         <ion-badge color="danger" class="channel-badge" *ngIf="item.userShow.read">{{item.userShow.read}}</ion-badge>
 
-        <h3>{{item.userShow.name}}</h3>
+        <h3>{{item.userShow.mycarespot.Name}}</h3>
         <p>{{item.lastMessage}}</p>
       </ion-item>
     </ion-list>

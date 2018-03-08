@@ -60,6 +60,7 @@ export class HomePage {
           this.channels = response;
           console.log(this.channels)
           socket.on('channel:save', (channel) => {
+
             let isChannel = false
             for (let i = 0; i < channel.users.length; i++) {
               if (channel.users[i].userId == this.user._id) {
@@ -69,19 +70,22 @@ export class HomePage {
             }
 
             if (isChannel) {
-              channel = Util.formatChannel(channel, this.user);
-              let isCheck = false;
-              for (let i = 0; i < this.channels.length; i++) {
-                if (this.channels[i]._id == channel._id) {
-                  this.channels[i] = channel;
-                  this.events.publish('channel', channel);
-                  isCheck = true;
-                  break;
-                }
-              }
-              if (!isCheck) {
-                this.channels.unshift(channel);
-              }
+              this.http.get(Config.url + Config.api.channel + channel._id).map(res => res.json())
+                .subscribe(
+                  response => {
+                    let channel = response;
+
+                    channel = Util.formatChannel(channel, this.user);
+                    let isCheck = false;
+                    for (let i = 0; i < this.channels.length; i++) {
+                      if (this.channels[i]._id == channel._id) {
+                        this.channels[i] = channel;
+                        this.events.publish('channel', channel);
+                        isCheck = true;
+                        break;
+                      }
+                    }
+                  })
             }
           });
         },
@@ -92,8 +96,7 @@ export class HomePage {
 
       setTimeout(() => {
         if (self.navCtrl.getActive().component.name != 'ChatPage') {
-          channel = Util.formatChannel(channel, self.user);
-          self.openChat(channel.userShow)
+          self.openChat(channel)
         }
       }, 500);
 
@@ -128,7 +131,7 @@ export class HomePage {
 
   openChat(item) {
     this.navCtrl.push(ChatPage, {
-      user: item
+      channel: item
     });
   }
 

@@ -65,11 +65,6 @@ export class ChatPage {
     id: null,
     _id: null
   };
-  myAccount = {
-    id: null,
-    userId: null,
-    _id: null
-  };
 
   channel = {
     _id: null,
@@ -95,62 +90,16 @@ export class ChatPage {
   remoteStream = null;
   isCalling = false;
   platformName = '';
-  doctor = {
-    avatar: "https://images.freeimages.com/images/premium/large-thumbs/3023/30232130-asian-doctor.jpg",
-    color: "#BC003B",
-    contacts: [],
-    createdAt: "2018-02-27T12:03:18.583Z",
-    email: "stove@gmail.com",
-    hideInfo: false,
-    name: "Stove",
-    notification: true,
-    provider: "local",
-    role: "user",
-    updatedAt: "2018-02-27T12:03:18.583Z",
-
-    _id: "5a9549067242b4c2d6dff7c9"
-  }
-  patient = {
-    avatar:
-      "http://www.freepngimg.com/thumb/pokemon/6-2-pokemon-png-hd-thumb.png",
-    block:
-      [],
-    color:
-      "#BC003B",
-    contacts:
-      [],
-    createdAt:
-      "2018-02-27T12:03:18.581Z",
-    email:
-      "johannah@gmail.com",
-    hideInfo:
-      false,
-    name:
-      "Johannah",
-    notification:
-      true,
-    provider:
-      "local",
-    role:
-      "user",
-    updatedAt:
-      "2018-02-27T12:03:18.581Z",
-
-    _id:
-      "5a9549067242b4c2d6dff7c8"
-  }
+  doctor = {}
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, public http: Http, public loadingCtrl: LoadingController, private iab: InAppBrowser, public events: Events, public alertCtrl: AlertController, private _ngZone: NgZone, public modalCtrl: ModalController, private transfer: FileTransfer, private file: File, private camera: Camera, public actionSheetCtrl: ActionSheetController) {
     self = this;
-    self.user = this.doctor
-    console.log(this.user)
-    self.receiveUser = self.patient;
-    self.myAccount = this.doctor;
-    this.http.post(Config.url + Config.api.channel, {
-      from: this.user._id,
-      to: this.receiveUser._id,
-      userPush: [this.user._id, this.receiveUser._id]
-    }).map(res => res.json())
+    self.user = JSON.parse(localStorage.getItem('user'))
+
+    let channelId = navParams.get('channel')._id
+    self.receiveUser = navParams.get('channel').userShow;
+    console.log(navParams.get('channel'))
+    this.http.get(Config.url + Config.api.channel + channelId).map(res => res.json())
       .subscribe(response => {
         this.channel = response;
         console.log(this.channel)
@@ -164,11 +113,8 @@ export class ChatPage {
             this.messages = response.reverse();
 
             socket.on('message:save', (message) => {
-              console.log(message.from, this.myAccount)
-              if (message.from._id != this.myAccount._id) {
-                console.log(message.from, this.myAccount)
-
-                this.messages.push(message)
+              if (message.from._id != self.user._id) {
+                self.messages.push(message)
                 self._ngZone.run(() => {
                   console.log('Outside Done!');
                 });
@@ -207,17 +153,17 @@ export class ChatPage {
       if (!message.to) {
         message.to = {}
       }
-      if (message.status == 2 && self.myAccount._id == message.to._id) {
+      if (message.status == 2 && self.user._id == message.to._id) {
         self.gotMessageFromServer(message);
       }
 
-      if (message.status == 3 && self.myAccount._id == message.to._id) {
+      if (message.status == 3 && self.user._id == message.to._id) {
         self.closeCallUser(true);
         self.events.publish('dismiss');
         //self.viewCtrl.dismiss();
 
       }
-      if (message.status == 1 && self.myAccount._id == message.to._id) {
+      if (message.status == 1 && self.user._id == message.to._id) {
         if (!self.isCalling) {
           self.isCalling = true;
           prompt = self.alertCtrl.create({
@@ -246,7 +192,7 @@ export class ChatPage {
 
       }
 
-      if (message.status == 4 && self.myAccount._id == message.to._id) {
+      if (message.status == 4 && self.user._id == message.to._id) {
         if (prompt) {
           prompt.dismiss();
         }
@@ -442,7 +388,7 @@ export class ChatPage {
 
   _sendMessage() {
     let params = {
-      from: this.myAccount,
+      from: this.user,
       channel: this.channel._id,
       createdAt: new Date(),
       text: '',
@@ -454,10 +400,9 @@ export class ChatPage {
       audio: '',
       fileType: '',
       pdf: '',
-      fromId: this.myAccount._id
+      fromId: this.user._id
     };
 
-    params.from.userId = this.myAccount.id;
 
     if (this.text) {
       params.text = this.text;
@@ -539,7 +484,7 @@ export class ChatPage {
   readMessage() {
     let check = false;
     for (let i = 0; i < this.channel.users.length; i++) {
-      if (this.channel.users[i].userId == this.myAccount.id && this.channel.users[i].read) {
+      if (this.channel.users[i].userId == this.user._id && this.channel.users[i].read) {
         check = true;
         break;
       }
@@ -547,7 +492,7 @@ export class ChatPage {
     if (check) {
       this.http.put(Config.url + Config.api.channel + this.channel._id, {
         read: 0,
-        user: this.myAccount.id
+        user: this.user._id
       }).subscribe(() => {
       })
     }
@@ -619,7 +564,7 @@ export class ChatPage {
         self.http.post(Config.url + Config.api.webrtc, {
           to: user,
           status: 1,
-          from: self.myAccount,
+          from: self.user,
           option: {
             audio: true,
             video: true
@@ -768,7 +713,7 @@ export class ChatPage {
       self.http.post(Config.url + Config.api.webrtc, {
         to: self.receiveUser,
         status: 3,
-        from: self.myAccount
+        from: self.user
       }).subscribe(res => {
         console.log('res', res);
       })
