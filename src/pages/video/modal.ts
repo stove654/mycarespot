@@ -1,14 +1,16 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {NavParams, Platform, ViewController, Events} from 'ionic-angular';
 let self;
 @Component({
   selector: 'page-video',
   templateUrl: 'modal.html'
 })
+
 export class VideoPage {
   localStream;
   remoteStream;
   user;
+  @ViewChild('videoPlayer') videoplayer: any;
 
   constructor(
     public platform: Platform,
@@ -25,11 +27,9 @@ export class VideoPage {
       if (stream.user) self.user = stream.user
 
       setTimeout(() => {
-        let $video = document.getElementById('local-stream');
-        console.log('$video', $video)
-        $video.volume = 0;
-        $video.muted = 0;
-        $video.play()
+        this.videoplayer.nativeElement.volume = 0;
+        this.videoplayer.nativeElement.muted = 0;
+        this.videoplayer.nativeElement.play();
       }, 2000)
       // user and time are the same arguments passed in `events.publish(user, time)`
     });
