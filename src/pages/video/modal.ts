@@ -23,6 +23,14 @@ export class VideoPage {
       if (stream.localStream) self.localStream = stream.localStream;
       if (stream.remoteStream) self.remoteStream = stream.remoteStream;
       if (stream.user) self.user = stream.user
+
+      setTimeout(() => {
+        let $video = document.getElementById('local-stream');
+        console.log('$video', $video)
+        $video.volume = 0;
+        $video.muted = 0;
+        $video.play()
+      }, 2000)
       // user and time are the same arguments passed in `events.publish(user, time)`
     });
 

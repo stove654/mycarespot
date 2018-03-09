@@ -545,8 +545,7 @@ export class ChatPage {
       self.localStream = stream;
       self.localStream.src = window.URL.createObjectURL(stream);
       self.isOpenCall = true;
-      // var $video document.getElementById('videos-container');
-      // = $('#localVideo')[0];
+
       // $video.volume = 0;
       // $video.muted = 0;
       // $video.play()
