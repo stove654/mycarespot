@@ -71,7 +71,12 @@ var LoginPage = (function () {
         console.log(item);
         var doctor = {
             id: item.userId,
-            mycarespot: item,
+            mycarespot: {
+                Id: item.userId,
+                Name: item.fullName,
+                Image: item.profileImage,
+                Speciality: item.medicalSpeciality
+            },
             mycarespotRole: 'doctor'
         };
         var loader = this.loadingCtrl.create({
@@ -99,9 +104,10 @@ var LoginPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-login',template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/login/login.html"*/'<ion-content>\n  <h1 class="text-center">Doctors</h1>\n  <ion-list>\n    <ion-item *ngFor="let item of doctors; let i = index; trackBy: index" (click)="selectUser(item)">\n      <ion-thumbnail item-start>\n        <img src="{{item.profileImage}}">\n      </ion-thumbnail>\n      <h2>{{item.fullName}}</h2>\n      <p>{{item.medicalSpeciality}} • {{item.dob | date}}</p>\n      <button ion-button clear item-end>View</button>\n    </ion-item>\n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/login/login.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["r" /* NavController */], __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["p" /* LoadingController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["r" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["r" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["p" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["p" /* LoadingController */]) === "function" && _d || Object])
     ], LoginPage);
     return LoginPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=login.js.map
@@ -814,8 +820,6 @@ var ChatPage = (function () {
             self.localStream = stream;
             self.localStream.src = window.URL.createObjectURL(stream);
             self.isOpenCall = true;
-            var $video = document.getElementById('local-stream');
-            console.log($video);
             // $video.volume = 0;
             // $video.muted = 0;
             // $video.play()
@@ -1087,10 +1091,12 @@ var VideoPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-video',template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/video/modal.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Video Call\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button clear item-end style="padding-right: 0" (click)="closeCall()">\n        <ion-icon name="ios-close-circle-outline" style="font-size: 3.2em; color: #fff"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content style="overflow: hidden" class="horizontal layout center center-justified">\n  <div *ngIf="!remoteStream && user">\n    Calling {{user.name}}...\n  </div>\n  <div *ngIf="remoteStream"  style="width: 100%; height: 100%">\n    <video [src]="remoteStream.src | safe:\'url\'" autoplay style="width: 100%; height: 100%; object-fit: cover"></video>\n  </div>\n</ion-content>\n\n<ion-footer>\n  <div class="horizontal layout">\n    <div class="flex"></div>\n    <video [src]="localStream.src | safe:\'url\'" muted style="height: 80px; width: auto; margin-bottom: 5px; margin-right: 5px" *ngIf="localStream" id="local-stream" #videoPlayer></video>\n\n  </div>\n</ion-footer>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/video/modal.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["w" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["w" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["s" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["w" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */]])
     ], VideoPage);
     return VideoPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=modal.js.map
@@ -1635,7 +1641,7 @@ var MyApp = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Config; });
 var Config = {
-    url: 'http://13.90.243.45:3000',
+    url: 'http://188.166.243.196:3000',
     oneSignalId: '0aefe444-ad09-494a-b457-2d9febdbf78e',
     api: {
         login: '/auth/phone/',

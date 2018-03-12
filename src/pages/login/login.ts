@@ -58,7 +58,12 @@ export class LoginPage {
     console.log(item)
     let doctor = {
       id: item.userId,
-      mycarespot: item,
+      mycarespot: {
+        Id: item.userId,
+        Name: item.fullName,
+        Image: item.profileImage,
+        Speciality: item.medicalSpeciality
+      },
       mycarespotRole: 'doctor'
     }
 
