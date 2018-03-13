@@ -482,9 +482,10 @@ export class ChatPage {
   }
 
   readMessage() {
+    console.log(this.channel)
     let check = false;
     for (let i = 0; i < this.channel.users.length; i++) {
-      if (this.channel.users[i].userId == this.user._id && this.channel.users[i].read) {
+      if (this.channel.users[i].userId._id == this.user._id && this.channel.users[i].read) {
         check = true;
         break;
       }
@@ -648,6 +649,24 @@ export class ChatPage {
     self._ngZone.run(() => {
       console.log('Outside Done!');
     });
+
+    if (self.platform.is('ios')) {
+      setTimeout(function () {
+
+
+        cordova.plugins.audioroute.overrideOutput('speaker',
+          function (success) {
+            console.log('success', success)
+            // Success
+          },
+          function (error) {
+            console.log('error', error)
+
+            // Error
+          }
+        );
+      }, 1000)
+    }
   }
 
 
