@@ -101,7 +101,7 @@
         <variable name="CAMERA_USAGE_DESCRIPTION" value="your usage message" />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="your usage message" />
     </plugin>
+    <plugin name="cordova-plugin-audioroute" spec="~0.1.2" />
     <engine name="android" spec="^7.0.0" />
     <engine name="ios" spec="^4.5.4" />
-    <plugin name="cordova-plugin-audioroute" spec="~0.1.2" />
 </widget>

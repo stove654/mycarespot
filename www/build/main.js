@@ -151,13 +151,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var self;
+var socket;
+var prompt;
 var HomePage = (function () {
-    function HomePage(navCtrl, http, loadingCtrl, events) {
+    function HomePage(navCtrl, http, loadingCtrl, events, alertCtrl) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.http = http;
         this.loadingCtrl = loadingCtrl;
         this.events = events;
+        this.alertCtrl = alertCtrl;
         this.users = [];
         this.user = {
             type: null,
@@ -167,7 +170,7 @@ var HomePage = (function () {
         this.tabActive = 1;
         this.channels = [];
         this.isLoading = false;
-        var socket = __WEBPACK_IMPORTED_MODULE_9_socket_io_client___default()(__WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].url, {
+        socket = __WEBPACK_IMPORTED_MODULE_9_socket_io_client___default()(__WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].url, {
             path: '/socket.io-client'
         });
         self = this;
@@ -221,6 +224,53 @@ var HomePage = (function () {
                 }
             }, 500);
         });
+        socket.on('webrtc:save', function (message) {
+            var view = _this.navCtrl.getActive().name;
+            console.log(message, view);
+            if (message.status == 1 && self.user._id == message.to._id) {
+                if (!self.isCalling && view != 'ChatPage') {
+                    self.isCalling = true;
+                    prompt = self.alertCtrl.create({
+                        title: 'Video Call',
+                        message: message.from.mycarespot.Name + " Calling you...",
+                        buttons: [
+                            {
+                                text: 'Cancel',
+                                handler: function (data) {
+                                    console.log('Cancel clicked');
+                                    self.isCalling = false;
+                                    self.http.post(__WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].api.webrtc, {
+                                        to: message.from,
+                                        status: 3,
+                                        from: self.user
+                                    }).subscribe(function (res) {
+                                        console.log('res', res);
+                                    });
+                                }
+                            },
+                            {
+                                text: 'Ok',
+                                handler: function (data) {
+                                    self.isCalling = false;
+                                    for (var i = 0; i < self.channels.length; i++) {
+                                        for (var j = 0; j < self.channels[i].users.length; j++) {
+                                            if (self.channels[i].users[j].userId._id == message.from._id) {
+                                                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__chat_chat__["a" /* ChatPage */], {
+                                                    channel: self.channels[i],
+                                                    isStartCall: message.from
+                                                });
+                                                return;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    });
+                    prompt.present();
+                }
+            }
+        });
         document.addEventListener("deviceready", function () {
             window.plugins.OneSignal.getIds(function (ids) {
                 var token = ids.pushToken;
@@ -258,13 +308,17 @@ var HomePage = (function () {
         localStorage.clear();
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__login_login__["a" /* LoginPage */]);
     };
+    HomePage.prototype.ngOnDestroy = function () {
+        socket.removeAllListeners('webrtc:save');
+    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-home',template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-buttons start>\n    </ion-buttons>\n    <ion-title>\n      <div class="horizontal layout center user-info">\n        <div class="home-user flex horizontal layout center">\n          <img src="{{user.mycarespot.profileImage}}" alt="" width="30" height="30" class="user-image">\n          <div class="user-name">{{user.mycarespot.fullName}}</div>\n        </div>\n      </div>\n    </ion-title>\n    <ion-buttons end>\n      <button ion-button clear style="padding: 0 5px" (click)="logOut()">\n        <ion-icon name="ios-power" style="font-size: 1.8em;"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n\n</ion-header>\n\n<ion-content>\n  <div style="padding: 10px 0">\n    <div padding class="text-center" *ngIf="isLoading">\n      <ion-spinner></ion-spinner>\n    </div>\n\n    <div class="text-center" padding *ngIf="!this.channels.length && !isLoading">\n      Your don\'t have message!!!\n    </div>\n    <ion-list>\n      <ion-item *ngFor="let item of channels; let i = index; trackBy: index" (click)="openChat(item)" class="item-channel" [ngClass]="{\'active\': item.userShow.read}">\n        <ion-avatar item-start class="image-thumbnail">\n          <img src="{{item.userShow.mycarespot.Image}}">\n          <div class="online-status" *ngIf="i == 0"></div>\n        </ion-avatar>\n        <ion-note item-end class="time-ago">{{item.lastMessageTime | amTimeAgo}}</ion-note>\n        <ion-badge color="danger" class="channel-badge" *ngIf="item.userShow.read">{{item.userShow.read}}</ion-badge>\n\n        <h3>{{item.userShow.mycarespot.Name}}</h3>\n        <p>{{item.lastMessage}}</p>\n      </ion-item>\n    </ion-list>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */], __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["r" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _e || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -549,6 +603,10 @@ var ChatPage = (function () {
                 self.platformName = 'ios';
             }
         });
+        var isCallOpen = navParams.get('isStartCall');
+        if (isCallOpen) {
+            self.startCallUser(isCallOpen, true);
+        }
     }
     ChatPage.prototype.keyboardShowHandler = function (e) {
         this.keyboardHeight = e.keyboardHeight;

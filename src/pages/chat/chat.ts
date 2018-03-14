@@ -242,6 +242,11 @@ export class ChatPage {
       }
 
     })
+
+    let isCallOpen = navParams.get('isStartCall');
+    if (isCallOpen) {
+      self.startCallUser(isCallOpen, true)
+    }
   }
 
   keyboardShowHandler(e) {

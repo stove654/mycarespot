@@ -1,5 +1,5 @@
 import { Component, } from '@angular/core';
-import { NavController, LoadingController, Events } from 'ionic-angular';
+import { NavController, LoadingController, Events, AlertController } from 'ionic-angular';
 import { Doctors } from '../../data/doctor';
 import { Patients } from '../../data/patient';
 import { ChatPage } from '../chat/chat';
@@ -14,11 +14,14 @@ let self;
 
 declare let localStorage:any;
 declare let window:any;
+let socket;
+let prompt;
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 
 export class HomePage {
 
@@ -33,9 +36,8 @@ export class HomePage {
   channels = [];
   read: 0;
   isLoading = false;
-
-  constructor(public navCtrl: NavController, public http: Http, public loadingCtrl: LoadingController, public events: Events) {
-    const socket = io(Config.url, {
+  constructor(public navCtrl: NavController, public http: Http, public loadingCtrl: LoadingController, public events: Events, public alertCtrl: AlertController) {
+    socket = io(Config.url, {
       path: '/socket.io-client'
     });
 
@@ -102,6 +104,56 @@ export class HomePage {
 
     });
 
+    socket.on('webrtc:save', (message) => {
+      let view = this.navCtrl.getActive().name;
+
+      console.log(message, view)
+      if (message.status == 1 && self.user._id == message.to._id) {
+        if (!self.isCalling && view != 'ChatPage') {
+          self.isCalling = true;
+          prompt = self.alertCtrl.create({
+            title: 'Video Call',
+            message: message.from.mycarespot.Name + " Calling you...",
+            buttons: [
+              {
+                text: 'Cancel',
+                handler: data => {
+                  console.log('Cancel clicked');
+                  self.isCalling = false;
+                  self.http.post(Config.url + Config.api.webrtc, {
+                    to: message.from,
+                    status: 3,
+                    from: self.user
+                  }).subscribe(res => {
+                    console.log('res', res);
+                  })
+                }
+              },
+              {
+                text: 'Ok',
+                handler: data => {
+                  self.isCalling = false;
+                  for (let i = 0; i < self.channels.length; i++) {
+                    for (let j = 0; j < self.channels[i].users.length; j++) {
+                      if (self.channels[i].users[j].userId._id == message.from._id) {
+                        this.navCtrl.push(ChatPage, {
+                          channel: self.channels[i],
+                          isStartCall: message.from
+                        });
+                        return
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          });
+          prompt.present();
+        }
+
+      }
+    })
+
     document.addEventListener("deviceready", function () {
       window.plugins.OneSignal.getIds(function (ids) {
         let token = ids.pushToken;
@@ -144,5 +196,10 @@ export class HomePage {
         })
     localStorage.clear()
     this.navCtrl.push(LoginPage);
+  }
+
+
+  ngOnDestroy() {
+    socket.removeAllListeners('webrtc:save');
   }
 }
