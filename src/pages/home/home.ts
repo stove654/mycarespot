@@ -46,6 +46,20 @@ export class HomePage {
     this.user = JSON.parse(localStorage.getItem('user'))
     console.log(this.user)
     this.isLoading = true;
+
+    setTimeout(() => {
+      console.log(socket)
+      this.http.put(Config.url + Config.api.user + this.user._id, {
+        online: true,
+        socketId: socket.id
+      }).map(res => res.json())
+        .subscribe(
+          response => {
+            console.log(response)
+          }
+        )
+    }, 3000)
+
     this.http.get(Config.url + Config.api.channel, {
       params: {
         userId: this.user._id

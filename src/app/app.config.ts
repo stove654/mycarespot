@@ -1,6 +1,6 @@
 
 export const Config = {
-  url: 'http://188.166.243.196:3000', //192.168.12.113
+  url: 'http://52.224.110.147:3000', //192.168.12.113
   oneSignalId: '0aefe444-ad09-494a-b457-2d9febdbf78e',
   api: {
     login: '/auth/phone/',
