@@ -89,9 +89,6 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.11" />
     <plugin name="cordova-plugin-inappbrowser" spec="~1.7.2" />
     <plugin name="cordova-plugin-crosswalk-webview" spec="~2.3.0" />
-    <plugin name="cordova-plugin-media" spec="~5.0.1">
-        <variable name="MICROPHONE_USAGE_DESCRIPTION" value="your usage message" />
-    </plugin>
     <plugin name="cordova-plugin-android-permissions" spec="~1.0.0" />
     <plugin name="onesignal-cordova-plugin" spec="~2.2.5" />
     <plugin name="cordova-plugin-iosrtc" spec="~4.0.2" />
@@ -102,6 +99,9 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="your usage message" />
     </plugin>
     <plugin name="cordova-plugin-audioroute" spec="~0.1.2" />
+    <plugin name="cordova-plugin-media" spec="~5.0.1">
+        <variable name="MICROPHONE_USAGE_DESCRIPTION" value="your usage message" />
+    </plugin>
     <engine name="android" spec="^7.0.0" />
     <engine name="ios" spec="^4.5.4" />
 </widget>

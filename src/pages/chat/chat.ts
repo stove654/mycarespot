@@ -23,6 +23,7 @@ import {InAppBrowser} from '@ionic-native/in-app-browser';
 
 declare let cordova: any;
 declare let localStorage: any;
+declare let Media: any;
 
 declare let navigator: any;
 declare let RTCPeerConnection: any;
@@ -32,6 +33,7 @@ declare let window: any;
 const socket = io(Config.url, {
   path: '/socket.io-client'
 });
+let my_media;
 let self;
 let peerConnection;
 let peerConnectionConfig = {
@@ -166,6 +168,7 @@ export class ChatPage {
       if (message.status == 1 && self.user._id == message.to._id) {
         if (!self.isCalling) {
           self.isCalling = true;
+          my_media.play();
           prompt = self.alertCtrl.create({
             title: 'Video Call',
             message: message.from.name + " Calling you...",
@@ -176,6 +179,8 @@ export class ChatPage {
                   console.log('Cancel clicked');
                   self.isCalling = false;
                   self.closeCallUser();
+                  my_media.stop();
+
                 }
               },
               {
@@ -183,6 +188,7 @@ export class ChatPage {
                 handler: data => {
                   self.startCallUser(message.from, true)
                   self.isCalling = false;
+                  my_media.stop();
                 }
               }
             ]
@@ -241,12 +247,19 @@ export class ChatPage {
         self.platformName = 'ios'
       }
 
+      my_media = new Media('./sound.mp3',
+        // success callback
+        function () { console.log("playAudio():Audio Success"); },
+        // error callback
+        function (err) { console.log("playAudio():Audio Error: " + err); }
+      );
     })
 
     let isCallOpen = navParams.get('isStartCall');
     if (isCallOpen) {
       self.startCallUser(isCallOpen, true)
     }
+
   }
 
   keyboardShowHandler(e) {
