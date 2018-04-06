@@ -564,9 +564,7 @@ var ChatPage = (function () {
             if (message.status == 1 && self.user._id == message.to._id) {
                 if (!self.isCalling) {
                     self.isCalling = true;
-                    if (window.cordova) {
-                        my_media.play();
-                    }
+                    my_media.play();
                     prompt = self.alertCtrl.create({
                         title: 'Video Call',
                         message: message.from.name + " Calling you...",
@@ -577,9 +575,7 @@ var ChatPage = (function () {
                                     console.log('Cancel clicked');
                                     self.isCalling = false;
                                     self.closeCallUser();
-                                    if (window.cordova) {
-                                        my_media.stop();
-                                    }
+                                    my_media.stop();
                                 }
                             },
                             {
@@ -587,9 +583,7 @@ var ChatPage = (function () {
                                 handler: function (data) {
                                     self.startCallUser(message.from, true);
                                     self.isCalling = false;
-                                    if (window.cordova) {
-                                        my_media.stop();
-                                    }
+                                    my_media.stop();
                                 }
                             }
                         ]
@@ -637,13 +631,11 @@ var ChatPage = (function () {
                 //cordova.plugins.Keyboard.disableScroll(true)
                 self.platformName = 'ios';
             }
-            if (window.cordova) {
-                my_media = new Media('./sound.mp3', 
-                // success callback
-                function () { console.log("playAudio():Audio Success"); }, 
-                // error callback
-                function (err) { console.log("playAudio():Audio Error: " + err); });
-            }
+            my_media = new Media('./sound.mp3', 
+            // success callback
+            function () { console.log("playAudio():Audio Success"); }, 
+            // error callback
+            function (err) { console.log("playAudio():Audio Error: " + err); });
         });
         var isCallOpen = navParams.get('isStartCall');
         var from = navParams.get('from');
@@ -1770,7 +1762,7 @@ var MyApp = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Config; });
 var Config = {
-    url: 'http://192.168.1.170:3000',
+    url: 'http://52.224.110.147:3000',
     oneSignalId: 'e3811a84-3edd-463d-8de8-9fd1f5dc536a',
     api: {
         login: '/auth/phone/',

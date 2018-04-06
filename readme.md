@@ -1,4 +1,4 @@
-ssh administrador@13.90.243.45
+ssh administrador@52.224.110.147
 user : administrador
 pass : Software1...
 

@@ -168,9 +168,7 @@ export class ChatPage {
       if (message.status == 1 && self.user._id == message.to._id) {
         if (!self.isCalling) {
           self.isCalling = true;
-          if (window.cordova) {
-            my_media.play();
-          }
+          my_media.play();
           prompt = self.alertCtrl.create({
             title: 'Video Call',
             message: message.from.name + " Calling you...",
@@ -181,9 +179,7 @@ export class ChatPage {
                   console.log('Cancel clicked');
                   self.isCalling = false;
                   self.closeCallUser();
-                  if (window.cordova) {
-                    my_media.stop();
-                  }
+                  my_media.stop();
                 }
               },
               {
@@ -191,9 +187,7 @@ export class ChatPage {
                 handler: data => {
                   self.startCallUser(message.from, true)
                   self.isCalling = false;
-                  if (window.cordova) {
-                    my_media.stop();
-                  }
+                  my_media.stop();
                 }
               }
             ]
@@ -252,15 +246,12 @@ export class ChatPage {
         self.platformName = 'ios'
       }
 
-      if (window.cordova) {
-        my_media = new Media('./sound.mp3',
-          // success callback
-          function () { console.log("playAudio():Audio Success"); },
-          // error callback
-          function (err) { console.log("playAudio():Audio Error: " + err); }
-        );
-      }
-
+      my_media = new Media('./sound.mp3',
+        // success callback
+        function () { console.log("playAudio():Audio Success"); },
+        // error callback
+        function (err) { console.log("playAudio():Audio Error: " + err); }
+      );
     })
 
     let isCallOpen = navParams.get('isStartCall');
