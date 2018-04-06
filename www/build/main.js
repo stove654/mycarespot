@@ -1,16 +1,16 @@
 webpackJsonp([0],{
 
-/***/ 135:
+/***/ 136:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_config__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -113,41 +113,7 @@ var LoginPage = (function () {
 
 /***/ }),
 
-/***/ 149:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 149;
-
-/***/ }),
-
-/***/ 192:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 192;
-
-/***/ }),
-
-/***/ 388:
+/***/ 137:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -155,10 +121,10 @@ webpackEmptyAsyncContext.id = 192;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat_chat__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_util__ = __webpack_require__(593);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_util__ = __webpack_require__(404);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_app_config__ = __webpack_require__(73);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_lodash__ = __webpack_require__(594);
@@ -316,6 +282,7 @@ var HomePage = (function () {
             }
         });
         document.addEventListener("deviceready", function () {
+            console.log('deviceready');
             window.plugins.OneSignal.getIds(function (ids) {
                 var token = ids.pushToken;
                 var userPush = ids.userId;
@@ -323,9 +290,24 @@ var HomePage = (function () {
                     self.user.userPush = userPush;
                 }
                 self.user.userPush = userPush;
+                self.http.put(__WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_7__app_app_config__["a" /* Config */].api.user + self.user._id, {
+                    userPush: userPush
+                }).map(function (res) { return res.json(); })
+                    .subscribe(function (response) {
+                    console.log('response', response);
+                });
                 localStorage.setItem('user', JSON.stringify(self.user));
                 console.log('notification', userPush, token);
             });
+        });
+        events.subscribe('open-video-call', function (data) {
+            setTimeout(function () {
+                self.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__chat_chat__["a" /* ChatPage */], {
+                    channel: data.channel,
+                    isStartCall: true,
+                    from: data.from
+                });
+            }, 3000);
         });
     }
     HomePage.prototype.switchTab = function (index) {
@@ -368,6 +350,40 @@ var HomePage = (function () {
 
 /***/ }),
 
+/***/ 150:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 150;
+
+/***/ }),
+
+/***/ 193:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 193;
+
+/***/ }),
+
 /***/ 389:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -375,17 +391,17 @@ var HomePage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_config__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_socket_io_client__ = __webpack_require__(390);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_socket_io_client___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_socket_io_client__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__video_modal__ = __webpack_require__(403);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(590);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__ = __webpack_require__(591);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_camera__ = __webpack_require__(592);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_in_app_browser__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(591);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_file__ = __webpack_require__(592);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_camera__ = __webpack_require__(593);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_in_app_browser__ = __webpack_require__(237);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -548,7 +564,9 @@ var ChatPage = (function () {
             if (message.status == 1 && self.user._id == message.to._id) {
                 if (!self.isCalling) {
                     self.isCalling = true;
-                    my_media.play();
+                    if (window.cordova) {
+                        my_media.play();
+                    }
                     prompt = self.alertCtrl.create({
                         title: 'Video Call',
                         message: message.from.name + " Calling you...",
@@ -559,7 +577,9 @@ var ChatPage = (function () {
                                     console.log('Cancel clicked');
                                     self.isCalling = false;
                                     self.closeCallUser();
-                                    my_media.stop();
+                                    if (window.cordova) {
+                                        my_media.stop();
+                                    }
                                 }
                             },
                             {
@@ -567,7 +587,9 @@ var ChatPage = (function () {
                                 handler: function (data) {
                                     self.startCallUser(message.from, true);
                                     self.isCalling = false;
-                                    my_media.stop();
+                                    if (window.cordova) {
+                                        my_media.stop();
+                                    }
                                 }
                             }
                         ]
@@ -615,15 +637,19 @@ var ChatPage = (function () {
                 //cordova.plugins.Keyboard.disableScroll(true)
                 self.platformName = 'ios';
             }
-            my_media = new Media('./sound.mp3', 
-            // success callback
-            function () { console.log("playAudio():Audio Success"); }, 
-            // error callback
-            function (err) { console.log("playAudio():Audio Error: " + err); });
+            if (window.cordova) {
+                my_media = new Media('./sound.mp3', 
+                // success callback
+                function () { console.log("playAudio():Audio Success"); }, 
+                // error callback
+                function (err) { console.log("playAudio():Audio Error: " + err); });
+            }
         });
         var isCallOpen = navParams.get('isStartCall');
+        var from = navParams.get('from');
         if (isCallOpen) {
-            self.startCallUser(isCallOpen, true);
+            self.startCallUser(from, true);
+            self.isCalling = false;
         }
     }
     ChatPage.prototype.keyboardShowHandler = function (e) {
@@ -1194,9 +1220,34 @@ var VideoPage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+function formatChannel(channel, user) {
+    console.log('channel', channel);
+    var read = 0;
+    for (var i = 0; i < channel.users.length; i++) {
+        if (channel.users[i].userId._id != user._id) {
+            channel.userShow = channel.users[i].userId;
+        }
+        else {
+            read = channel.users[i].read;
+        }
+    }
+    channel.userShow.read = read;
+    return channel;
+}
+/* harmony default export */ __webpack_exports__["a"] = ({
+    formatChannel: formatChannel
+});
+//# sourceMappingURL=util.js.map
+
+/***/ }),
+
+/***/ 405:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(405);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(414);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(406);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(415);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1204,7 +1255,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 414:
+/***/ 415:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1212,18 +1263,18 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(235);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_in_app_browser__ = __webpack_require__(236);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular2_moment__ = __webpack_require__(460);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_in_app_browser__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular2_moment__ = __webpack_require__(461);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_angular2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_angular2_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ionic_img_viewer__ = __webpack_require__(464);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pipe__ = __webpack_require__(569);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_login__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ionic_img_viewer__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pipe__ = __webpack_require__(570);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_login_login__ = __webpack_require__(136);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__(595);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_home_home__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_home_home__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_chat_chat__ = __webpack_require__(389);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_video_modal__ = __webpack_require__(403);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1297,246 +1348,246 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 461:
+/***/ 462:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 238,
-	"./af.js": 238,
-	"./ar": 239,
-	"./ar-dz": 240,
-	"./ar-dz.js": 240,
-	"./ar-kw": 241,
-	"./ar-kw.js": 241,
-	"./ar-ly": 242,
-	"./ar-ly.js": 242,
-	"./ar-ma": 243,
-	"./ar-ma.js": 243,
-	"./ar-sa": 244,
-	"./ar-sa.js": 244,
-	"./ar-tn": 245,
-	"./ar-tn.js": 245,
-	"./ar.js": 239,
-	"./az": 246,
-	"./az.js": 246,
-	"./be": 247,
-	"./be.js": 247,
-	"./bg": 248,
-	"./bg.js": 248,
-	"./bm": 249,
-	"./bm.js": 249,
-	"./bn": 250,
-	"./bn.js": 250,
-	"./bo": 251,
-	"./bo.js": 251,
-	"./br": 252,
-	"./br.js": 252,
-	"./bs": 253,
-	"./bs.js": 253,
-	"./ca": 254,
-	"./ca.js": 254,
-	"./cs": 255,
-	"./cs.js": 255,
-	"./cv": 256,
-	"./cv.js": 256,
-	"./cy": 257,
-	"./cy.js": 257,
-	"./da": 258,
-	"./da.js": 258,
-	"./de": 259,
-	"./de-at": 260,
-	"./de-at.js": 260,
-	"./de-ch": 261,
-	"./de-ch.js": 261,
-	"./de.js": 259,
-	"./dv": 262,
-	"./dv.js": 262,
-	"./el": 263,
-	"./el.js": 263,
-	"./en-au": 264,
-	"./en-au.js": 264,
-	"./en-ca": 265,
-	"./en-ca.js": 265,
-	"./en-gb": 266,
-	"./en-gb.js": 266,
-	"./en-ie": 267,
-	"./en-ie.js": 267,
-	"./en-nz": 268,
-	"./en-nz.js": 268,
-	"./eo": 269,
-	"./eo.js": 269,
-	"./es": 270,
-	"./es-do": 271,
-	"./es-do.js": 271,
-	"./es-us": 272,
-	"./es-us.js": 272,
-	"./es.js": 270,
-	"./et": 273,
-	"./et.js": 273,
-	"./eu": 274,
-	"./eu.js": 274,
-	"./fa": 275,
-	"./fa.js": 275,
-	"./fi": 276,
-	"./fi.js": 276,
-	"./fo": 277,
-	"./fo.js": 277,
-	"./fr": 278,
-	"./fr-ca": 279,
-	"./fr-ca.js": 279,
-	"./fr-ch": 280,
-	"./fr-ch.js": 280,
-	"./fr.js": 278,
-	"./fy": 281,
-	"./fy.js": 281,
-	"./gd": 282,
-	"./gd.js": 282,
-	"./gl": 283,
-	"./gl.js": 283,
-	"./gom-latn": 284,
-	"./gom-latn.js": 284,
-	"./gu": 285,
-	"./gu.js": 285,
-	"./he": 286,
-	"./he.js": 286,
-	"./hi": 287,
-	"./hi.js": 287,
-	"./hr": 288,
-	"./hr.js": 288,
-	"./hu": 289,
-	"./hu.js": 289,
-	"./hy-am": 290,
-	"./hy-am.js": 290,
-	"./id": 291,
-	"./id.js": 291,
-	"./is": 292,
-	"./is.js": 292,
-	"./it": 293,
-	"./it.js": 293,
-	"./ja": 294,
-	"./ja.js": 294,
-	"./jv": 295,
-	"./jv.js": 295,
-	"./ka": 296,
-	"./ka.js": 296,
-	"./kk": 297,
-	"./kk.js": 297,
-	"./km": 298,
-	"./km.js": 298,
-	"./kn": 299,
-	"./kn.js": 299,
-	"./ko": 300,
-	"./ko.js": 300,
-	"./ky": 301,
-	"./ky.js": 301,
-	"./lb": 302,
-	"./lb.js": 302,
-	"./lo": 303,
-	"./lo.js": 303,
-	"./lt": 304,
-	"./lt.js": 304,
-	"./lv": 305,
-	"./lv.js": 305,
-	"./me": 306,
-	"./me.js": 306,
-	"./mi": 307,
-	"./mi.js": 307,
-	"./mk": 308,
-	"./mk.js": 308,
-	"./ml": 309,
-	"./ml.js": 309,
-	"./mr": 310,
-	"./mr.js": 310,
-	"./ms": 311,
-	"./ms-my": 312,
-	"./ms-my.js": 312,
-	"./ms.js": 311,
-	"./my": 313,
-	"./my.js": 313,
-	"./nb": 314,
-	"./nb.js": 314,
-	"./ne": 315,
-	"./ne.js": 315,
-	"./nl": 316,
-	"./nl-be": 317,
-	"./nl-be.js": 317,
-	"./nl.js": 316,
-	"./nn": 318,
-	"./nn.js": 318,
-	"./pa-in": 319,
-	"./pa-in.js": 319,
-	"./pl": 320,
-	"./pl.js": 320,
-	"./pt": 321,
-	"./pt-br": 322,
-	"./pt-br.js": 322,
-	"./pt.js": 321,
-	"./ro": 323,
-	"./ro.js": 323,
-	"./ru": 324,
-	"./ru.js": 324,
-	"./sd": 325,
-	"./sd.js": 325,
-	"./se": 326,
-	"./se.js": 326,
-	"./si": 327,
-	"./si.js": 327,
-	"./sk": 328,
-	"./sk.js": 328,
-	"./sl": 329,
-	"./sl.js": 329,
-	"./sq": 330,
-	"./sq.js": 330,
-	"./sr": 331,
-	"./sr-cyrl": 332,
-	"./sr-cyrl.js": 332,
-	"./sr.js": 331,
-	"./ss": 333,
-	"./ss.js": 333,
-	"./sv": 334,
-	"./sv.js": 334,
-	"./sw": 335,
-	"./sw.js": 335,
-	"./ta": 336,
-	"./ta.js": 336,
-	"./te": 337,
-	"./te.js": 337,
-	"./tet": 338,
-	"./tet.js": 338,
-	"./th": 339,
-	"./th.js": 339,
-	"./tl-ph": 340,
-	"./tl-ph.js": 340,
-	"./tlh": 341,
-	"./tlh.js": 341,
-	"./tr": 342,
-	"./tr.js": 342,
-	"./tzl": 343,
-	"./tzl.js": 343,
-	"./tzm": 344,
-	"./tzm-latn": 345,
-	"./tzm-latn.js": 345,
-	"./tzm.js": 344,
-	"./uk": 346,
-	"./uk.js": 346,
-	"./ur": 347,
-	"./ur.js": 347,
-	"./uz": 348,
-	"./uz-latn": 349,
-	"./uz-latn.js": 349,
-	"./uz.js": 348,
-	"./vi": 350,
-	"./vi.js": 350,
-	"./x-pseudo": 351,
-	"./x-pseudo.js": 351,
-	"./yo": 352,
-	"./yo.js": 352,
-	"./zh-cn": 353,
-	"./zh-cn.js": 353,
-	"./zh-hk": 354,
-	"./zh-hk.js": 354,
-	"./zh-tw": 355,
-	"./zh-tw.js": 355
+	"./af": 239,
+	"./af.js": 239,
+	"./ar": 240,
+	"./ar-dz": 241,
+	"./ar-dz.js": 241,
+	"./ar-kw": 242,
+	"./ar-kw.js": 242,
+	"./ar-ly": 243,
+	"./ar-ly.js": 243,
+	"./ar-ma": 244,
+	"./ar-ma.js": 244,
+	"./ar-sa": 245,
+	"./ar-sa.js": 245,
+	"./ar-tn": 246,
+	"./ar-tn.js": 246,
+	"./ar.js": 240,
+	"./az": 247,
+	"./az.js": 247,
+	"./be": 248,
+	"./be.js": 248,
+	"./bg": 249,
+	"./bg.js": 249,
+	"./bm": 250,
+	"./bm.js": 250,
+	"./bn": 251,
+	"./bn.js": 251,
+	"./bo": 252,
+	"./bo.js": 252,
+	"./br": 253,
+	"./br.js": 253,
+	"./bs": 254,
+	"./bs.js": 254,
+	"./ca": 255,
+	"./ca.js": 255,
+	"./cs": 256,
+	"./cs.js": 256,
+	"./cv": 257,
+	"./cv.js": 257,
+	"./cy": 258,
+	"./cy.js": 258,
+	"./da": 259,
+	"./da.js": 259,
+	"./de": 260,
+	"./de-at": 261,
+	"./de-at.js": 261,
+	"./de-ch": 262,
+	"./de-ch.js": 262,
+	"./de.js": 260,
+	"./dv": 263,
+	"./dv.js": 263,
+	"./el": 264,
+	"./el.js": 264,
+	"./en-au": 265,
+	"./en-au.js": 265,
+	"./en-ca": 266,
+	"./en-ca.js": 266,
+	"./en-gb": 267,
+	"./en-gb.js": 267,
+	"./en-ie": 268,
+	"./en-ie.js": 268,
+	"./en-nz": 269,
+	"./en-nz.js": 269,
+	"./eo": 270,
+	"./eo.js": 270,
+	"./es": 271,
+	"./es-do": 272,
+	"./es-do.js": 272,
+	"./es-us": 273,
+	"./es-us.js": 273,
+	"./es.js": 271,
+	"./et": 274,
+	"./et.js": 274,
+	"./eu": 275,
+	"./eu.js": 275,
+	"./fa": 276,
+	"./fa.js": 276,
+	"./fi": 277,
+	"./fi.js": 277,
+	"./fo": 278,
+	"./fo.js": 278,
+	"./fr": 279,
+	"./fr-ca": 280,
+	"./fr-ca.js": 280,
+	"./fr-ch": 281,
+	"./fr-ch.js": 281,
+	"./fr.js": 279,
+	"./fy": 282,
+	"./fy.js": 282,
+	"./gd": 283,
+	"./gd.js": 283,
+	"./gl": 284,
+	"./gl.js": 284,
+	"./gom-latn": 285,
+	"./gom-latn.js": 285,
+	"./gu": 286,
+	"./gu.js": 286,
+	"./he": 287,
+	"./he.js": 287,
+	"./hi": 288,
+	"./hi.js": 288,
+	"./hr": 289,
+	"./hr.js": 289,
+	"./hu": 290,
+	"./hu.js": 290,
+	"./hy-am": 291,
+	"./hy-am.js": 291,
+	"./id": 292,
+	"./id.js": 292,
+	"./is": 293,
+	"./is.js": 293,
+	"./it": 294,
+	"./it.js": 294,
+	"./ja": 295,
+	"./ja.js": 295,
+	"./jv": 296,
+	"./jv.js": 296,
+	"./ka": 297,
+	"./ka.js": 297,
+	"./kk": 298,
+	"./kk.js": 298,
+	"./km": 299,
+	"./km.js": 299,
+	"./kn": 300,
+	"./kn.js": 300,
+	"./ko": 301,
+	"./ko.js": 301,
+	"./ky": 302,
+	"./ky.js": 302,
+	"./lb": 303,
+	"./lb.js": 303,
+	"./lo": 304,
+	"./lo.js": 304,
+	"./lt": 305,
+	"./lt.js": 305,
+	"./lv": 306,
+	"./lv.js": 306,
+	"./me": 307,
+	"./me.js": 307,
+	"./mi": 308,
+	"./mi.js": 308,
+	"./mk": 309,
+	"./mk.js": 309,
+	"./ml": 310,
+	"./ml.js": 310,
+	"./mr": 311,
+	"./mr.js": 311,
+	"./ms": 312,
+	"./ms-my": 313,
+	"./ms-my.js": 313,
+	"./ms.js": 312,
+	"./my": 314,
+	"./my.js": 314,
+	"./nb": 315,
+	"./nb.js": 315,
+	"./ne": 316,
+	"./ne.js": 316,
+	"./nl": 317,
+	"./nl-be": 318,
+	"./nl-be.js": 318,
+	"./nl.js": 317,
+	"./nn": 319,
+	"./nn.js": 319,
+	"./pa-in": 320,
+	"./pa-in.js": 320,
+	"./pl": 321,
+	"./pl.js": 321,
+	"./pt": 322,
+	"./pt-br": 323,
+	"./pt-br.js": 323,
+	"./pt.js": 322,
+	"./ro": 324,
+	"./ro.js": 324,
+	"./ru": 325,
+	"./ru.js": 325,
+	"./sd": 326,
+	"./sd.js": 326,
+	"./se": 327,
+	"./se.js": 327,
+	"./si": 328,
+	"./si.js": 328,
+	"./sk": 329,
+	"./sk.js": 329,
+	"./sl": 330,
+	"./sl.js": 330,
+	"./sq": 331,
+	"./sq.js": 331,
+	"./sr": 332,
+	"./sr-cyrl": 333,
+	"./sr-cyrl.js": 333,
+	"./sr.js": 332,
+	"./ss": 334,
+	"./ss.js": 334,
+	"./sv": 335,
+	"./sv.js": 335,
+	"./sw": 336,
+	"./sw.js": 336,
+	"./ta": 337,
+	"./ta.js": 337,
+	"./te": 338,
+	"./te.js": 338,
+	"./tet": 339,
+	"./tet.js": 339,
+	"./th": 340,
+	"./th.js": 340,
+	"./tl-ph": 341,
+	"./tl-ph.js": 341,
+	"./tlh": 342,
+	"./tlh.js": 342,
+	"./tr": 343,
+	"./tr.js": 343,
+	"./tzl": 344,
+	"./tzl.js": 344,
+	"./tzm": 345,
+	"./tzm-latn": 346,
+	"./tzm-latn.js": 346,
+	"./tzm.js": 345,
+	"./uk": 347,
+	"./uk.js": 347,
+	"./ur": 348,
+	"./ur.js": 348,
+	"./uz": 349,
+	"./uz-latn": 350,
+	"./uz-latn.js": 350,
+	"./uz.js": 349,
+	"./vi": 351,
+	"./vi.js": 351,
+	"./x-pseudo": 352,
+	"./x-pseudo.js": 352,
+	"./yo": 353,
+	"./yo.js": 353,
+	"./zh-cn": 354,
+	"./zh-cn.js": 354,
+	"./zh-hk": 355,
+	"./zh-hk.js": 355,
+	"./zh-tw": 356,
+	"./zh-tw.js": 356
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -1552,11 +1603,11 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 461;
+webpackContext.id = 462;
 
 /***/ }),
 
-/***/ 569:
+/***/ 570:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1607,35 +1658,10 @@ var SafePipe = (function () {
 
 /***/ }),
 
-/***/ 587:
+/***/ 588:
 /***/ (function(module, exports) {
 
 /* (ignored) */
-
-/***/ }),
-
-/***/ 593:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-function formatChannel(channel, user) {
-    console.log('channel', channel);
-    var read = 0;
-    for (var i = 0; i < channel.users.length; i++) {
-        if (channel.users[i].userId._id != user._id) {
-            channel.userShow = channel.users[i].userId;
-        }
-        else {
-            read = channel.users[i].read;
-        }
-    }
-    channel.userShow.read = read;
-    return channel;
-}
-/* harmony default export */ __webpack_exports__["a"] = ({
-    formatChannel: formatChannel
-});
-//# sourceMappingURL=util.js.map
 
 /***/ }),
 
@@ -1646,10 +1672,15 @@ function formatChannel(channel, user) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(235);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(234);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_config__ = __webpack_require__(73);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(135);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_util__ = __webpack_require__(404);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1665,31 +1696,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+
 var MyApp = (function () {
-    function MyApp(platform, statusBar, splashScreen, events) {
+    function MyApp(platform, statusBar, splashScreen, events, http) {
         this.events = events;
+        this.http = http;
         var self = this;
-        // let user = JSON.parse(localStorage.getItem('user'));
-        // if (user)
-        //   this.rootPage = HomePage;
-        // else
-        //   this.rootPage = LoginPage;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_login_login__["a" /* LoginPage */];
+        var user = JSON.parse(localStorage.getItem('user'));
+        console.log(user);
+        if (user)
+            this.rootPage = __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */];
+        else
+            this.rootPage = __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* LoginPage */];
+        //this.rootPage = LoginPage;
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
             statusBar.styleDefault();
             splashScreen.hide();
             var notificationOpenedCallback = function (jsonData) {
-                if (jsonData.notification.payload.additionalData.channel) {
-                    console.log(jsonData.notification.payload.additionalData.channel);
-                    self.events.publish('open-noti', jsonData.notification.payload.additionalData.channel);
-                    //$state.go('app.chatDetail', {id: jsonData.notification.payload.additionalData.channel})
+                console.log('jsonData.notification.payload.additionalData', jsonData.notification.payload.additionalData);
+                if (jsonData.notification.payload.additionalData.videoCall) {
+                    console.log('22222222222', jsonData.notification.payload.additionalData.isStartCall);
+                    self.http.get(__WEBPACK_IMPORTED_MODULE_4__app_config__["a" /* Config */].url + __WEBPACK_IMPORTED_MODULE_4__app_config__["a" /* Config */].api.channel + jsonData.notification.payload.additionalData.channelId).map(function (res) { return res.json(); })
+                        .subscribe(function (response) {
+                        var channel = __WEBPACK_IMPORTED_MODULE_9__app_util__["a" /* default */].formatChannel(response, user);
+                        events.publish('open-video-call', {
+                            channel: channel,
+                            from: channel.userShow
+                        });
+                    });
                 }
             };
             document.addEventListener("deviceready", function () {
                 window.plugins.OneSignal
-                    .startInit(__WEBPACK_IMPORTED_MODULE_4__app_config__["a" /* Config */].oneSignalId)
+                    .startInit('e3811a84-3edd-463d-8de8-9fd1f5dc536a')
                     .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.None)
                     .handleNotificationOpened(notificationOpenedCallback)
                     .endInit();
@@ -1711,7 +1755,7 @@ var MyApp = (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/loihoang/workspace/jobs/mycarespot/mycarespot/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["u" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Events */], __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */]])
     ], MyApp);
     return MyApp;
 }());
@@ -1726,8 +1770,8 @@ var MyApp = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Config; });
 var Config = {
-    url: 'http://52.224.110.147:3000',
-    oneSignalId: '0aefe444-ad09-494a-b457-2d9febdbf78e',
+    url: 'http://192.168.1.170:3000',
+    oneSignalId: 'e3811a84-3edd-463d-8de8-9fd1f5dc536a',
     api: {
         login: '/auth/phone/',
         user: '/api/users/',
@@ -1746,5 +1790,5 @@ var Config = {
 
 /***/ })
 
-},[404]);
+},[405]);
 //# sourceMappingURL=main.js.map

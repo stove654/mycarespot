@@ -1,19 +1,20 @@
-import { Component, } from '@angular/core';
-import { NavController, LoadingController, Events, AlertController } from 'ionic-angular';
-import { Doctors } from '../../data/doctor';
-import { Patients } from '../../data/patient';
-import { ChatPage } from '../chat/chat';
-import { LoginPage } from "../login/login";
+import {Component,} from '@angular/core';
+import {NavController, LoadingController, Events, AlertController} from 'ionic-angular';
+import {Doctors} from '../../data/doctor';
+import {Patients} from '../../data/patient';
+import {ChatPage} from '../chat/chat';
+import {LoginPage} from "../login/login";
 import Util from "../../app/util";
-import { Http } from '@angular/http';
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
-import { Config } from '../../app/app.config';
+import {Config} from '../../app/app.config';
 import _ from 'lodash';
-import io  from 'socket.io-client';
+import io from 'socket.io-client';
+
 let self;
 
-declare let localStorage:any;
-declare let window:any;
+declare let localStorage: any;
+declare let window: any;
 let socket;
 let prompt;
 
@@ -36,6 +37,7 @@ export class HomePage {
   channels = [];
   read: 0;
   isLoading = false;
+
   constructor(public navCtrl: NavController, public http: Http, public loadingCtrl: LoadingController, public events: Events, public alertCtrl: AlertController) {
     socket = io(Config.url, {
       path: '/socket.io-client'
@@ -169,6 +171,7 @@ export class HomePage {
     })
 
     document.addEventListener("deviceready", function () {
+      console.log('deviceready')
       window.plugins.OneSignal.getIds(function (ids) {
         let token = ids.pushToken;
         let userPush = ids.userId;
@@ -176,9 +179,27 @@ export class HomePage {
           self.user.userPush = userPush;
         }
         self.user.userPush = userPush;
+        self.http.put(Config.url + Config.api.user + self.user._id, {
+          userPush: userPush
+        }).map(res => res.json())
+          .subscribe(
+            response => {
+              console.log('response', response)
+            }
+          );
         localStorage.setItem('user', JSON.stringify(self.user))
         console.log('notification', userPush, token);
       })
+    })
+
+    events.subscribe('open-video-call', (data) => {
+      setTimeout(() => {
+        self.navCtrl.push(ChatPage, {
+          channel: data.channel,
+          isStartCall: true,
+          from: data.from
+        });
+      }, 3000)
     })
 
   }
