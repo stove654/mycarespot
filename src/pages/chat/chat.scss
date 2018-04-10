@@ -3,6 +3,194 @@ $positive: #387ef5;
 
 page-chat {
 
+  .resize-drag.zoom-video {
+    width: 100% !important;
+    height: 100% !important;
+    left: 0;
+    top: 0;
+    border: 0;
+    border-radius: 0;
+    transform: initial !important;
+  }
+
+  .video-window .flex {
+    text-align: center;
+  }
+  .video-window .flex button {
+    min-width: 42px;
+    min-height: 42px;
+    padding: 0;
+  }
+
+  .video-window .flex button .ion-ios-telephone{
+    -ms-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+
+  .line{
+    width: 100%;
+    border-bottom: 1px solid black;
+    position: absolute;
+    -ms-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    top: 21px;
+  }
+
+  .audio-call .window-remote {
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    position: absolute;
+    left: -10000px;
+  }
+
+
+  .avatar-call {
+    width: 80px;
+    height: 80px;
+    background-color: #387ef5;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 80px;
+    text-transform: uppercase;
+    font-size: 26px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .wait-call {
+    width: 100%;
+    margin-top: 30px;
+  }
+  .resize-drag {
+    background-color: #000;
+    color: white;
+    z-index: 99999;
+    position: fixed;
+    top: 40px;
+    width: 300px;
+    height: 400px;
+    left: 20px;
+    border-radius: 5PX;
+  }
+
+  .video-window {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .video-option {
+    //display: none !important;
+  }
+
+  .video-window.active .video-option {
+    display: flex !important;
+  }
+
+  .video-window .ion-arrow-resize{
+    display: none;
+    position: absolute;
+    color: #000;
+    font-size: 20px;
+  }
+
+  .video-window.active .ion-arrow-resize{
+    display: block;
+  }
+
+  .video-window.active .window-remote video {
+    padding-bottom: 60px;
+  }
+
+  .video-window video {
+    max-height: 100%;
+    -webkit-transform: scaleX(-1);
+  }
+
+  .window-local {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .window-local {
+    z-index: 9999;
+    object-fit: contain;
+    width: 100px;
+    height: 133px;
+  }
+
+  .window-local.rotate {
+    width: 133px;
+    height: 100px;
+  }
+
+  .window-remote {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+  }
+
+  .window-remote video{
+    z-index: -2;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+
+  .close-window i  {
+    color: #fff;
+  }
+
+  video::-webkit-media-controls { display:none !important; }
+
+  body {
+    background-color: transparent !important;
+  }
+
+  .left-top {
+    left: -15px;
+    top: -15px;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+  }
+
+  .right-top {
+    right: -15px;
+    top: -15px;
+  }
+
+  .left-bottom {
+    bottom: -15px;
+    left: -15px;
+  }
+
+  .right-bottom {
+    bottom: -15px;
+    right: -15px;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+  }
+
+  /* hide video element controls */
+  video::-webkit-media-controls {
+    display: none !important;
+  }
+  video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+  }
+
+  .spinner-video {
+    stroke: #fff;
+    fill: #fff;
+  }
+
+
   .header-chat {
     img {
       width: 30px;

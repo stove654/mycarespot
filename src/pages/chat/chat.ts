@@ -92,7 +92,7 @@ export class ChatPage {
   remoteStream = null;
   isCalling = false;
   platformName = '';
-  doctor = {}
+  doctor = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private platform: Platform, public http: Http, public loadingCtrl: LoadingController, private iab: InAppBrowser, public events: Events, public alertCtrl: AlertController, private _ngZone: NgZone, public modalCtrl: ModalController, private transfer: FileTransfer, private file: File, private camera: Camera, public actionSheetCtrl: ActionSheetController) {
     self = this;
@@ -168,7 +168,9 @@ export class ChatPage {
       if (message.status == 1 && self.user._id == message.to._id) {
         if (!self.isCalling) {
           self.isCalling = true;
-          my_media.play();
+          if (window.cordova) {
+            my_media.play();
+          }
           prompt = self.alertCtrl.create({
             title: 'Video Call',
             message: message.from.name + " Calling you...",
@@ -179,7 +181,10 @@ export class ChatPage {
                   console.log('Cancel clicked');
                   self.isCalling = false;
                   self.closeCallUser();
-                  my_media.stop();
+                  if (window.cordova) {
+                    my_media.stop();
+
+                  }
                 }
               },
               {
@@ -187,7 +192,9 @@ export class ChatPage {
                 handler: data => {
                   self.startCallUser(message.from, true)
                   self.isCalling = false;
-                  my_media.stop();
+                  if (window.cordova) {
+                    my_media.stop();
+                  }
                 }
               }
             ]
@@ -521,8 +528,8 @@ export class ChatPage {
   //Start video call
   startCallUser(user, isConnecting) {
     console.log(VideoPage)
-    modal = this.modalCtrl.create(VideoPage);
-    modal.present();
+    //modal = this.modalCtrl.create(VideoPage);
+    //modal.present();
 
     if (self.platform.is('ios')) {
       self._callVideo({video: true, audio: true}, isConnecting, self.receiveUser)
@@ -729,9 +736,11 @@ export class ChatPage {
     } else {
       if (self.localStream) {
         self.stopMediaTrack(self.localStream);
+        self.localStream = null;
       }
       if (self.remoteStream) {
         self.stopMediaTrack(self.remoteStream);
+        self.remoteStream = null;
       }
 
     }

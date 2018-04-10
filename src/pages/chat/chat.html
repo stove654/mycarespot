@@ -38,8 +38,7 @@
           <div class="file-pdf" (click)="openFile(item.pdf)">
             Click Open File PDF <ion-icon name="ios-document-outline"></ion-icon>
           </div>
-          <!--<a href="{{item.pdf}}" class="file-pdf" target="_blank">Click Open File PDF <ion-icon name="ios-document-outline"></ion-icon>-->
-          <!--</a>-->
+
         </div>
 
         <div *ngIf="item.audio" class="message-audio">
@@ -49,27 +48,9 @@
         <div *ngIf="item.video" class="message-video">
           <video controls [src]="item.video | safe:'url'"></video>
         </div>
-        <!--<div style="width: 100%; min-width: 230px" ng-if="item.audio">-->
 
-        <!--<audio ng-src="{{item.audio | trustUrl}}" controls ></audio>-->
-        <!--</div>-->
-
-        <!--<img ng-src="{{item.sticker}}" alt="" class="img-responsive" ng-if="item.sticker">-->
-
-        <!--<div class="message-time" ng-show="item.showTime || $index == data.messages.length - 1">{{item.createdAt |-->
-        <!--date:'short'}}-->
-        <!--</div>-->
 
       </li>
-
-      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd chat__bubble&#45;&#45;stop">What are you up to?</li>-->
-      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">Not much.</li>-->
-      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">Just writing some CSS.</li>-->
-      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent">I just LOVE writing CSS.</li>-->
-      <!--<li class="chat__bubble chat__bubble&#45;&#45;sent chat__bubble&#45;&#45;stop">Do you?</li>-->
-      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd">Yeah!</li>-->
-      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd">It's super fun.</li>-->
-      <!--<li class="chat__bubble chat__bubble&#45;&#45;rcvd chat__bubble&#45;&#45;stop">... SUPER fun.</li>-->
     </ul>
   </div>
 
@@ -89,3 +70,51 @@
     <ion-icon name="ios-send"></ion-icon>
   </button>
 </ion-footer>
+
+<div class="resize-drag" *ngIf="localStream">
+  <div class="video-window vertical layout">
+
+    <video [src]="localStream.src | safe:'url'" playsinline autoplay muted="muted" id="localVideo" class="window-local" *ngIf="localStream"></video>
+
+
+    <div class="video-calling flex horizontal layout" tab-element>
+      <div class="flex horizontal layout">
+
+
+        <div class="window-remote" *ngIf="remoteStream">
+          <video [src]="remoteStream.src | safe:'url'" playsinline autoplay muted="muted" id="remoteVideo"></video>
+        </div>
+
+        <div class="wait-call horizontal layout center center-justified flex" style="margin: 40px 0;" *ngIf="!remoteStream" >
+          <div>
+            <div class="avatar-call">
+              {{receiveUser.name[0]}}
+            </div>
+            <span>Video Calling... {{receiveUser.name}}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="video-option horizontal layout center" style="height: 54px">
+      <div class="flex">
+        <button ion-button color="light" (click)="zoomVideo($event)">
+          <i class="material-icons">zoom_out_map</i>
+          <!--<i class="ion ion-arrow-shrink" *ngIf="data.isZooming"></i>-->
+        </button>
+      </div>
+      <div class="flex">
+        <button ion-button color="danger" (click)="closeCallUser()"><i class="material-icons">call_end</i></button>
+      </div>
+      <div class="flex">
+        <button ion-button color="light" (click)="muteAudio()">
+          <i class="material-icons">mic</i>
+          <!--<div class="line" ng-if="data.muted"></div>-->
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
